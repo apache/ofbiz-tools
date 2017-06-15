@@ -117,10 +117,10 @@ standard_cleanup() {
     run_gradlew cleanAll
 }
 install_worker() {
-    run_gradlew loadDefault
+    run_gradlew loadAll
 }
 fulltestsuite_worker() {
-    run_gradlew loadDefault
+    run_gradlew loadAll
     run_gradlew testIntegration
 }
 #git_rebase_runner 3 fulltestsuite_cleanup fulltestsuite_worker

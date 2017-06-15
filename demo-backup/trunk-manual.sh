@@ -5,6 +5,6 @@ svn up
 ./gradlew pullAllPluginsSource
 ./gradlew terminateOfbiz
 ./gradlew cleanAll
-./gradlew loadDefault
+./gradlew loadAll
 ./gradlew svnInfoFooter
 ./gradlew ofbizBackground

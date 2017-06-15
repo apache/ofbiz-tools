@@ -93,7 +93,7 @@ case "$cmd" in
         svn merge -r "$prevRev:$rev" https://svn.apache.org/repos/asf/ofbiz/ofbiz-framework/trunk
         ;;
     (test)
-        ./gradlew cleanAll loadDefault testIntegration
+        ./gradlew cleanAll loadAll testIntegration
         ;;
     (commit)
         svn commit -F runtime/merge-state/log-message
