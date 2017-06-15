@@ -47,8 +47,8 @@ under the License.
 <p>To quickly install and fire-up OFBiz, please follow the below instructions from the command line at the OFBiz top level directory (folder)</p>
 <h3 id="prepare-ofbiz">Prepare OFBiz:</h3>
 <p><strong>Note</strong>: Depending on your Internet connection speed it might take a long time for this step to complete if you are using OFBiz for the first time as it needs to download all dependencies. So please be patient!</p>
-<p>MS Windows: <code>gradlew cleanAll loadDefault</code></p>
-<p>Unix-like OS: <code>./gradlew cleanAll loadDefault</code></p>
+<p>MS Windows: <code>gradlew cleanAll loadAll</code></p>
+<p>Unix-like OS: <code>./gradlew cleanAll loadAll</code></p>
 <h3 id="start-ofbiz">Start OFBiz:</h3>
 <p>MS Windows: <code>gradlew ofbiz</code></p>
 <p>Unix-like OS: <code>./gradlew ofbiz</code></p>
@@ -95,7 +95,7 @@ under the License.
 </ul>
 <h4 id="example-standard-tasks">Example standard tasks</h4>
 <p><code>gradlew build</code></p>
-<p><code>gradlew cleanAll loadDefault testIntegration</code></p>
+<p><code>gradlew cleanAll loadAll testIntegration</code></p>
 <h4 id="example-ofbiz-server-tasks">Example OFBiz server tasks</h4>
 <p><code>gradlew &quot;ofbiz --help&quot;</code></p>
 <p><code>gradlew &quot;ofbizDebug --test&quot;</code></p>
@@ -103,7 +103,7 @@ under the License.
 <p><code>gradlew &quot;ofbiz --shutdown --portoffset 10000&quot;</code></p>
 <p><code>gradlew ofbiz</code> (default is --start)</p>
 <h4 id="example-mixed-tasks-standard-and-ofbiz-server">Example mixed tasks (standard and OFBiz server)</h4>
-<p><code>gradlew cleanAll loadDefault &quot;ofbiz --start&quot;</code></p>
+<p><code>gradlew cleanAll loadAll &quot;ofbiz --start&quot;</code></p>
 <hr />
 <h2 id="quick-reference">Quick reference</h2>
 <p>You can use the below common list of tasks as a quick reference for controlling the system. This document uses the windows task syntax, if you are on a Unix-like system, you need to add the <code>./</code> to gradlew i.e. <code>./gradlew</code></p>
@@ -167,7 +167,7 @@ under the License.
 <p><code>gradlew &quot;ofbiz --load-data readers=seed,seed-initial,ext,ext-demo&quot;</code></p>
 <h4 id="load-default-ofbiz-data">Load default OFBiz data</h4>
 <p>Loads default data set; meant for initial loading of generic OFBiz data. Can be applied for development, testing, demonstration, etc. purposes. Be aware that executing this task can result in your data being overwritten in your database of choice. Use with caution in production environments. The default data set is defined by datasource using the read-data attribute, followed by the name of the data set, into the datasource element of the 'entityengine.xml' file.</p>
-<p><code>gradlew loadDefault</code></p>
+<p><code>gradlew loadAll</code></p>
 <p>OR</p>
 <p><code>gradlew &quot;ofbiz --load-data&quot;</code></p>
 <h4 id="load-seed-data">Load seed data</h4>
@@ -236,7 +236,7 @@ under the License.
 <p>This is a very convenient feature of Gradle which allows the user to interact with Gradle through a swing GUI. You can save frequently used commands in a list of favorites for frequent reuse.</p>
 <p><code>gradlew --gui</code></p>
 <h4 id="run-all-tests-on-a-clean-system">Run all tests on a clean system</h4>
-<p><code>gradlew cleanAll loadDefault testIntegration</code></p>
+<p><code>gradlew cleanAll loadAll testIntegration</code></p>
 <h4 id="clean-all-generated-artifacts">Clean all generated artifacts</h4>
 <p><code>gradlew cleanAll</code></p>
 <h4 id="refresh-the-generated-artifacts">Refresh the generated artifacts</h4>
