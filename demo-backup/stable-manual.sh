@@ -3,6 +3,7 @@
 cd /home/ofbizDemo/branch16.11
 svn up
 ./gradlew "ofbizBackground --shutdown --portoffset 10000"
+sleep 30
 ./gradlew cleanAll
 ./gradlew "ofbiz --load-data --portoffset 10000"
 ./gradlew svnInfoFooter
