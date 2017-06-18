@@ -3,7 +3,7 @@
 cd /home/ofbizDemo/trunk
 svn up
 ./gradlew pullAllPluginsSource
-./gradlew terminateOfbiz
+./gradlew "ofbiz --shutdown"
 ./gradlew cleanAll
 ./gradlew loadAll
 ./gradlew svnInfoFooter
