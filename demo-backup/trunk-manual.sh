@@ -2,9 +2,9 @@
 
 cd /home/ofbizDemo/trunk
 svn up
-./gradlew pullAllPluginsSource
-./gradlew "ofbiz --shutdown"
-./gradlew cleanAll
-./gradlew loadAll
-./gradlew svnInfoFooter
-./gradlew ofbizBackground
+./gradlew --no-daemon pullAllPluginsSource
+./gradlew --no-daemon "ofbiz --shutdown"
+./gradlew --no-daemon cleanAll
+./gradlew --no-daemon loadAll
+./gradlew --no-daemon svnInfoFooter
+./gradlew --no-daemon ofbizBackground
