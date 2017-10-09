@@ -154,6 +154,7 @@ under the License.
 <li><strong>ext</strong>: External General Data (custom)</li>
 <li><strong>ext-test</strong>: External Test Data (custom)</li>
 <li><strong>ext-demo</strong>: External Demo Data (custom)</li>
+<li><strong>tenant</strong>: Data to load into the master tenants database &quot;ofbiztenant&quot;. This data is required to identify where a tenant's database is located. For more information you can review the relevant <a href="https://cwiki.apache.org/confluence/display/OFBIZ/Multitenancy+support">tenant documentation</a></li>
 </ul>
 <p>Available options for the --load-data server command are the following:</p>
 <ul>
@@ -272,8 +273,8 @@ under the License.
 <p>Xlint prints output of all warnings detected by the compiler</p>
 <p><code>gradlew -PXlint build</code></p>
 <h4 id="run-owasp-tool-to-identify-dependency-vulnerabilities-cves">Run OWASP tool to identify dependency vulnerabilities (CVEs)</h4>
-<p>The below command activates a gradle plugin (OWASP) and Identifies and reports known vulnerabilities (CVEs) in OFBiz library dependencies. This command takes a long time to execute because it needs to download all plugin dependencies and the CVE identification process is also time consuming. But it's the only way to check OFBiz does not use vulnerable libraries.</p>
-<p><code>gradlew -PenableOwasp dependencyCheck</code></p>
+<p>The below command activates a gradle plugin (OWASP) and Identifies and reports known vulnerabilities (CVEs) in OFBiz library dependencies. The task takes time to complete, and once done, a report will be generated in $OFBIZ_HOME/build/reports/dependency-check-report.html</p>
+<p><code>gradlew -PenableOwasp dependencyCheckAnalyze</code></p>
 <h4 id="setup-eclipse-project-for-ofbiz">Setup eclipse project for OFBiz</h4>
 <p>Setting up OFBiz on eclipse is done by simply running the below command and then importing the project to eclipse. This command will generate the necessary <strong>.classpath</strong> and <strong>.project</strong> files for eclipse and it will also make the source code for external libraries available in eclipse (i.e. you can view source through Ctrl + Click)</p>
 <p>The first time you run this command it will take a long time to execute because it will download source packages available for project dependencies.</p>
