@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./trunk-manual.sh
+./trunk.sh
 ./stable-manual.sh
 ./old-manual.sh
 
