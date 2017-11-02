@@ -86,6 +86,7 @@ under the License.
 <ul>
 <li><p>OFBiz <strong>server commands</strong> require <strong>&quot;quoting&quot;</strong> the commands. For example: <code>gradlew &quot;ofbiz --help&quot;</code></p></li>
 <li><p>Shortcuts to task names can be used by writing the first letter of every word in a task name. However, you cannot use the shortcut form for OFBiz server tasks. Example: <code>gradlew loadAdminUserLogin -PuserLoginId=myadmin</code> = <code>gradlew lAUL -PuserLoginId=myadmin</code></p></li>
+<li><p>Dependent tasks can be skipped with the -x switch. Example: <code>gradlew build -x test</code> does not run the tests within the build.</p></li>
 </ul>
 <h4 id="example-standard-tasks">Example standard tasks</h4>
 <p><code>gradlew build</code></p>
