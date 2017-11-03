@@ -141,15 +141,16 @@ under the License.
 <p>Screens are separated in three types : * structural-decorator : contains all decorators that organise the screens structures * embed-decorator : decorator used only on sub screens * general-screen : list all generic inter applications screens # The common-theme This is the root theme that contains all information to ensure a good basic theme for OFBiz. Currently it keeps all old themes system for backward compatibility with ftl template managed by the entity <strong>VisualThemeResource</strong></p>
 <h1 id="create-your-own-theme">Create your own theme</h1>
 <p>As a theme is a component, you can create a new theme like a plugin.</p>
-<p>After creating a component, you can add the two minimal information : * Theme.xml file in <strong>plugins/my-theme/widget/</strong> with minimal information :</p>
-<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;theme</span><span class="ot"> name=</span><span class="st">&quot;my-theme&quot;</span>
-<span class="ot">        xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-<span class="ot">        xsi:noNamespaceSchemaLocation=</span><span class="st">&quot;http://ofbiz.apache.org/dtds/widget-theme.xsd&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;visual-themes&gt;</span>
-        <span class="kw">&lt;visual-theme</span><span class="ot"> id=</span><span class="st">&quot;MY_THEME&quot;</span><span class="ot"> display-name=</span><span class="st">&quot;My Theme&quot;</span><span class="kw">/&gt;</span>
-    <span class="kw">&lt;/visual-themes&gt;</span>
-<span class="kw">&lt;/theme&gt;</span></code></pre></div>
+<p>After creating a component, you can add the two minimal information :</p>
 <ul>
+<li><p>Theme.xml file in <strong>plugins/my-theme/widget/</strong> with minimal information :</p>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;theme</span><span class="ot"> name=</span><span class="st">&quot;my-theme&quot;</span>
+<span class="ot">    xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="ot">    xsi:noNamespaceSchemaLocation=</span><span class="st">&quot;http://ofbiz.apache.org/dtds/widget-theme.xsd&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;visual-themes&gt;</span>
+    <span class="kw">&lt;visual-theme</span><span class="ot"> id=</span><span class="st">&quot;MY_THEME&quot;</span><span class="ot"> display-name=</span><span class="st">&quot;My Theme&quot;</span><span class="kw">/&gt;</span>
+<span class="kw">&lt;/visual-themes&gt;</span>
+<span class="kw">&lt;/theme&gt;</span></code></pre></div></li>
 <li><p>your data file to add your visual theme in <strong>plugins/my-theme/data/</strong></p>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;entity-engine-xml&gt;</span>
 <span class="kw">&lt;VisualTheme</span><span class="ot"> visualThemeId=</span><span class="st">&quot;MY_THEME&quot;</span><span class="ot"> visualThemeSetId=</span><span class="st">&quot;BACKOFFICE&quot;</span><span class="kw">/&gt;</span>
