@@ -14,7 +14,7 @@ We own 3 Apache sub domains
 * https://demo-stable.ofbiz.apache.org
 * https://demo-old.ofbiz.apache.org
 
-All demos use a Let's Encrypt certificate. There is currently a bug which prevents Let's Encrypt certificate to renew every 3 months. So we need to do it by hand and you need to have a root access for that. This is how: http://markmail.org/message/7c3rxrqkn4kkm6dm 
+All demos use a Let's Encrypt certificate. There is currently a bug which prevents Let's Encrypt certificate to renew every 3 months. So we need to do it by hand and you need to have a root access for that. This is how: [http://markmail.org/message/7c3rxrqkn4kkm6dm ](http://markmail.org/message/7c3rxrqkn4kkm6dm)
 
 The Puppet configuration is at 
 https://github.com/apache/infrastructure-puppet/blob/deployment/data/nodes/ofbiz-vm2.apache.org.yaml
