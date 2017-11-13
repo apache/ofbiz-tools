@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>Apache OFBiz - Documentation - Project Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="Distribution" content="Global" />
+    <meta name="Robots" content="index,follow" />
+    <meta name="keywords" content="Open Source ERP,Open Source CRM,Open Source E-Commerce,Open Source eCommerce,Open Source SCM,Open Source MRP,Open Source CMMS,Open Source EAM,web services,workflow,ebusiness,e-business,ecommerce,e-commerce,automation,enterprise software,open source,entity engine,service engine,erp,crm,party,accounting,facility,supply,chain,management,catalog,order,project,task,work effort,financial,ledger,content management,customer,inventory"/>
+    <meta name="Description" content="Apache OFBiz (The Apache Open For Business Project) is an open source enterprise automation software project licensed under the Apache License Version 2.0. Being open source under the Apache 2.0 license and driven by a community Apache OFBiz offers both flexibility by design and by access to code, and a solution where you're not alone but rather can work with many others to get things done." />
+    <link rel="shortcut icon" type="image/x-icon"  href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/global.css" type="text/css" />
+    <script type="text/javascript" src="js/prototype.js"></script>
+    <script type="text/javascript" src="js/effects.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
+    <script type="text/javascript" src="js/slides.js"></script>
+</head>
+
+<body id="full">
+<!-- wrap starts here -->
+  <div id="wrap">
+
+    <!-- content-wrap starts -->
+    <div id="content-wrap" class="clearfix">
+        <div id="main">
+          <h2>Apache OFBiz&reg; Project Overview</h2>
+
+<P>Written By: David E. Jones</P>
+
+<h3>Purpose</h3>
+
+<p>The Purpose of this document is to give you an overview of the Open For Business Project from a business perspective. It will
+review some of the principles and motivations behind the project, major application components, and a brief explanation of the
+system's technical organization.</p>
+<p>The descriptions of functionality in this document are meant to give you a high level overview of the system. For more
+detailed information you can look over the Feature List and related documents.</p>
+
+
+<h3>Introduction</h3>
+
+<p>Open For Business (OFBiz) is a suite of enterprise applications built on a common architecture using common data, logic and
+process components. The loosely coupled nature of the applications makes these components easy to understand, extend and customize.</p>
+<p>The tools and architecture of OFBiz make it easy to efficiently develop and maintain enterprise applications. This makes it
+possible for us as the creators and maintainers of the project to quickly release new functionality and maintain existing
+functionality without extensive effort. It also makes it easy to customize and extend existing functionality when you have a
+specific need.</p>
+<p>The architecture alone makes it easier for you to customize the applications to your needs, but many of the best flexibility
+points in the system would be meaningless and even impossible if the system was not distributed as open source software. OFBiz is
+licensed under the Apache License Version 2.0 which grants you the right to customize, extend, modify, repackage, resell, and many
+other potential uses of the system.</p>
+<p>No restrictions are placed on these activities because we feel that they are necessary for effective use of this type of
+software. Unlike other open source licenses, such as the GPL, your changes do not have to be released as open source. There are
+obvious benefits to contributing certain improvements, fixes and additions back to the core project, but some changes will involve
+proprietary or confidential information that must not be released to the public. For this reason OFBiz uses the Apache License
+Version 2.0 which does not require this. For more information on open source licenses see the Open Source Initiative (OSI) web site
+at www.opensource.org.</p>
+<p>Another benefit of this open source model is that we receive constant feedback from those who are using the software. We have
+received countless bug fixes, improvement suggestions, and best-practice business advice from users and potential users of OFBiz.
+Many of the greatest features in the project were inspired by some comment or suggestion sent to the mailing lists associated with
+the project. With dozens of organizations using the software and probably hundreds of deployed sites using one piece or another of
+the project we generally get 20-30 emails each day about the project.</p>
+<p>To make sure our functionality is timely and useful we always start by researching public standards and common usage for any
+component we are working on. This helps us support and use common vocabularies and gives us an instant breadth of options and
+features that can only be achieved through standards processes and other group efforts. It also opens doors in the future for
+flexible communication with other systems that are built around the same standards, both inside your organization and in partner or
+other organizations.</p>
+<p>The applications and application components that come with the system provide you with a broad and flexible basis that can be
+used as-is with the best-practices based designs, or customized to your own special needs. The applications facilitate management of
+everything from parties and products to accounting, customer service and internal resource and asset management. Which brings us to
+the next topic...</p>
+
+
+<h3>Major Application Components</h3>
+
+<p>Through collaboration in a large community and an ongoing development effort OFBiz hopes to include features that automate
+every aspect of enterprise information and knowledge. Early in the development and design of the project we were searching for a
+good initial data model to use as a foundation for the system.</p>
+<p>We researched other ERP and CRM systems and looked at various general and system specific books before finding <INS>The
+Data Model Resource Book, Revised Edition, Volumes 1 and 2</INS> by Len Silverston. After a few weeks of translating the logical data
+models described in these books into flexible and normalized physical data models we had our initial system organization. Since that
+time the initial data model has gone through hundreds of revisions and refinements based on real-life use of the system and
+compatibility with dozens of existing public standards. Because of the flexible system architecture it is easy to make changes to
+the data model. This is necessary for the ongoing improvement of the project and makes it easy for you to make changes that suit
+your specific needs.</p>
+<p>The top level applications and application logic components are organized in almost the same structure as the data model.
+Once the organization of one level of the system is understood moving to other levels in the system takes very little effort.</p>
+<p>The following is a brief overview of the major functional areas of the system. Many of these have functionality that exists
+now and all have data elements defined that cover the needs of that part of the system. As further functionality is implemented we
+continually refine the data model, but all of the major data element definitions are in place. So, just remember that much, but not
+all, of the functionality described here is implemented at this point.</p>
+
+<h4>Common Data</h4>
+<p>The Common Data in the system includes entities such as Geographic Boundaries, Units of Measure, Status Codes, Enumerations,
+and so forth. Most of this data is seed data that is imported when the system is installed and generally needs very few changes over
+time. Geographic boundary and other applicable seed data is based on ISO and other standards.</p>
+
+<h4>Content</h4>
+<p>The Content entities are used to track data resources and structure them into general content and knowledge. They include
+many concepts such as: a separation of information and organization allowing a data resource to be used in many content structures;
+flexible organization of content including free-from association in graphs or more constrained organization in trees, lists, named
+maps, templates, etc; the specification of meta-data for content and data resources that can be used to implicitly organize and
+explicitly describe the information. Individual pieces of content can be in various text and binary formats described by standard
+MIME types and character encodings.</p>
+<p>Once general maintenance tools for this information are in place more advanced tools such as keyword based, meta-data based,
+and intelligent searching or text mining to automatically create additional structure or meta-data can be used to enable enterprise
+wide document and knowledge management.</p>
+<p>The Content entities also include information about Web-based content such as pages and interaction with content including
+visits to a site (or application) and information about every request sent to the site. This is useful for tracking what users are
+doing with an application for security, marketing, usability and other reasons.</p>
+
+<h4>Security</h4>
+<p>The Security entities are used to control access to various parts of the system and include user login accounts, login audit
+data, permission data, and so forth. Additional more restrictive security is accomplished through the Party entities and the
+association of Parties to various other data in specific Roles. For instance one user might have a Permission to view and modify all
+Product data where another user only has permission to view and modify the Product data if the user is associated as a Merchandiser
+with a category that the product is in.</p>
+
+<h4>Party</h4>
+<p>A Party can be either a Person, or a group of Parties. A Party Group could be a company, an organization within the company,
+a supplier, a customer, and so forth. Information that describes Parties or is directly related to Parties is contained in these
+entities.</p>
+<p>One type of related data is Contact Mechanisms such as postal addresses, phone numbers, email addresses, internet URLs.
+Another is Roles that the Party acts in such as Customer, Supplier, Employee, Manager, Merchandiser, etc. Generally a single party
+will interact with different parts of the system in many different roles.</p>
+<p>Another type of data that fits into the Party category is information about communication and agreements between Parties.
+This gets into the area of relationship management and also includes information about issues or trouble tickets that a Party may
+have. These entities are used along with the Work Effort entities to plan and track the research and resolution of such issues.</p>
+
+<h4>Product</h4>
+<p>The Product entities contain information about products that are for sale or for use within a company. Products can be goods
+or services and there are various types of goods including raw materials, subassemblies and finished goods. Product information
+includes descriptive information about the products but is not used for describing actual instances (where applicable) or physical
+goods, that is where Inventory Items come into play. An Inventory Item contains information about where a particular good is
+located, the status of the item, and a serial number for serialized items or quantity on hand and available to promise amounts for
+non-serialized inventory.</p>
+<p>Products can be organized into Product Categories. A single product can be a member of multiple categories and even
+categories themselves can be children of multiple categories and can have multiple child categories. Products can also be associated
+with one another to designate concepts such as variants, cross-sells, up-sells, marketing packages, etc.</p>
+<p>Categories can be associated with different Catalogs. A Product Catalog is essentially a starting point for all information
+about a particular set of products to be sold. Promotions and inventory management options are associated with each catalog so that
+different sales channels can behave differently even with the same set of underlying products.</p>
+<p>To flexibly model different types of features that products often have there are entities for defining types of features and
+actual features that can be applied to products. For instance, you might say that this shirt is a size large and is a blue colored
+shirt. Size and color are types of features and large and blue are actual features applied to the specific shirt product.</p>
+<p>Multiple prices can be associated with a single product, as can multiple costs. Different prices can be specified for
+different currencies, different sets of facilities (or stores), and for different date ranges.</p>
+<p>This is a good place to introduce the wide-spread use of effective dating in OFBiz. There are two fields commonly used to
+express effective dates: fromDate and thruDate. In the product price example the fromDate and thruDate are used to denote that a
+price goes into effect on a certain date and at a certain time and expires at a certain date and time. This can be used to keep a
+history of price changes, and to effectively manage temporary promotional prices.</p>
+<p>In addition to explicitly specifying prices there are also entities and logic that uses the entities to have rules about
+prices. For instance you could create a rule that is in effect for a certain time period that puts all of the products in a certain
+category on sale. Or, you could give special prices to specific customers or groups of customers with a simple rule.</p>
+
+<h4>Order</h4>
+<p>The Order entities are used to manage information about sales and purchase orders and information leading up to an order. For
+example a request for a specific product or feature may be submitted by a customer and that would be tracked by the request entities
+in the Order package.</p>
+<p>The request can be tracked and turned into a requirement which can be used to create a Work Effort (a task, for instance; see
+the Work Effort section below) to be created that will satisfy the requirement and fulfill the request. Once a requirement is made a
+quote can be produced which if accepted by the customer can be used to create an order. Once an order is fulfilled an invoice can be
+created from the order. Invoices are part of the Accounting entity package described below.</p>
+<p>Orders consist of an Order Header and any number of Order Line Items and Adjustments that describe the detail of the Order.
+There are various pieces of information related to an Order that can be associated with either the header or an individual or
+multiple line items of an order. Examples include the shipping destination and shipping preferences of an order which may be the
+same for all line items, or may be different for each one.</p>
+<p>Adjustments are used to contain information about things that change the price of an order that are not actual goods or
+services sold or purchased. Examples include taxes, shipping, discounts, surcharges, and so forth. An adjustment can be either a
+flat amount, a flat amount per quantity, or a percentage of the subtotal of the entire order or the line item it is associated with.
+Tax and shipping are handled as special cases and each adjustment can specify whether or not it should be included in the sub-total
+for tax and/or the sub-total for shipping.</p>
+<p>Payment preferences can be tracked as an order is created to automate payment once an invoice is created. This is especially
+useful for payment by credit card or other electronic means. If no payment preferences are specified then a standard invoicing and
+billing process can be used.</p>
+
+<h4>Facility</h4>
+<p>A Facility is a building or other physical location. Examples include warehouses, stores, office buildings, individual rooms
+in a larger facility, loading docks, et cetera. Generally a facility will have Contact Mechanisms associated with it such as a
+postal address or a phone number.</p>
+<p>Facilities can be grouped into Facility Groups which in turn can be contained in other Facility Groups. Examples of groups
+include store chains, districts, regions, and special groups used for marketing or the pricing of products.</p>
+<p>Inventory Items can be associated with a facility and even a specific location within a facility. Facility Locations can be
+tracked and managed independently of the Inventory Items they contain for easy management of warehouse spaces and easy location of
+specific Inventory Items.</p>
+<p>Parties can be associated with Facilities to represent where a person works, which organization controls or operates the
+facility, who manages the facility, et cetera.</p>
+
+<h4>Shipment</h4>
+<p>The Shipment entities are used to track incoming and outgoing shipments and to issue items from inventory or receive items
+into inventory.</p>
+<p>A Shipment consists of multiple Shipment Items each of which, like an Order Item, represents a certain quantity of a specific
+Product. When Shipments are received they can be reconciled with a purchase order and that information is tracked in the Shipment
+Receipt entity.</p>
+<p>When an Inventory Item is issued for an outgoing shipment it is associated with a Pick List that can be prepared from
+multiple Shipments to more efficiently route the picking path in the warehouse or other facility.</p>
+<p>Shipment Packages can be created which represent a single box or shipping unit. A single box can contain multiple Shipment
+Items, even items from different Shipments assuming that they are going to the same destination.</p>
+<p>The Shipment Route entities are used to split up a Shipment's journey into multiple route segments. One route segment for a
+Shipment could be a commercial carrier while another could be a private carrier or a company owned truck.</p>
+
+<h4>Accounting</h4>
+<p>The Accounting entities are organized according to age old and generally accepted principles such as double-entry accounting,
+a General Ledger with hierarchical accounts, journals and posting of transactions and corresponding entries. The structure is
+primarily based on the OMG GL standard and the work that was done on an AR/AP extension of the OMG GL standard. This correlates well
+with other standards such as ebXML and OAGIS.</p>
+<p>The Accounting entities are structured such that accounts for multiple organizations can be managed. The multiple
+organizations could be multiple companies, or departments or other organizations within a company. Each Organization can have
+various GL Accounts associated with it so that it can operate with its own subset of the Master Chart of Accounts. Each Organization
+can also have its own set of Journals for flexibility, even though the use of Journals should be as minimal as possible in favor of
+allowing the system to automatically create and post transactions based on business events triggered by standard procedures and
+documents such as purchase and sales orders, invoices, inventory transfers, payments, receipts, and so forth.</p>
+<p>There are also entities in place for budgeting and the reconciliation of budgets against actual GL Account balances for a
+specific fiscal period. Oh yeah, there are also entities used to track custom Fiscal Periods and other entities to keep summary
+results for accounts in specific periods.</p>
+<p>Entities to track Fixed Assets are also part of the Accounting entity package. This includes depreciation information in
+addition to maintenance, scheduling of Fixed Assets (along with the Work Effort entities), and so forth.</p>
+
+<h4>Marketing</h4>
+<p>The Marketing entities are used to track information about Marketing Campaigns and related information such as Contact Lists
+(mailing, email, or calling lists) and Tracking Codes. Tracking Codes are primarily used in automated systems to keep track of where
+a customer came from and can be used for commission purposes in addition to analyzing the effectiveness of specific Marketing
+Campaigns including advertisements, partnerships or affiliations, and so forth.</p>
+
+<h4>Work Effort</h4>
+<p>A Work Effort can be one of many things including a task, project, project phase, to-do item, calendar item, or even a Workflow Activity.</p>
+<p><b>Notice</b> : OFBiz gave up on Workflow Engines. Shark was implemented last but never really used in OFBiz. Instead of
+using a Workflow Engine, OFBiz uses an <a href="http://en.wikipedia.org/wiki/Event_Driven_Architecture" class="external-link"
+    rel="nofollow">Event Driven Architecture (EDA)</a> and ECAs (SECA, EECA, MECA) are used in OFBiz to drive the Workflow. ECA is the
+acronym of Event Condition Action. SECAs are for Services (triggered on services conditions), EECA are for Entity (triggered on
+entities conditions), MECAs are for Mail.</p>
+<!--
+<p><DEL>Workflow</DEL>(deprecated)s are a special case and are managed by the OFBiz <DEL>Workflow Engine</DEL>(deprecated) . A <DEL>Workflow</DEL>(deprecated)
+is essentially a semi-automated process that involves both automatic activities performed by the computer and manual activities
+performed by a human or some other external system controlled by a human. The <DEL>Workflow Engine</DEL>(deprecated) processes <DEL>Workflow</DEL>(deprecated)s
+defined in special entities modeled after the Workflow Management Coalition (WfMC.org) specifications. XPDL files can be imported
+into these entities and then the <DEL>Workflow</DEL>(deprecated) defined there can be invoked through various means. The <DEL>Workflow
+Engine</DEL>(deprecated) keeps track of everything that has been done and that needs to be done for the processes that it runs.</p> -->
+<p>There are also entities in the Work Effort entity package for keeping track of timesheets and the pay rate of specific
+Parties performing Work Efforts. In addition various other resources can be tracked such as Fixed Assets, Facilities, et cetera.</p>
+<p>When Work Efforts are used for manufacturing or other modification of Products the Products and Inventory Items consumed and
+produced by the specific Work Effort can be tracked.</p>
+
+<h4>Human Resources</h4>
+<p>The Human Resources entities are used to keep track of positions, responsibilities, skills, employment, termination,
+benefits, training, pay grades and payroll preferences, performance reviews, resumes and applications, and other Human Resources
+related information.</p>
+
+
+<h3>Architecture and System Organization</h3>
+
+<p>Architecture is really just a fancy word for the organization and composition of application components. There are many
+different &quot;tools&quot; available as part of Java, J2EE and the OFBiz Core Framework that can be used together to efficiently
+and effectively organize data and business logic, to provide interfaces to other systems, and to create user interfaces for humans
+to interact with the system.</p>
+
+<h4>Entities and Services</h4>
+<p>The most basic components in OFBiz are Entities and Services. An Entity is a relational data construct that contains any
+number of Fields and can be related to other entities. Basic entities correspond to actual database structures. There is also a type
+of entity called a &quot;view-entity&quot; that can be used to create a virtual entity from other entities to combine sets of fields
+by joining other entities together. These constructs can be used to summarize and group data and in general prepare it for viewing
+or use in a program.</p>
+<p>In many architectures the data or persistence layer alone consists of hundreds of thousands or millions of lines of code that
+must be maintained as the system is developed and customized. With the Entity Engine this is all distilled into only thousands of
+lines of XML data definitions that drive an easy to dynamic API. Even less-experienced programmers can become productive with this
+tool in a few days and never have to learn any SQL. It takes care of that for you&#33;</p>
+<p>You have probably heard some of the &quot;Web Services&quot; buzz that has spread to every corner of the software industry.
+The OFBiz system not only uses the service pattern to communicate with other systems, it also uses the service pattern inside the
+system to provide a clean and easy to use facility for creating and running business logic components.</p>
+<p>A Service is a simple process that performs a specific operation. A service definition is used to define the input and output
+parameters that the service consumes and produces. Data passed to the service can be automatically validated before the actual logic
+is called using this definition. After a service is run the results can be validated in the same way.</p>
+<p>Other services can be run automatically at different points of the running of a service by using Event-Condition-Action (ECA)
+rules to denote what other services should be called and under what circumstances. This allows logic to be extended without
+modifying the original logic and allows the system to be organized cleanly such that each service performs one simple, specific
+task.</p>
+<p>Services can be implemented in a number of different ways to make it easier for engineers to match the tools available to the
+task at hand. It also makes it easy to keep track of the logic components in the system which may exists in hundred of different
+files and even on different computers used inside the company or computers of a partnering company.</p>
+
+<!--
+<h4><DEL>Workflow and Rules</b> (deprecated)</DEL><BR>
+<A name="ApacheOFBizProjectOverview-EDA"></A><BR>
+<b>Notice</b> : OFBiz gave up on Workflow Engines. Shark was implemented last but never really used in OFBiz. Instead of using a Workflow Engine, OFBiz uses an <A href="http://en.wikipedia.org/wiki/Event_Driven_Architecture" class="external-link" rel="nofollow">Event Driven Architecture (EDA)</A> and ECAs (SECA, EECA, MECA) are used in OFBiz to drive the Workflow. ECA is the acronym of Event Condition Action. SECAs are for Services (triggered on services conditions), EECA are for Entity (triggered on entities conditions), MECAs are for Mail.</p>
+<p><DEL>The Workflow Engine, which is described briefly in the Work Effort section above, can be used to automate business processes consisting of both manual (humanly performed) and automatic (computer performed) activities. Workflows can be called as services and automated activities within a Workflow can call services allowing unlimited flexibility in combining these small logical components.</DEL></p>
+<p><DEL>The purpose of Workflow tools is to automate and track complex business processes. They can help to insure that your policies are followed and that important tasks are not lost in the chaos and confusion that even reasonably sized organizations often operate in. A good example of this is the Order Manager in OFBiz which is Workflow based. When an order is placed a Workflow is started and tracked through approval and fulfillment of the order. With this tool it is easy to see what has happened to a specific order and what still needs to be done with the order.</DEL></p>
+<p><DEL>There are many other examples of processes that can benefit by this sort of management. For example: content creation and publishing, customer issue, complaint and service management, sales cycle management, and any other business process that involves the coordination of different people in different roles.</DEL></p>
+<p><DEL>The Rule Engine in OFBiz is essentially an alternative programming language that is based on concepts completely different from procedural programming languages like Java, Basic, C, Cobol, and so forth. Facts and rules are declared and then used in one of two ways: 1) asking if a specific assertion is true and showing all possible proofs of the assertion, and 2) presenting all information available and asking the Rule Engine to produce all other information possible given the facts and rules it knows about.</DEL></p>
+<p><DEL>Rule engines can be used for many different applications. They are most useful for decision support and helping humans analyze situations that are too complex to do on paper or in one's head or by any means because of the amount of time that would be involved. Using the rules as constraints and finding all valid solutions to a problems such as airport gate assignments or truck delivery and pickup routing can save countless hours and allow for consistent application of rules that a human might occasionally miss or forget no matter how experienced that person is.</DEL></p>
+-->
+
+<h4>Web Framework and XML Mini-Languages</h4>
+<p>There are many useful tools in the OFBiz Core Framework that address points of difficulty in web, client-server and
+peer-to-peer based enterprise applications. A tool exists for simplifying the use of flat data files making it easier to integrate
+with legacy systems. Various tools exist for organizing and structuring web-based content and applications with a flexible
+separation of logic and presentation. These tools along with the standard J2EE and other Java tools make it easy for the system to
+communicate with human users and other systems.</p>
+<p>To make it easier to use these Core Framework tools another component called an XML Mini-Language has been created that
+allows an engineer or other user to create an XML file with simple, well-defined instructions that the system can understand and
+execute. Expressing logic in a Mini-Lang &quot;simple-method&quot; often requires only one third as much code as an equivalent Java
+method and is much easier to read and modify for semi-technical users. Processing form input, composing services into larger
+services, and interacting with data in the database are common things that can be done easily with this tool.</p>
+
+
+<h3>Conclusion</h3>
+
+<p>The Open For Business Project is a collaborative effort involving a large group of users and developers and is moderated by a
+small central team. The applications and framework components are being used in a wide variety of businesses and applications and
+are customized heavily in many circumstances to meet the needs of the organizations using the software.</p>
+<p>This is only possible and can only operate efficiently and effectively as an open source project. This is in sharp contrast
+to the style of most commercial vendors that restrict many possible uses of and extensions to their software through design
+limitations or licensing restrictions in order to extract a greater profit from the use of the software. Much of the early
+commercial software was much more flexible and open and less restrictive than many modern packages. As that trend continues more
+developers and users of software start to consider a more trusting alternative.</p>
+<p>While those who contribute to the project, including the moderators, choose not to force others who use it to pay them, they
+can benefit in many other ways. Often you will find that the system is so close to what you need that a small amount of effort on
+your part can change the system to be perfect for you. If that effort is contributed back to the community others in a similar
+situation can help improve and maintain it. You as the contributor you can freely upgrade your own system with other improvements in
+the main project without having to worry about your changes that might conflict with his addition.</p>
+<p>In general OFBiz is meant to provide so much value that you will be willing and happy to contribute something back and keep
+the effort going. This again is in sharp contrast to the commecial approach of forcing users to pay for every right of use or
+modification related to the software. The open source approach enables information sharing and that information can be leveraged by
+all in the community to improve the use of the software for their own needs.</p>
+<p>So, for the moderators of the project, what do we get for all of the time spent designing frameworks and applications,
+writing code, and answering questions? It goes back to the basic law of the harvest: you reap what you sow. The more value something
+provides, the more it is worth. For us it is an opportunity to be at the nexus of such a project and to be at least somewhat
+involved in helping it grow. This gives us the chance to work with you and provide services in return for revenue that keeps the
+project going.</p>
+
+<p>Our only hope is that you will be able to derive as much value from the project as we have.</p>
+        </div>
+        <!-- main ends -->
+
+   </div>
+      <!-- content-wrap -->
+  </div>
+</body>
+</html>
