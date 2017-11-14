@@ -7,7 +7,7 @@
     <meta name="Distribution" content="Global" />
     <meta name="Robots" content="index,follow" />
     <meta name="keywords" content="Open Source ERP,Open Source CRM,Open Source E-Commerce,Open Source eCommerce,Open Source SCM,Open Source MRP,Open Source CMMS,Open Source EAM,web services,workflow,ebusiness,e-business,ecommerce,e-commerce,automation,enterprise software,open source,entity engine,service engine,erp,crm,party,accounting,facility,supply,chain,management,catalog,order,project,task,work effort,financial,ledger,content management,customer,inventory"/>
-    <meta name="Description" content="Apache OFBiz (The Apache Open For Business Project) is an open source enterprise automation software project licensed under the Apache License Version 2.0. Being open source under the Apache 2.0 license and driven by a community Apache OFBiz offers both flexibility by design and by access to code, and a solution where you're not alone but rather can work with many others to get things done." />
+    <meta name="Description" content="Apache OFBiz is an open source enterprise automation software project licensed under the Apache License Version 2.0. Being open source under the Apache 2.0 license and driven by a community Apache OFBiz offers both flexibility by design and by access to code, and a solution where you're not alone but rather can work with many others to get things done." />
     <link rel="shortcut icon" type="image/x-icon"  href="images/favicon.ico" />
     <link rel="stylesheet" href="css/global.css" type="text/css" />
     <script type="text/javascript" src="js/prototype.js"></script>
@@ -27,7 +27,7 @@
 
 <h3>Purpose</h3>
 
-<p>The Purpose of this document is to give you an overview of the Open For Business Project from a business perspective. It will
+<p>The Purpose of this document is to give you an overview of the OFBiz Project from a business perspective. It will
 review some of the principles and motivations behind the project, major application components, and a brief explanation of the
 system's technical organization.</p>
 <p>The descriptions of functionality in this document are meant to give you a high level overview of the system. For more
@@ -36,7 +36,7 @@ detailed information you can look over the Feature List and related documents.</
 
 <h3>Introduction</h3>
 
-<p>Open For Business (OFBiz) is a suite of enterprise applications built on a common architecture using common data, logic and
+<p>OFBiz is a suite of enterprise applications built on a common architecture using common data, logic and
 process components. The loosely coupled nature of the applications makes these components easy to understand, extend and customize.</p>
 <p>The tools and architecture of OFBiz make it easy to efficiently develop and maintain enterprise applications. This makes it
 possible for us as the creators and maintainers of the project to quickly release new functionality and maintain existing
@@ -275,33 +275,16 @@ task.</p>
 task at hand. It also makes it easy to keep track of the logic components in the system which may exists in hundred of different
 files and even on different computers used inside the company or computers of a partnering company.</p>
 
-<!--
-<h4><DEL>Workflow and Rules</b> (deprecated)</DEL><BR>
-<A name="ApacheOFBizProjectOverview-EDA"></A><BR>
-<b>Notice</b> : OFBiz gave up on Workflow Engines. Shark was implemented last but never really used in OFBiz. Instead of using a Workflow Engine, OFBiz uses an <A href="http://en.wikipedia.org/wiki/Event_Driven_Architecture" class="external-link" rel="nofollow">Event Driven Architecture (EDA)</A> and ECAs (SECA, EECA, MECA) are used in OFBiz to drive the Workflow. ECA is the acronym of Event Condition Action. SECAs are for Services (triggered on services conditions), EECA are for Entity (triggered on entities conditions), MECAs are for Mail.</p>
-<p><DEL>The Workflow Engine, which is described briefly in the Work Effort section above, can be used to automate business processes consisting of both manual (humanly performed) and automatic (computer performed) activities. Workflows can be called as services and automated activities within a Workflow can call services allowing unlimited flexibility in combining these small logical components.</DEL></p>
-<p><DEL>The purpose of Workflow tools is to automate and track complex business processes. They can help to insure that your policies are followed and that important tasks are not lost in the chaos and confusion that even reasonably sized organizations often operate in. A good example of this is the Order Manager in OFBiz which is Workflow based. When an order is placed a Workflow is started and tracked through approval and fulfillment of the order. With this tool it is easy to see what has happened to a specific order and what still needs to be done with the order.</DEL></p>
-<p><DEL>There are many other examples of processes that can benefit by this sort of management. For example: content creation and publishing, customer issue, complaint and service management, sales cycle management, and any other business process that involves the coordination of different people in different roles.</DEL></p>
-<p><DEL>The Rule Engine in OFBiz is essentially an alternative programming language that is based on concepts completely different from procedural programming languages like Java, Basic, C, Cobol, and so forth. Facts and rules are declared and then used in one of two ways: 1) asking if a specific assertion is true and showing all possible proofs of the assertion, and 2) presenting all information available and asking the Rule Engine to produce all other information possible given the facts and rules it knows about.</DEL></p>
-<p><DEL>Rule engines can be used for many different applications. They are most useful for decision support and helping humans analyze situations that are too complex to do on paper or in one's head or by any means because of the amount of time that would be involved. Using the rules as constraints and finding all valid solutions to a problems such as airport gate assignments or truck delivery and pickup routing can save countless hours and allow for consistent application of rules that a human might occasionally miss or forget no matter how experienced that person is.</DEL></p>
--->
-
-<h4>Web Framework and XML Mini-Languages</h4>
+<h4>Web Framework</h4>
 <p>There are many useful tools in the OFBiz Core Framework that address points of difficulty in web, client-server and
 peer-to-peer based enterprise applications. A tool exists for simplifying the use of flat data files making it easier to integrate
 with legacy systems. Various tools exist for organizing and structuring web-based content and applications with a flexible
 separation of logic and presentation. These tools along with the standard J2EE and other Java tools make it easy for the system to
 communicate with human users and other systems.</p>
-<p>To make it easier to use these Core Framework tools another component called an XML Mini-Language has been created that
-allows an engineer or other user to create an XML file with simple, well-defined instructions that the system can understand and
-execute. Expressing logic in a Mini-Lang &quot;simple-method&quot; often requires only one third as much code as an equivalent Java
-method and is much easier to read and modify for semi-technical users. Processing form input, composing services into larger
-services, and interacting with data in the database are common things that can be done easily with this tool.</p>
-
 
 <h3>Conclusion</h3>
 
-<p>The Open For Business Project is a collaborative effort involving a large group of users and developers and is moderated by a
+<p>The OFBiz Project is a collaborative effort involving a large group of users and developers and is moderated by a
 small central team. The applications and framework components are being used in a wide variety of businesses and applications and
 are customized heavily in many circumstances to meet the needs of the organizations using the software.</p>
 <p>This is only possible and can only operate efficiently and effectively as an open source project. This is in sharp contrast
