@@ -53,10 +53,11 @@ README.md
 **/plugins/solr/home/zoo.cfg
 **/themes/common/webapp/common/js/jquery/**
 **/themes/common/webapp/common/js/plugins/**
-**//themes/common/webapp/images/**
+**/themes/common/webapp/images/**
 **/themes/rainbowstone/webapp/rainbowstone/flags/**
 **/themes/rainbowstone/webapp/rainbowstone/images/**
-**/less.min.js
+**/themes/rainbowstone/webapp/rainbowstone/fonts/quicksand/**
 **/themes/rainbowstone/webapp/rainbowstone/*.less
+**/less.min.js
 **/SamplePricatTemplate_V1.1.xlsx
 **/framework/base/src/main/java/META-INF/**
