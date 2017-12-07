@@ -38,7 +38,10 @@ under the License.
 <p><em>Note</em>: If you want to use an external database like MySQL or PostgreSQL, read the &quot;Setup an external database&quot; section to set it up.</p>
 </blockquote>
 <blockquote>
-<p>Note : The directory structure and repositories have changed. For more information read the &quot;Repository and directory structure&quot; section.</p>
+<p><em>Note</em>: If you want to run OFBiz without an internet connection, read the &quot;Running gradle tasks without an internet connection&quot; section.</p>
+</blockquote>
+<blockquote>
+<p><em>Note</em>: The directory structure and repositories have changed. For more information read the &quot;Repository and directory structure&quot; section.</p>
 </blockquote>
 <h2 id="system-requirements">System requirements</h2>
 <p>The only requirement to run OFBiz is to have the Java Development Kit (JDK) version 8 installed on your system (not just the JRE, but the full JDK) which you can download from the below link. Make sure of setting the $JAVA_HOME environment variable.</p>
@@ -48,9 +51,6 @@ under the License.
 <h3 id="prepare-ofbiz">Prepare OFBiz:</h3>
 <blockquote>
 <p><em>Note</em>: Depending on your Internet connection speed it might take a long time for this step to complete if you are using OFBiz for the first time as it needs to download all dependencies. So please be patient!</p>
-</blockquote>
-<blockquote>
-<p><em>Note</em>: Without internet connection, dependency resolution and the build will fail. The <code>--offline</code> command line switch tells Gradle to always use dependency modules from the cache, regardless if they are due to be checked again. When running with offline, Gradle will never attempt to access the network to perform dependency resolution. If required modules are not present in the dependency cache, build execution will fail.</p>
 </blockquote>
 <p>MS Windows: <code>gradlew cleanAll loadAll</code></p>
 <p>Unix-like OS: <code>./gradlew cleanAll loadAll</code></p>
@@ -360,6 +360,10 @@ under the License.
 <p>Furthermore, the hot-deploy directory is removed as the plugins directory works as a replacement for both &quot;special-purpose&quot; and &quot;hot-deploy&quot;.</p>
 <p>If you need to load the components in the plugins directory in a specific order place a component-load.xml file in the plugins directory listing the order.</p>
 <p>To check out a plugin from source control use the <strong>pullPluginSource</strong> Gradle task. To check out all plugins from source control use the <strong>pullAllPluginsSource</strong>. <strong>Beware</strong> this deletes a previously existing plugins directory.</p>
+<h3 id="running-gradle-tasks-without-an-internet-connection">Running gradle tasks without an internet connection</h3>
+<p>OFBiz must run with an internet connection the <strong>first time</strong> it is prepared on the system because it needs to download all the required dependencies.</p>
+<p>After preparing OFBiz the first time correctly, it is possible to run OFBiz without an internet connection by using the <code>--offline</code> command line switch which tells Gradle to fetch its dependencies from the cache.</p>
+<p>If any dependencies are missing from the cache and you pass <code>--offline</code> switch then the build execution will fail.</p>
 <h3 id="setup-an-external-database-like-mysql-postgresql-etc">Setup an external database like MySQL, PostgreSQL, etc</h3>
 <p>To setup an external database instead of the default embedded Apache Derby, you will need to follow the following instructions:</p>
 <ol style="list-style-type: decimal">
