@@ -46,7 +46,12 @@ under the License.
 <h2 id="quick-start">Quick start</h2>
 <p>To quickly install and fire-up OFBiz, please follow the below instructions from the command line at the OFBiz top level directory (folder)</p>
 <h3 id="prepare-ofbiz">Prepare OFBiz:</h3>
-<p><strong>Note</strong>: Depending on your Internet connection speed it might take a long time for this step to complete if you are using OFBiz for the first time as it needs to download all dependencies. So please be patient!</p>
+<blockquote>
+<p><em>Note</em>: Depending on your Internet connection speed it might take a long time for this step to complete if you are using OFBiz for the first time as it needs to download all dependencies. So please be patient!</p>
+</blockquote>
+<blockquote>
+<p><em>Note</em>: Without internet connection, dependency resolution and the build will fail. The <code>--offline</code> command line switch tells Gradle to always use dependency modules from the cache, regardless if they are due to be checked again. When running with offline, Gradle will never attempt to access the network to perform dependency resolution. If required modules are not present in the dependency cache, build execution will fail.</p>
+</blockquote>
 <p>MS Windows: <code>gradlew cleanAll loadAll</code></p>
 <p>Unix-like OS: <code>./gradlew cleanAll loadAll</code></p>
 <h3 id="start-ofbiz">Start OFBiz:</h3>
