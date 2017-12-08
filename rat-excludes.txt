@@ -47,6 +47,7 @@ README.md
 **/.project
 **plugins/ecommerce/webapp/ecommerce/js/**
 **plugins/ecommerce/webapp/ecommerce/css/**
+**/plugins/solr/home/zoo.cfg
 **/plugins/solr/home/solrdefault/**
 **/plugins/solr/webapp/solr/**
 **/plugins/solr/webapp/solr/img/**
