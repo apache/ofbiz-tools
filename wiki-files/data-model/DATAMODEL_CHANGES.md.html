@@ -1,0 +1,1846 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="apache-ofbiz-data-model-changes">Apache OFBiz® Data Model Changes</h1>
+<p>Apache OFBiz follows <strong>The Universal Data Model</strong> by <strong>Len Silverston</strong>, with a grain of salt.</p>
+<p>The following file contains information about the data model changes in the Apache OFBiz. The detailed description of migration scripts specified here can be found at <a href="https://cwiki.apache.org/confluence/x/LoBr">Revisions Requiring Data Migration - upgrade ofbiz</a> page.</p>
+<h2 id="changes-with-ofbiz-17">Changes with OFBiz 17</h2>
+<p>Field types &quot;id-ne&quot;, &quot;id-long-ne&quot; &amp; &quot;id-vlong-ne&quot; has been removed. Use &quot;id&quot;, &quot;id-long&quot; and &quot;id-vlong&quot; instead (detailed description at <a href="https://issues.apache.org/jira/browse/OFBIZ-9351">OFBIZ-9351</a>).</p>
+<h3 id="entity-changes">Entity Changes</h3>
+<p>No changes</p>
+<h3 id="field-changes">Field Changes</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Entity</th>
+<th align="center">Field</th>
+<th align="center">Action</th>
+<th align="center">IsPK</th>
+<th align="right">Revision</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">MarketingCampaignPrice</td>
+<td align="center">fromDate</td>
+<td align="center">Added</td>
+<td align="center">Yes</td>
+<td align="right">R1805961</td>
+</tr>
+<tr class="even">
+<td align="left">MarketingCampaignPrice</td>
+<td align="center">thruDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right">R1805961</td>
+</tr>
+<tr class="odd">
+<td align="left">MarketingCampaignPromo</td>
+<td align="center">fromDate</td>
+<td align="center">Added</td>
+<td align="center">Yes</td>
+<td align="right">R1805961</td>
+</tr>
+<tr class="even">
+<td align="left">MarketingCampaignPromo</td>
+<td align="center">thruDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right">R1805961</td>
+</tr>
+<tr class="odd">
+<td align="left">MarketingCampaignRole</td>
+<td align="center">fromDate</td>
+<td align="center">Added</td>
+<td align="center">Yes</td>
+<td align="right">R1805961</td>
+</tr>
+<tr class="even">
+<td align="left">MarketingCampaignRole</td>
+<td align="center">thruDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right">R1805961</td>
+</tr>
+<tr class="odd">
+<td align="left">Product</td>
+<td align="center">manufacturerPartyId</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right">R1804408</td>
+</tr>
+<tr class="even">
+<td align="left">SecurityGroupPermission</td>
+<td align="center">fromDate</td>
+<td align="center">Added</td>
+<td align="center">Yes</td>
+<td align="right">R1812383</td>
+</tr>
+<tr class="odd">
+<td align="left">SecurityGroupPermission</td>
+<td align="center">thruDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right">R1812383</td>
+</tr>
+</tbody>
+</table>
+<h3 id="migration-scripts">Migration Scripts</h3>
+<ol style="list-style-type: decimal">
+<li>Updated sql-type for date-time and time field in fieldtypemysql.xml file<br />
+R1793300 &quot;Update msyql sql-type for datetime field-type to support Fractional Seconds in Time Values<br />
+Please upgrade mysql to at least 5.6.4 or higher.<br />
+After upgrade run 'generateMySqlFileWithAlterTableForTimestamps' service, groupName is required field for this service,<br />
+It will generate sql file with alter query statement for date-time and time field at location &quot;${ofbiz.home}/runtime/tempfiles/<groupName>.sql&quot;<br />
+You can use execute sql statement from any of the mysql batch command.</li>
+</ol>
+<h2 id="changes-between-ofbiz-9-to-ofbiz-16">Changes between OFBiz 9 to OFBiz 16</h2>
+<h3 id="entity-changes-1">Entity Changes</h3>
+<p><strong>Added 77 new entities</strong></p>
+<ol style="list-style-type: decimal">
+<li>JobRequisition</li>
+<li>ProductAverageCostType</li>
+<li>WorkEffortSurveyAppl</li>
+<li>WorkEffortIcalData</li>
+<li>WebSiteContactList</li>
+<li>WebAnalyticsType</li>
+<li>WebAnalyticsConfig</li>
+<li>UserLoginSecurityQuestion</li>
+<li>UomGroup</li>
+<li>TrainingRequest</li>
+<li>ThirdPartyLogin</li>
+<li>TestFieldType</li>
+<li>TestingSubtype</li>
+<li>TestingStatus</li>
+<li>TestingRemoveAll</li>
+<li>TestingItem</li>
+<li>TestingCrypto</li>
+<li>SystemProperty</li>
+<li>ShipmentGatewayUsps</li>
+<li>ShipmentGatewayUps</li>
+<li>ShipmentGatewayFedex</li>
+<li>ShipmentGatewayDhl</li>
+<li>ShipmentGatewayConfig</li>
+<li>ShipmentGatewayConfigType</li>
+<li>ReturnContactMech</li>
+<li>QuoteNote</li>
+<li>ProductPromoContent</li>
+<li>ProductPromoContentType</li>
+<li>ProductGroupOrder</li>
+<li>ProductCostComponentCalc</li>
+<li>CostComponentCalc</li>
+<li>PayPalPaymentMethod</li>
+<li>PaymentGroupType</li>
+<li>PaymentGroup</li>
+<li>PaymentGroupMember</li>
+<li>PaymentGatewayConfig</li>
+<li>PaymentGatewayConfigType</li>
+<li>PaymentGatewayWorldPay</li>
+<li>PaymentGatewaySecurePay</li>
+<li>PaymentGatewaySagePay</li>
+<li>PaymentGatewayOrbital</li>
+<li>PaymentGatewayEway</li>
+<li>PaymentGatewayCyberSource</li>
+<li>PaymentGatewayAuthorizeNet</li>
+<li>PaymentGatewayIDEAL</li>
+<li>PaymentContentType</li>
+<li>PaymentContent</li>
+<li>OAuth2LinkedIn</li>
+<li>OAuth2GitHub</li>
+<li>JobManagerLock</li>
+<li>JobInterviewType</li>
+<li>JobInterview</li>
+<li>JavaResource</li>
+<li>InvoiceNote</li>
+<li>InvoiceItemAssocType</li>
+<li>InvoiceItemAssoc</li>
+<li>InvoiceContentType</li>
+<li>InvoiceContent</li>
+<li>GlAccountCategoryType</li>
+<li>GlAccountCategoryMember</li>
+<li>GlAccountCategory</li>
+<li>GitHubUser</li>
+<li>FixedAssetTypeGlAccount</li>
+<li>FacilityContent</li>
+<li>ExcelImportHistory</li>
+<li>EmplLeaveReasonType</li>
+<li>EbayShippingMethod</li>
+<li>EbayConfig</li>
+<li>CountryAddressFormat</li>
+<li>ContentSearchResult</li>
+<li>ContentSearchConstraint</li>
+<li>ContentKeyword</li>
+<li>CheckAccount</li>
+<li>AgreementFacilityAppl</li>
+<li>AgreementContentType</li>
+<li>AgreementContent</li>
+</ol>
+<p><strong>Removed 8 entities</strong></p>
+<ol style="list-style-type: decimal">
+<li>DepreciationMethod</li>
+<li>FixedAssetMaintMeter</li>
+<li>OagisMessageErrorInfo</li>
+<li>OagisMessageInfo</li>
+<li>SalesOpportunityTrackingCode</li>
+<li>SimpleSalesTaxLookup</li>
+<li>TestBlob</li>
+<li>WorkEffortAssignmentRate</li>
+</ol>
+<h3 id="field-changes-1">Field Changes</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Entity</th>
+<th align="center">Field</th>
+<th align="center">Action</th>
+<th align="center">IsPK</th>
+<th align="right">Revision</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">AcctgTransAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">AcctgTransEntry</td>
+<td align="center">inventoryItemId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">AcctgTransTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">BenefitType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">BenefitType</td>
+<td align="center">hasTable</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">BudgetAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">BudgetItemAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">BudgetItemTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">BudgetStatus</td>
+<td align="center">changeByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">BudgetTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">CommunicationEventRole</td>
+<td align="center">statusId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">CommunicationEventType</td>
+<td align="center">contactMechTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ContactListCommStatus</td>
+<td align="center">partyId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ContactListCommStatus</td>
+<td align="center">messageId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ContactListCommStatus</td>
+<td align="center">changeByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ContactMechAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ContactMechTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">DeductionType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">DeductionType</td>
+<td align="center">hasTable</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">DocumentAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">DocumentTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">EmploymentApp</td>
+<td align="center">approverPartyId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">EmploymentApp</td>
+<td align="center">jobRequisitionId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">EmploymentAppSourceType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">EmploymentAppSourceType</td>
+<td align="center">hasTable</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">EmplPositionClassType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">EmplPositionClassType</td>
+<td align="center">hasTable</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">EmplPositionType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">EmplPositionType</td>
+<td align="center">hasTable</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">EmplPositionType</td>
+<td align="center">partyId</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">EmplPositionType</td>
+<td align="center">roleTypeId</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">FinAccountAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">FinAccountTransAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">FinAccountTrans</td>
+<td align="center">glReconciliationId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">FinAccountTrans</td>
+<td align="center">statusId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">FinAccountTransTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">FinAccountTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">FinAccountStatus</td>
+<td align="center">changeByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">FixedAsset</td>
+<td align="center">acquireOrderId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">FixedAsset</td>
+<td align="center">acquireOrderItemSeqId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">FixedAssetAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">FixedAssetTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">GlAccount</td>
+<td align="center">externalId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">GlAccount</td>
+<td align="center">openingBalance</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">GlReconciliation</td>
+<td align="center">createdDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">GlReconciliation</td>
+<td align="center">lastModifiedDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">GlReconciliation</td>
+<td align="center">statusId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">GlReconciliation</td>
+<td align="center">openingBalance</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">InventoryItemAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">InventoryItemStatus</td>
+<td align="center">changeByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">InventoryItemTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">InvoiceAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">InvoiceItemAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">InvoiceItemTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">InvoiceStatus</td>
+<td align="center">changeByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">InvoiceTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">InvoiceTermAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">JobSandbox</td>
+<td align="center">currentRetryCount</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">JobSandbox</td>
+<td align="center">tempExprId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">JobSandbox</td>
+<td align="center">currentRecurrenceCount</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">JobSandbox</td>
+<td align="center">maxRecurrenceCount</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">JobSandbox</td>
+<td align="center">jobResult</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderAdjustment</td>
+<td align="center">amountAlreadyIncluded</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderAdjustment</td>
+<td align="center">isManual</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderAdjustment</td>
+<td align="center">oldPercentage</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderAdjustment</td>
+<td align="center">oldAmountPerQuantity</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderAdjustment</td>
+<td align="center">lastModifiedDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderAdjustment</td>
+<td align="center">lastModifiedByUserLogin</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderAdjustmentAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderAdjustmentTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderItem</td>
+<td align="center">supplierProductId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderItem</td>
+<td align="center">cancelBackOrderDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderItem</td>
+<td align="center">changeByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderItemAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderItemShipGroup</td>
+<td align="center">facilityId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderItemShipGroup</td>
+<td align="center">estimatedShipDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderItemShipGroup</td>
+<td align="center">estimatedDeliveryDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderItemShipGrpInvRes</td>
+<td align="center">priority</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderItemShipGrpInvRes</td>
+<td align="center">oldPickStartDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderItemTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderTermAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderPaymentPreference</td>
+<td align="center">track2</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderPaymentPreference</td>
+<td align="center">swipedFlag</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderPaymentPreference</td>
+<td align="center">lastModifiedDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderPaymentPreference</td>
+<td align="center">lastModifiedByUserLogin</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">OrderShipment</td>
+<td align="center">shipGroupSeqId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">OrderTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PartyAcctgPreference</td>
+<td align="center">orderSequenceEnumId</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PartyAcctgPreference</td>
+<td align="center">quoteSequenceEnumId</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PartyAcctgPreference</td>
+<td align="center">invoiceSequenceEnumId</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PartyAcctgPreference</td>
+<td align="center">oldOrderSequenceEnumId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PartyAcctgPreference</td>
+<td align="center">oldQuoteSequenceEnumId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PartyAcctgPreference</td>
+<td align="center">oldInvoiceSequenceEnumId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PartyAcctgPreference</td>
+<td align="center">orderSeqCustMethId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PartyQual</td>
+<td align="center">infoString</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PartyQual</td>
+<td align="center">institutionInternalId</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PartyQual</td>
+<td align="center">institutionPartyId</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PartyQual</td>
+<td align="center">partyQualId</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PartyRate</td>
+<td align="center">percentageUsed</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PartyRate</td>
+<td align="center">rate</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PartyResume</td>
+<td align="center">contentId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PaymentAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PaymentGatewayResponse</td>
+<td align="center">gatewayCvResult</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PaymentMethod</td>
+<td align="center">finAccountId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PaymentTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PerfRatingType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PerfRatingType</td>
+<td align="center">hasTable</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PerfReview</td>
+<td align="center">payHistoryRoleTypeIdTo</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PerfReview</td>
+<td align="center">payHistoryRoleTypeIdFrom</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PerfReview</td>
+<td align="center">payHistoryPartyIdTo</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PerfReview</td>
+<td align="center">payHistoryPartyIdFrom</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PerfReview</td>
+<td align="center">payHistoryFromDate</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PerfReviewItemType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PerfReviewItemType</td>
+<td align="center">hasTable</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PersonTraining</td>
+<td align="center">trainingRequestId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PersonTraining</td>
+<td align="center">workEffortId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PersonTraining</td>
+<td align="center">approverId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PersonTraining</td>
+<td align="center">approvalStatus</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PersonTraining</td>
+<td align="center">reason</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PostalAddress</td>
+<td align="center">houseNumber</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PostalAddress</td>
+<td align="center">houseNumberExt</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PostalAddress</td>
+<td align="center">cityGeoId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PostalAddress</td>
+<td align="center">municipalityGeoId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PostalAddress</td>
+<td align="center">geoPointId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">PosTerminal</td>
+<td align="center">terminalName</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">PosTerminalInternTx</td>
+<td align="center">reasonEnumId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Product</td>
+<td align="center">releaseDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Product</td>
+<td align="center">originalImageUrl</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Product</td>
+<td align="center">inventoryItemTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Product</td>
+<td align="center">shippingWeight</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Product</td>
+<td align="center">productWeight</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Product</td>
+<td align="center">diameterUomId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Product</td>
+<td align="center">productDiameter</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Product</td>
+<td align="center">virtualVariantMethodEnum</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Product</td>
+<td align="center">defaultShipmentBoxTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Product</td>
+<td align="center">lotIdFilledIn</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Product</td>
+<td align="center">orderDecimalQuantity</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Product</td>
+<td align="center">weight</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Product</td>
+<td align="center">taxCategory</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Product</td>
+<td align="center">taxVatCode</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Product</td>
+<td align="center">taxDutyCode</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductAverageCost</td>
+<td align="center">productAverageCostTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductAverageCost</td>
+<td align="center">facilityId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductContent</td>
+<td align="center">sequenceNum</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductKeyword</td>
+<td align="center">keywordTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductKeyword</td>
+<td align="center">statusId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductRole</td>
+<td align="center">sequenceNum</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductStore</td>
+<td align="center">balanceResOnOrderCreation</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductStore</td>
+<td align="center">defaultTimeZoneString</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductStore</td>
+<td align="center">oldStyleSheet</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductStore</td>
+<td align="center">oldHeaderLogo</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductStore</td>
+<td align="center">oldHeaderRightBackground</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductStore</td>
+<td align="center">oldHeaderMiddleBackground</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductStore</td>
+<td align="center">styleSheet</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductStore</td>
+<td align="center">headerLogo</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductStore</td>
+<td align="center">headerRightBackground</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductStore</td>
+<td align="center">headerMiddleBackground</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductStorePaymentSetting</td>
+<td align="center">paymentCustomMethodId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductStorePaymentSetting</td>
+<td align="center">paymentGatewayConfigId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductStoreShipmentMeth</td>
+<td align="center">shipmentCustomMethodId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductStoreShipmentMeth</td>
+<td align="center">shipmentGatewayConfigId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductStoreShipmentMeth</td>
+<td align="center">allowancePercent</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ProductStoreShipmentMeth</td>
+<td align="center">minimumPrice</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ProductTypeAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">QuoteAdjustment</td>
+<td align="center">lastModifiedDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">QuoteAdjustment</td>
+<td align="center">lastModifiedByUserLogin</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">QuoteAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">QuoteItem</td>
+<td align="center">leadTimeDays</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">QuoteRole</td>
+<td align="center">fromDate</td>
+<td align="center">Added</td>
+<td align="center">Yes</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">QuoteRole</td>
+<td align="center">thruDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">QuoteTerm</td>
+<td align="center">termDays</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">QuoteTerm</td>
+<td align="center">textValue</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">QuoteTerm</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">QuoteTermAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">QuoteTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">RequirementAttribute</td>
+<td align="center">changeByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">RequirementStatus</td>
+<td align="center">changeByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ResponsibilityType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ResponsibilityType</td>
+<td align="center">hasTable</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ReturnAdjustment</td>
+<td align="center">createdByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ReturnAdjustment</td>
+<td align="center">lastModifiedDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ReturnAdjustment</td>
+<td align="center">lastModifiedByUserLogin</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ReturnHeader</td>
+<td align="center">supplierRmaId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ReturnItemResponse</td>
+<td align="center">finAccountTransId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ReturnStatus</td>
+<td align="center">changeByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">SalaryStep</td>
+<td align="center">fromDate</td>
+<td align="center">Added</td>
+<td align="center">Yes</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">SalaryStep</td>
+<td align="center">thruDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">SalaryStep</td>
+<td align="center">createdByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">SalaryStep</td>
+<td align="center">lastModifiedByUserLogin</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">SalesOpportunity</td>
+<td align="center">nextStepDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">ServiceSemaphore</td>
+<td align="center">lockedByInstanceId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ShoppingListItem</td>
+<td align="center">modifiedPrice</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">SkillType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">SkillType</td>
+<td align="center">hasTable</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">SupplierProduct</td>
+<td align="center">shippingPrice</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">SupplierProduct</td>
+<td align="center">supplierCommissionPerc</td>
+<td align="center">Removed</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">TaxAuthorityRateProduct</td>
+<td align="center">isTaxInShippingPrice</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">TerminationType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">TerminationType</td>
+<td align="center">hasTable</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">TestingNodeMember</td>
+<td align="center">extendFromDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">TestingNodeMember</td>
+<td align="center">extendThruDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">TimeEntry</td>
+<td align="center">planHour</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Timesheet</td>
+<td align="center">approvedByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">TrainingClassType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">TrainingClassType</td>
+<td align="center">hasTable</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">UnemploymentClaim</td>
+<td align="center">thruDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">UserLogin</td>
+<td align="center">externalAuthId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">UserLogin</td>
+<td align="center">userLdapDn</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">UserLogin</td>
+<td align="center">disabledBy</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">ValueLinkKey</td>
+<td align="center">createdByUserLogin</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">WebSite</td>
+<td align="center">visualThemeSetId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">WebSite</td>
+<td align="center">hostedPathAlias</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">WebSite</td>
+<td align="center">isDefault</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">WebSite</td>
+<td align="center">displayMaintenancePage</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">WebSitePathAlias</td>
+<td align="center">fromDate</td>
+<td align="center">Added</td>
+<td align="center">Yes</td>
+<td align="right">R1738588</td>
+</tr>
+<tr class="even">
+<td align="left">WebSitePathAlias</td>
+<td align="center">thruDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right">R1738588</td>
+</tr>
+<tr class="odd">
+<td align="left">WorkEffort</td>
+<td align="center">tempExprId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">WorkEffort</td>
+<td align="center">sequenceNum</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">WorkEffortAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">WorkEffortAssocAttribute</td>
+<td align="center">attrDescription</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">WorkEffortAssocTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">WorkEffortContactMech</td>
+<td align="center">fromDate</td>
+<td align="center">Added</td>
+<td align="center">Yes</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">WorkEffortContactMech</td>
+<td align="center">thruDate</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">WorkEffortFixedAssetAssign</td>
+<td align="center">availabilityStatusId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">WorkEffortPartyAssignment</td>
+<td align="center">assignedByUserLoginId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">WorkEffortPurposeType</td>
+<td align="center">parentTypeId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">WorkEffortStatus</td>
+<td align="center">reason</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">WorkEffortTypeAttr</td>
+<td align="center">description</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">WorkOrderItemFulfillment</td>
+<td align="center">shipGroupSeqId</td>
+<td align="center">Added</td>
+<td align="center">No</td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
