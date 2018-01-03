@@ -37,10 +37,10 @@ checkMD5() {
 
 checkSHA () {
     file1=`gpg --print-md SHA512 $1`
-    file2=`cut -d* -f1 $1.sha`
+    file2=`cut -d* -f1 $1.sha512`
 
     echo "sha check of file: $1"
-    echo "Using sha file: $1.sha"
+    echo "Using sha file: $1.sha512"
     echo $file1
     echo $file2
 
@@ -63,9 +63,9 @@ else
     checkMD5 $1
 fi
 
-if [ ! -f $1.sha ];
+if [ ! -f $1.sha512 ];
 then
-    echo -e "${RED}skipping sha check!${NC} (sha checksum file $1.sha not found)\n"
+    echo -e "${RED}skipping sha check!${NC} (sha checksum file $1.sha512 not found)\n"
 else
     checkSHA $1
 fi
