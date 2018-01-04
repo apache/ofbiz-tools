@@ -23,5 +23,5 @@ set OFBIZ_HOME=%~p0..\
 
 cd %OFBIZ_HOME%
 echo on
-for /r  %%f in (*.xsd) do copy %%f C:\projectsASF\website\dtds
-del C:\projectsASF\website\dtds\docbook.xsd
+for /r  %%f in (*.xsd) do copy %%f C:\projectsASF\site\dtds
+del C:\projectsASF\site\dtds\docbook.xsd
