@@ -23,6 +23,7 @@ BuilbBot documentation
 OFBiz uses [BuilbBot](https://en.wikipedia.org/wiki/Buildbot) as its Continuous Integration (CI) tool. There are other CI tools [used at the ASF](https://ci.apache.org/).
 
 IMO the BuildBot pros and cons are
+
 ### Pros
 * Compared to a tool like Jenkins (those are the 2 I know) you don't have to use an UI, you write scripts. This is also a cons for some. 
 * The syntax is simple and well documented, some prefer intuitive UI.
