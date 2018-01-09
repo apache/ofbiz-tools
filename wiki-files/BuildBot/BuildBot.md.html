@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="builbbot-documentation">BuilbBot documentation</h1>
+<h2 id="what-is-builbbot-and-why-using-it">What is BuilbBot and why using it?</h2>
+<p>OFBiz uses <a href="https://en.wikipedia.org/wiki/Buildbot">BuilbBot</a> as its Continuous Integration (CI) tool. There are other CI tools <a href="https://ci.apache.org/">used at the ASF</a>.</p>
+<p>IMO the BuildBot pros and cons are ### Pros * Compared to a tool like Jenkins (those are the 2 I know) you don't have to use an UI, you write scripts. This is also a cons for some. * The syntax is simple and well documented, some prefer intuitive UI. * The infra team at the ASF provides a kind of compiler which prevents to commits error in the shared script (the builders are all common to the ASF)<br />
+* The infra team, especially Gavin McDonald, is always ready to help in a very efficient way</p>
+<h3 id="cons">Cons</h3>
+<ul>
+<li>You have no UI so you have to write your own scripts, some prefer UIs to scripts.</li>
+<li>Despite the &quot;compiler&quot; you sometimes get unexpected result when you don't completely master BuildBot concepts. You must then ask infra for help, either on <a href="https://apache.hipchat.com/chat/room/669587">HipChat infra room</a> or though the <a href="https://issues.apache.org/jira/servicedesk/customer/portal/1/create/3">service desk</a></li>
+</ul>
+<h2 id="ofbiz-and-buildbot">OFBiz and BuildBot</h2>
+<p><a href="https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf">Here is the OFBiz BuildBot script</a></p>
+<p>You can see the OFBiz builders and their states in the <a href="https://ci.apache.org/waterfall">common Buildbot waterfall view</a> (look for &quot;ofb&quot;). Here are the <a href="ci.apache.org/projects/ofbiz/logs/">test results</a></p>
+<p>The <a href="https://ci.apache.org/builders/ofbizTrunkFramework">ofbizTrunkFramework builder</a> is triggered on commits in the trunk framework branch. This also triggers the <a href="https://ci.apache.org/builders/ofbizTrunkFrameworkPlugins">ofbizTrunkFrameworkPlugins</a> to check that a commit in the framework puts no regressions in plugins. The same apply to the <a href="https://ci.apache.org/builders/ofbizBranch17Framework">ofbizBranch17Framework</a> and the <a href="https://ci.apache.org/builders/ofbizBranch17FrameworkPlugins">ofbizBranch17FrameworkPlugins</a> The current stable branch R16.12 has only <a href="https://ci.apache.org/builders/ofbizBranch16">one builder</a>. This will be gone in future. All new releases needs 2 builders.</p>
+<p>In an OFBiz builder page you can see <a href="https://ci.apache.org/builders/ofbizTrunkFramework">an history of the builds up to 100+</a>. OFBiz randomly (except for RAT) uses 3 servers to build as you can see at the bottom of this page. You may want to explore more to get acquainted with the tool...</p>
+<p>There is also the <a href="https://ci.apache.org/builders/ofbizTrunkFrameworkRat">RAT builder</a> which check the licenses in OFBiz. You can find the result <a href="https://ci.apache.org/projects/ofbiz/rat-output.html">here</a></p>
+<h1 id="handling-issues">Handling issues</h1>
+<p>Sometimes (rarely) you can get transient tests errors in BuildBot. This mean tests don't all pass in BuildBot, though they pass in your local instance. In such case, it's most certainly an issue with servers. Those are hard workers and make errors from time to time, which shows that not only human make errors :smirk:.</p>
+<p>Before being anything it's best to check which BuildBot step is impacted and if it exists have a look at the logfile (stdio)</p>
+<p>Some other errors may happen, like * svn not updating * upload not working * you name it...</p>
+<p>In such case you can trigger a build from IRC to see if the problem resolves by itself. Most of the time tests and svn issues are resolved this way. If it does not then the best is to ask Infra help, either on <a href="https://apache.hipchat.com/chat/room/669587">HipChat infra room</a> or through the <a href="https://issues.apache.org/jira/servicedesk/customer/portal/1/create/3">service desk</a></p>
+<p>When something like that happens, I get to IRC (using https://webchat.freenode.net). There using a recognisable username (I use jleroux) I get to the ofbiz channel. I wait for ofbiz-bot to appear, click on it, click on query and then I can make a request in the chat line to restart a scheduler. A request is of the form</p>
+<pre><code>force build ofbizTrunkFramework</code></pre>
+<p>you can put the text you want to appear in builder, after this expression, something like</p>
+<pre><code>forces manual build after weird error</code></pre>
+<p>So the whole request is of the form</p>
+<pre><code>force build ofbizTrunkFramework forces manual build after weird error</code></pre>
+<p>Note though that with our last config (see <a href="https://issues.apache.org/jira/browse/INFRA-15394">INFRA-15394</a>) the ofbizTrunkFrameworkPlugins and ofbizBranch17FrameworkPlugins builders are dependent and respectively automatically launched by the ofbizTrunkFramework and ofbizBranch17Framework builders but only on commits. So if you use an IRC command like <code>force build ofbizTrunkFramework</code> only this builder will be launched not the dependent ofbizTrunkFrameworkPlugins.</p>
+</body>
+</html>
