@@ -28,20 +28,6 @@ under the License.
 -->
 <h2 id="what-is-builbbot-and-why-using-it">What is BuilbBot and why using it?</h2>
 <p>OFBiz uses <a href="https://en.wikipedia.org/wiki/Buildbot">BuilbBot</a> as its Continuous Integration (CI) tool. There are other CI tools <a href="https://ci.apache.org/">used at the ASF</a>.</p>
-<p>IMO the BuildBot pros and cons are</p>
-<h3 id="pros">Pros</h3>
-<ul>
-<li>Compared to a tool like Jenkins (those are the 2 I know) you don't have to use an UI, you write scripts. This is also a cons for some.</li>
-<li>The syntax is simple and well documented, some prefer intuitive UI.</li>
-<li>The infra team at the ASF provides a kind of compiler which prevents to commits error in the shared script (the builders are all common to the ASF)<br />
-</li>
-<li>The infra team, especially Gavin McDonald, is always ready to help in a very efficient way</li>
-</ul>
-<h3 id="cons">Cons</h3>
-<ul>
-<li>You have no UI so you have to write your own scripts, some prefer UIs to scripts.</li>
-<li>Despite the &quot;compiler&quot; you sometimes get unexpected result when you don't completely master BuildBot concepts. You must then ask infra for help, either on <a href="https://apache.hipchat.com/chat/room/669587">HipChat infra room</a> or though the <a href="https://issues.apache.org/jira/servicedesk/customer/portal/1/create/3">service desk</a></li>
-</ul>
 <h2 id="ofbiz-and-buildbot">OFBiz and BuildBot</h2>
 <p><a href="https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf">Here is the OFBiz BuildBot script</a></p>
 <p>You can see the OFBiz builders and their states in the <a href="https://ci.apache.org/waterfall">common Buildbot waterfall view</a> (look for &quot;ofb&quot;). Here are the <a href="ci.apache.org/projects/ofbiz/logs/">test results</a></p>

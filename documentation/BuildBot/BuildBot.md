@@ -19,18 +19,6 @@ under the License.
 ## What is BuilbBot and why using it?
 OFBiz uses [BuilbBot](https://en.wikipedia.org/wiki/Buildbot) as its Continuous Integration (CI) tool. There are other CI tools [used at the ASF](https://ci.apache.org/).
 
-IMO the BuildBot pros and cons are
-
-### Pros
-* Compared to a tool like Jenkins (those are the 2 I know) you don't have to use an UI, you write scripts. This is also a cons for some. 
-* The syntax is simple and well documented, some prefer intuitive UI.
-* The infra team at the ASF provides a kind of compiler which prevents to commits error in the shared script (the builders are all common to the ASF)   
-* The infra team, especially Gavin McDonald, is always ready to help in a very efficient way
-
-### Cons
-* You have no UI so you have to write your own scripts, some prefer UIs to scripts.
-* Despite the "compiler" you sometimes get unexpected result when you don't completely master BuildBot concepts. You must then ask infra for help, either on [HipChat infra room](https://apache.hipchat.com/chat/room/669587) or though the [service desk](https://issues.apache.org/jira/servicedesk/customer/portal/1/create/3) 
-
 ## OFBiz and BuildBot
 
 [Here is the OFBiz BuildBot script](https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf)
