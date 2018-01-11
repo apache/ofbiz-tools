@@ -34,7 +34,11 @@ In an OFBiz builder page you can see [an history of the builds up to 100+](https
 
 There is also the [RAT builder](https://ci.apache.org/builders/ofbizTrunkFrameworkRat) which check the licenses in OFBiz. You can find the result [here](https://ci.apache.org/projects/ofbiz/rat-output.html)
 
-# Handling issues
+## Technical information
+When you create a new branch you need to let know BuildBot about it. This because BuildBot uses svn hooks to triggers builds on commits. [The file to change is here](https://github.com/apache/infrastructure-puppet/blob/deployment/modules/subversion_server/files/hooks/buildbot_project_paths)
+You can't make commit in infrastructure-puppet if you are not an infra committer. So you need to clone the repo and make a Pull Request.
+
+## Handling issues
 Sometimes (rarely) you can get transient tests errors in BuildBot. This mean tests don't all pass in BuildBot, though they pass in your local instance. In such case, it's most certainly an issue with servers. Those are hard workers and make errors from time to time, which shows that not only human make errors :smirk:.
 
 Before being anything it's best to check which BuildBot step is impacted and if it exists have a look at the logfile (stdio) 
@@ -61,3 +65,4 @@ So the whole request is of the form
     force build ofbizTrunkFramework forces manual build after weird error
 
 Note though that with our last config (see [INFRA-15394](https://issues.apache.org/jira/browse/INFRA-15394)) the ofbizTrunkFrameworkPlugins and ofbizBranch17FrameworkPlugins builders are dependent and respectively automatically launched by the ofbizTrunkFramework and ofbizBranch17Framework builders but only on commits. So if you use an IRC command like `force build ofbizTrunkFramework` only this builder will be launched not the dependent ofbizTrunkFrameworkPlugins.
+
