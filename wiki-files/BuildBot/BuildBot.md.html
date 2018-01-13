@@ -34,7 +34,9 @@ under the License.
 <p>The <a href="https://ci.apache.org/builders/ofbizTrunkFramework">ofbizTrunkFramework builder</a> is triggered on commits in the trunk framework branch. This also triggers the <a href="https://ci.apache.org/builders/ofbizTrunkFrameworkPlugins">ofbizTrunkFrameworkPlugins</a> to check that a commit in the framework puts no regressions in plugins. The same apply to the <a href="https://ci.apache.org/builders/ofbizBranch17Framework">ofbizBranch17Framework</a> and the <a href="https://ci.apache.org/builders/ofbizBranch17FrameworkPlugins">ofbizBranch17FrameworkPlugins</a> The current stable branch R16.12 has only <a href="https://ci.apache.org/builders/ofbizBranch16">one builder</a>. This will be gone in future. All new releases needs 2 builders.</p>
 <p>In an OFBiz builder page you can see <a href="https://ci.apache.org/builders/ofbizTrunkFramework">an history of the builds up to 100+</a>. OFBiz randomly (except for RAT) uses 3 servers to build as you can see at the bottom of this page. You may want to explore more to get acquainted with the tool...</p>
 <p>There is also the <a href="https://ci.apache.org/builders/ofbizTrunkFrameworkRat">RAT builder</a> which check the licenses in OFBiz. You can find the result <a href="https://ci.apache.org/projects/ofbiz/rat-output.html">here</a></p>
-<h1 id="handling-issues">Handling issues</h1>
+<h2 id="technical-information">Technical information</h2>
+<p>When you create a new branch you need to let know BuildBot about it. This because BuildBot uses svn hooks to triggers builds on commits. <a href="https://github.com/apache/infrastructure-puppet/blob/deployment/modules/subversion_server/files/hooks/buildbot_project_paths">The file to change is here</a> You can't make commit in infrastructure-puppet if you are not an infra committer. So you need to clone the repo and make a Pull Request.</p>
+<h2 id="handling-issues">Handling issues</h2>
 <p>Sometimes (rarely) you can get transient tests errors in BuildBot. This mean tests don't all pass in BuildBot, though they pass in your local instance. In such case, it's most certainly an issue with servers. Those are hard workers and make errors from time to time, which shows that not only human make errors :smirk:.</p>
 <p>Before being anything it's best to check which BuildBot step is impacted and if it exists have a look at the logfile (stdio)</p>
 <p>Some other errors may happen, like * svn not updating * upload not working * you name it...</p>
@@ -46,5 +48,7 @@ under the License.
 <p>So the whole request is of the form</p>
 <pre><code>force build ofbizTrunkFramework forces manual build after weird error</code></pre>
 <p>Note though that with our last config (see <a href="https://issues.apache.org/jira/browse/INFRA-15394">INFRA-15394</a>) the ofbizTrunkFrameworkPlugins and ofbizBranch17FrameworkPlugins builders are dependent and respectively automatically launched by the ofbizTrunkFramework and ofbizBranch17Framework builders but only on commits. So if you use an IRC command like <code>force build ofbizTrunkFramework</code> only this builder will be launched not the dependent ofbizTrunkFrameworkPlugins.</p>
+<h3 id="randon-conflicts-on-port-8080-during-tests">Randon conflicts on port 8080 during tests</h3>
+<p>One case which comes back from time to time is a conflit on port 8080 due to the automatic startup of tomcat. It's due to security patches being applied on Silvanus (one of 3 the servers BuildBot uses for OFBiz, hence the random aspect, only Sylvanus is concerned). In such case we need to ask infra to manually disable Tomcat on Silvanus. This happened 4th already, last case was <a href="https://issues.apache.org/jira/browse/INFRA-15829">INFRA-15829</a>) where things are best explained.</p>
 </body>
 </html>

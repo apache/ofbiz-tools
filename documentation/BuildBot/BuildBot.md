@@ -66,3 +66,5 @@ So the whole request is of the form
 
 Note though that with our last config (see [INFRA-15394](https://issues.apache.org/jira/browse/INFRA-15394)) the ofbizTrunkFrameworkPlugins and ofbizBranch17FrameworkPlugins builders are dependent and respectively automatically launched by the ofbizTrunkFramework and ofbizBranch17Framework builders but only on commits. So if you use an IRC command like `force build ofbizTrunkFramework` only this builder will be launched not the dependent ofbizTrunkFrameworkPlugins.
 
+### Randon conflicts on port 8080 during tests
+One case which comes back from time to time is a conflit on port 8080 due to the automatic startup of tomcat. It's  due to security patches being applied on Silvanus (one of 3 the servers BuildBot uses for OFBiz, hence the random aspect, only Sylvanus is concerned). In such case we need to ask infra to manually disable Tomcat on Silvanus. This happened 4th already, last case was  [INFRA-15829](https://issues.apache.org/jira/browse/INFRA-15829)) where things are best explained.
