@@ -1,5 +1,3 @@
-cd ..
-
 pandoc README.md -s -o tools/wiki-files/README.md.html
 
 pandoc applications/datamodel/DATAMODEL_CHANGES.md -s -o tools/wiki-files/data-model/DATAMODEL_CHANGES.md.html
