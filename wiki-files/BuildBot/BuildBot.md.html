@@ -39,7 +39,7 @@ under the License.
 <p>In an OFBiz builder page you can see <a href="https://ci.apache.org/builders/ofbizTrunkFramework">an history of the builds up to 100+</a>. OFBiz randomly uses 3 servers (except for RAT which always only uses lares_ubuntu) to build as you can see at the bottom of this page. You may want to explore more to get acquainted with the tool...</p>
 <p>There is also the <a href="https://ci.apache.org/builders/ofbizTrunkFrameworkRat">RAT builder</a>. It checks the licenses in OFBiz. You can find the result <a href="https://ci.apache.org/projects/ofbiz/rat-output.html">here</a></p>
 <h3 id="tests-results">tests results</h3>
-<p>Here are the <a href="ci.apache.org/projects/ofbiz/logs/">test results</a> The folders structure <a href="https://issues.apache.org/jira/browse/INFRA-15842">will soon be updated</a> to reflect the current svn repo structure.</p>
+<p>Here are the <a href="ci.apache.org/projects/ofbiz/logs/">test results</a>. The folders structure reflects the current svn repo structure.</p>
 <h3 id="technical-information">Technical information</h3>
 <p>When you create a new branch you need to let know BuildBot about it. This because BuildBot uses svn hooks to triggers builds on commits. <a href="https://github.com/apache/infrastructure-puppet/blob/deployment/modules/subversion_server/files/hooks/buildbot_project_paths">The file to change is here</a> You can't make commit in infrastructure-puppet if you are not an infra committer. So you need to clone the repo and make a Pull Request.</p>
 <h2 id="handling-issues">Handling issues</h2>
