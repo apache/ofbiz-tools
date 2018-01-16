@@ -21,7 +21,7 @@ OFBiz uses [BuilbBot](https://en.wikipedia.org/wiki/Buildbot) as its Continuous 
 
 ## OFBiz and BuildBot
 
-[Here is the OFBiz BuildBot script](https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf). If you are interested on modifying it, please understand its content and read the BuildBot documentation. Note that the Infra team is always there to help you :smile:
+[Here is the OFBiz BuildBot script](https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf). If you are interested on modifying it, please understand its content and read the BuildBot documentation. Note that the Infra team is always there to help you.
 
 
 ### Schedulers and Builders
@@ -51,7 +51,7 @@ You can't make commit in infrastructure-puppet if you are not an infra committer
 
 
 ## Handling issues
-Sometimes (rarely) you can get transient tests errors in BuildBot. This mean tests don't all pass in BuildBot, though they pass in your local instance. In such case, it's most certainly an issue with servers. Those are hard workers and make errors from time to time, which shows that not only human make errors :smirk:.
+Sometimes (rarely) you can get transient tests errors in BuildBot. This mean tests don't all pass in BuildBot, though they pass in your local instance. In such case, it's most certainly an issue with servers. Those are hard workers and make errors from time to time, which shows that not only human make errors.
 
 Before being anything it's best to check which BuildBot step is impacted and if it exists have a look at the logfile (stdio) 
 

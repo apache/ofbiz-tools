@@ -29,7 +29,7 @@ under the License.
 <h2 id="what-is-builbbot-and-why-using-it">What is BuilbBot and why using it?</h2>
 <p>OFBiz uses <a href="https://en.wikipedia.org/wiki/Buildbot">BuilbBot</a> as its Continuous Integration (CI) tool. There are other CI tools <a href="https://ci.apache.org/">used at the ASF</a>.</p>
 <h2 id="ofbiz-and-buildbot">OFBiz and BuildBot</h2>
-<p><a href="https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf">Here is the OFBiz BuildBot script</a>. If you are interested on modifying it, please understand its content and read the BuildBot documentation. Note that the Infra team is always there to help you :smile:</p>
+<p><a href="https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf">Here is the OFBiz BuildBot script</a>. If you are interested on modifying it, please understand its content and read the BuildBot documentation. Note that the Infra team is always there to help you.</p>
 <h3 id="schedulers-and-builders">Schedulers and Builders</h3>
 <p>BuildBot uses schedulers and builders. Schedulers decide which builders to trigger on svn commits.</p>
 <p>You can see the OFBiz builders and their states in the <a href="https://ci.apache.org/waterfall">common Buildbot waterfall view</a> (look for &quot;ofb&quot;).</p>
@@ -43,7 +43,7 @@ under the License.
 <h3 id="technical-information">Technical information</h3>
 <p>When you create a new branch you need to let know BuildBot about it. This because BuildBot uses svn hooks to triggers builds on commits. <a href="https://github.com/apache/infrastructure-puppet/blob/deployment/modules/subversion_server/files/hooks/buildbot_project_paths">The file to change is here</a> You can't make commit in infrastructure-puppet if you are not an infra committer. So you need to clone the repo and make a Pull Request.</p>
 <h2 id="handling-issues">Handling issues</h2>
-<p>Sometimes (rarely) you can get transient tests errors in BuildBot. This mean tests don't all pass in BuildBot, though they pass in your local instance. In such case, it's most certainly an issue with servers. Those are hard workers and make errors from time to time, which shows that not only human make errors :smirk:.</p>
+<p>Sometimes (rarely) you can get transient tests errors in BuildBot. This mean tests don't all pass in BuildBot, though they pass in your local instance. In such case, it's most certainly an issue with servers. Those are hard workers and make errors from time to time, which shows that not only human make errors.</p>
 <p>Before being anything it's best to check which BuildBot step is impacted and if it exists have a look at the logfile (stdio)</p>
 <p>Some other errors may happen, like * svn not updating * upload not working * you name it...</p>
 <p>In such case you can trigger a build from IRC to see if the problem resolves by itself. Most of the time tests and svn issues are resolved this way. If it does not then the best is to ask Infra help, either on <a href="https://apache.hipchat.com/chat/room/669587">HipChat infra room</a> or through the <a href="https://issues.apache.org/jira/servicedesk/customer/portal/1/create/3">service desk</a></p>
