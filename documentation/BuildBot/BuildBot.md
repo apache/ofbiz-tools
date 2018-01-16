@@ -36,14 +36,14 @@ The same apply to the [ofbizBranch17Framework](https://ci.apache.org/builders/of
 
 The current stable branch R16.12 has only [one builder](https://ci.apache.org/builders/ofbizBranch16). This will be gone in future. All new releases needs 2 builders.
 
-In an OFBiz builder page you can see [an history of the builds up to 100+](https://ci.apache.org/builders/ofbizTrunkFramework). OFBiz randomly (except for RAT which always only uses lares_ubuntu) uses 3 servers to build as you can see at the bottom of this page. You may want to explore more to get acquainted with the tool...
+In an OFBiz builder page you can see [an history of the builds up to 100+](https://ci.apache.org/builders/ofbizTrunkFramework). OFBiz randomly uses 3 servers (except for RAT which always only uses lares_ubuntu) to build as you can see at the bottom of this page. You may want to explore more to get acquainted with the tool...
 
-There is also the [RAT builder](https://ci.apache.org/builders/ofbizTrunkFrameworkRat) which check the licenses in OFBiz. You can find the result [here](https://ci.apache.org/projects/ofbiz/rat-output.html)
+There is also the [RAT builder](https://ci.apache.org/builders/ofbizTrunkFrameworkRat). It checks the licenses in OFBiz. You can find the result [here](https://ci.apache.org/projects/ofbiz/rat-output.html)
 
 
 ### tests results
 Here are the [test results](ci.apache.org/projects/ofbiz/logs/)
-The folders structure [will soon be updated](https://issues.apache.org/jira/browse/INFRA-15842) to reflect the new svn repo structure.
+The folders structure [will soon be updated](https://issues.apache.org/jira/browse/INFRA-15842) to reflect the current svn repo structure.
 
 ### Technical information
 When you create a new branch you need to let know BuildBot about it. This because BuildBot uses svn hooks to triggers builds on commits. [The file to change is here](https://github.com/apache/infrastructure-puppet/blob/deployment/modules/subversion_server/files/hooks/buildbot_project_paths)
@@ -53,7 +53,7 @@ You can't make commit in infrastructure-puppet if you are not an infra committer
 ## Handling issues
 Sometimes (rarely) you can get transient tests errors in BuildBot. This mean tests don't all pass in BuildBot, though they pass in your local instance. In such case, it's most certainly an issue with servers. Those are hard workers and make errors from time to time, which shows that not only human make errors.
 
-Before being anything it's best to check which BuildBot step is impacted and if it exists have a look at the logfile (stdio) 
+Before doing anything it's best to check which BuildBot step is impacted, and if it exists have a look at the logfile (stdio) 
 
 Some other errors may happen, like
 * svn not updating
@@ -75,7 +75,7 @@ So the whole request is of the form
 
     force build ofbizTrunkFramework forces manual build after weird error
 
-Note though that with our last config (see [INFRA-15394](https://issues.apache.org/jira/browse/INFRA-15394)) the ofbizTrunkFrameworkPlugins and ofbizBranch17FrameworkPlugins builders are dependent and respectively automatically launched by the ofbizTrunkFramework and ofbizBranch17Framework builders but only on commits. So if you use an IRC command like `force build ofbizTrunkFramework` only this builder will be launched not the dependent ofbizTrunkFrameworkPlugins. We can't call a sheduler from IRC. It needs a svn commit.
+Note though that with our last config (see [INFRA-15394](https://issues.apache.org/jira/browse/INFRA-15394)) the ofbizTrunkFrameworkPlugins and ofbizBranch17FrameworkPlugins builders are dependent and respectively automatically launched by the ofbizTrunkFramework and ofbizBranch17Framework builders but only on commits. So if you use an IRC command like `force build ofbizTrunkFramework` only this builder will be launched not the dependent ofbizTrunkFrameworkPlugins. We can't call a scheduler from IRC. It needs a svn commit.
 
 ### Randon conflicts on port 8080 during tests
 One case which comes back from time to time is a conflit on port 8080 due to the automatic startup of tomcat. It's  due to security patches being applied on Silvanus (one of 3 the servers BuildBot uses for OFBiz, hence the random aspect, only Sylvanus is concerned). In such case we need to ask infra to manually disable Tomcat on Silvanus. This happened 4th already, last case was  [INFRA-15829](https://issues.apache.org/jira/browse/INFRA-15829)) where things are best explained.
