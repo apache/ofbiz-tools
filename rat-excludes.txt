@@ -53,8 +53,8 @@ README.md
 **/plugins/solr/webapp/solr/img/**
 **/plugins/solr/webapp/solr/js/**
 **/plugins/webpos/webapp/webpos/images/**
-**/themes/common-theme/webapp/common-theme/js/jquery/**
-**/themes/common-theme/webapp/common-theme/js/plugins/**
+**/themes/common-theme/webapp/common/js/jquery/**
+**/themes/common-theme/webapp/common/js/plugins/**
 **/themes/common-theme/webapp/images/**
 **/themes/rainbowstone/webapp/rainbowstone/flags/**
 **/themes/rainbowstone/webapp/rainbowstone/images/**
