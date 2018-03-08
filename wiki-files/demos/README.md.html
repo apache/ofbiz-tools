@@ -1,11 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <p>Three instances of OFBiz run on the OFBiz demo VM2 at https://ofbiz-vm2.apache.org.</p>
@@ -21,10 +29,10 @@
 <li>https://demo-stable.ofbiz.apache.org</li>
 <li>https://demo-old.ofbiz.apache.org</li>
 </ul>
-<p>All demos use a Let's Encrypt certificate. There is currently a bug which prevents Let's Encrypt certificate to renew every 3 months. So we need to do it by hand and you need to have a root access for that. This is how: <a href="http://markmail.org/message/7c3rxrqkn4kkm6dm" class="uri">http://markmail.org/message/7c3rxrqkn4kkm6dm</a></p>
+<p>All demos use a Let’s Encrypt certificate. There is currently a bug which prevents Let’s Encrypt certificate to renew every 3 months. So we need to do it by hand and you need to have a root access for that. This is how: <a href="http://markmail.org/message/7c3rxrqkn4kkm6dm" class="uri">http://markmail.org/message/7c3rxrqkn4kkm6dm</a></p>
 <p>The Puppet configuration is at https://github.com/apache/infrastructure-puppet/blob/deployment/data/nodes/ofbiz-vm2.apache.org.yaml</p>
 <blockquote>
-<p><em>Note</em>: <strong>Only run the ofbiz demos using the 'ofbizDemo' user, never run as root.</strong></p>
+<p><em>Note</em>: <strong>Only run the ofbiz demos using the ‘ofbizDemo’ user, never run as root.</strong></p>
 </blockquote>
 <pre><code>To do this sudo to the ofbizDemo user:
 
