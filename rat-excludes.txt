@@ -39,6 +39,7 @@ README.md
 .*gitignore
 .*hgignore
 **/*.md
+**/*.adoc
 **/robots.txt
 
 **/docbook/**
