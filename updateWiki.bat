@@ -1,4 +1,4 @@
-pandoc README.md -s -o tools/wiki-files/README.md.html
+call asciidoctor README.adoc -o tools/wiki-files/README.html
 
 pandoc applications/datamodel/DATAMODEL_CHANGES.md -s -o tools/wiki-files/data-model/DATAMODEL_CHANGES.md.html
 

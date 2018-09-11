@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7.1">
+<title>Apache OFBiz®</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Uncomment @import statement below to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #ddddd8;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #ddddd8}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #ddddd8;padding-bottom:8px}
+#header .details{border-bottom:1px solid #ddddd8;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #ddddd8;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #efefed;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #efefed}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #ddddd8;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
+.literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
+@media screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock blockquote p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.5em;margin-right:.5ex;text-align:right}
+.quoteblock .quoteblock{margin-left:0;margin-right:0;padding:.5em 0;border-left:3px solid rgba(0,0,0,.6)}
+.quoteblock .quoteblock blockquote{padding:0 0 0 .75em}
+.quoteblock .quoteblock blockquote::before{display:none}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{word-spacing:0;line-height:1.6}
+.quoteblock.abstract blockquote::before,.quoteblock.abstract p::before{display:none}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd){background:#f8f8f7}
+table.stripes-none tr,table.stripes-odd tr:nth-of-type(even){background:none}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left,.imageblock[style*="float: left"]{margin:.25em .625em 1.25em 0}
+.imageblock.right,.imageblock[style*="float: right"]{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #ddddd8!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+</head>
+<body id="apache-ofbiz" class="article">
+<div id="header">
+<h1>Apache OFBiz®</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Welcome to <strong>Apache OFBiz</strong>! A powerful top level Apache software project. OFBiz
+is an Enterprise Resource Planning (ERP) System written in Java and houses a
+large set of libraries, entities, services and features to run all aspects of
+your business.</p>
+</div>
+<div class="paragraph">
+<p>For more details about OFBiz please visit the OFBiz Documentation page:</p>
+</div>
+<div class="paragraph">
+<p><a href="http://ofbiz.apache.org/documentation.html">OFBiz documentation</a></p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">OFBiz License</a></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><em>Note</em>: If you want to use Eclipse, read the "Setup eclipse project for OFBiz"
+section to set it up.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><em>Note</em>: If you want to use an external database like MySQL or PostgreSQL, read
+the "Setup an external database" section to set it up.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><em>Note</em>: If you want to run OFBiz without an internet connection, read the
+"Running gradle tasks without an internet connection" section.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><em>Note</em>: The directory structure and repositories have changed. For more
+information read the "Repository and directory structure" section.</p>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="system-requirements">System requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The only requirement to run OFBiz is to have the Java Development Kit (JDK)
+version 8 installed on your system (not just the JRE, but the full JDK) which
+you can download from the below link. Make sure of setting the $JAVA_HOME
+environment variable.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK download</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="quick-start">Quick start</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To quickly install and fire-up OFBiz, please follow the below instructions from
+the command line at the OFBiz top level directory (folder).</p>
+</div>
+<div class="sect2">
+<h3 id="prepare-ofbiz">Prepare OFBiz:</h3>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><em>Note</em>: Depending on your Internet connection speed it might take a long time
+for this step to complete if you are using OFBiz for the first time as it needs
+to download all dependencies. So please be patient!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>MS Windows: <code>gradlew cleanAll loadAll</code></p>
+</div>
+<div class="paragraph">
+<p>Unix-like OS: <code>./gradlew cleanAll loadAll</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="start-ofbiz">Start OFBiz:</h3>
+<div class="paragraph">
+<p>MS Windows: <code>gradlew ofbiz</code></p>
+</div>
+<div class="paragraph">
+<p>Unix-like OS: <code>./gradlew ofbiz</code></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><em>Note</em>: Ignore the % progress indicator because this task does not end as long
+as OFBiz is running.</p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect2">
+<h3 id="visit-ofbiz-through-your-browser">Visit OFBiz through your browser:</h3>
+<div class="paragraph">
+<p><a href="https://localhost:8443/ordermgr">Order Back Office</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://localhost:8443/accounting">Accounting Back Office</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://localhost:8443/webtools">Administrator interface</a></p>
+</div>
+<div class="paragraph">
+<p>You can log in with the user <strong>admin</strong> and password <strong>ofbiz</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+In case of problems visit our <a href="#further-reading">Further reading section</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="security">Security</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you find a security issue, please report it to: security @ ofbiz.apache.org.
+Once proper mitigations to the security issues are complete the OFBiz team will
+disclose this information to the public mailing list.</p>
+</div>
+<div class="paragraph">
+<p>You can find more information about security in OFBiz at
+<a href="https://cwiki.apache.org/confluence/display/OFBIZ/Keeping+OFBiz+secure">Keeping
+OFBiz secure</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="build-system-syntax">Build system syntax</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All build tasks are executed using the <strong>Gradle</strong> build system which is embedded
+in OFBiz. To execute build tasks go to OFBiz top-level directory (folder) and
+execute tasks from there.</p>
+</div>
+<div class="sect2">
+<h3 id="operating-system-syntax">Operating System Syntax</h3>
+<div class="paragraph">
+<p>The syntax for tasks differ slightly between windows and Unix-like systems</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Windows</strong>: <code>gradlew &lt;tasks-in-here&gt;</code></p>
+</li>
+<li>
+<p><strong>Unix-like</strong>: <code>./gradlew &lt;tasks-in-here&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For the rest of this document, we will use the windows syntax, if you are on a
+Unix-like system, you need to add the <code>./</code> to gradlew</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="types-of-tasks-in-gradle">Types of tasks in Gradle</h3>
+<div class="paragraph">
+<p>There are two types of tasks designed for OFBiz in Gradle:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Standard tasks</strong>: To execute general standard Gradle tasks</p>
+</li>
+<li>
+<p><strong>OFBiz server tasks</strong>: To execute OFBiz startup commands. These tasks start
+with one of the following words:</p>
+</li>
+<li>
+<p><strong>ofbiz</strong> : standard server commands</p>
+</li>
+<li>
+<p><strong>ofbizDebug</strong> : server commands running in remote debug mode</p>
+</li>
+<li>
+<p><strong>ofbizBackground</strong> ; server commands running in a background forked process</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Tips:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>OFBiz <strong>server commands</strong> require <strong>"quoting"</strong> the commands. For example:
+<code>gradlew "ofbiz --help"</code></p>
+</li>
+<li>
+<p>Shortcuts to task names can be used by writing the first letter of every word
+in a task name. However, you cannot use the shortcut form for OFBiz server
+tasks. Example: <code>gradlew loadAdminUserLogin -PuserLoginId=myadmin</code> =
+<code>gradlew lAUL -PuserLoginId=myadmin</code></p>
+</li>
+<li>
+<p>Dependent tasks can be skipped with the -x switch. Example:
+<code>gradlew build -x test</code> does not run the tests within the build.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="example-standard-tasks">Example standard tasks</h4>
+<div class="paragraph">
+<p><code>gradlew build</code></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew cleanAll loadAll testIntegration</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-ofbiz-server-tasks">Example OFBiz server tasks</h4>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --help"</code></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbizDebug --test"</code></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbizBackground --start --portoffset 10000"</code></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --shutdown --portoffset 10000"</code></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew ofbiz</code> (default is --start)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-mixed-tasks-standard-and-ofbiz-server">Example mixed tasks (standard and OFBiz server)</h4>
+<div class="paragraph">
+<p><code>gradlew cleanAll loadAll "ofbiz --start --portoffset 10000"</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="quick-reference">Quick reference</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use the below common list of tasks as a quick reference for controlling
+the system. This document uses the windows task syntax, if you are on a
+Unix-like system, you need to add the <code>./</code> to gradlew i.e. <code>./gradlew</code></p>
+</div>
+<div class="sect2">
+<h3 id="help-tasks">Help tasks</h3>
+<div class="sect3">
+<h4 id="list-ofbiz-server-commands">List OFBiz server commands</h4>
+<div class="paragraph">
+<p>List all available commands to control the OFBiz server</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --help"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-build-tasks">List build tasks</h4>
+<div class="paragraph">
+<p>List all available tasks from the build system</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew tasks</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-build-projects">List build projects</h4>
+<div class="paragraph">
+<p>List all available projects in the build system</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew projects</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="gradle-build-system-help">Gradle build system help</h4>
+<div class="paragraph">
+<p>Show usage and options for the Gradle build system</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew --help</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="server-command-tasks">Server command tasks</h3>
+<div class="sect3">
+<h4 id="start-ofbiz-1">Start OFBiz</h4>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --start"</code></p>
+</div>
+<div class="paragraph">
+<p>start is the default server task so this also works:</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew ofbiz</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="shutdown-ofbiz">Shutdown OFBiz</h4>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --shutdown"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-ofbiz-status">Get OFBiz status</h4>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --status"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="force-ofbiz-shutdown">Force OFBiz shutdown</h4>
+<div class="paragraph">
+<p>Terminate all running OFBiz server instances by calling the appropriate
+operating system kill command. Use this command to force OFBiz termination if
+the --shutdown command does not work. Usually this is needed when in the middle
+of data loading or testing in OFBiz.</p>
+</div>
+<div class="paragraph">
+<p>Warning: Be careful in using this command as force termination might lead to
+inconsistent state / data</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew terminateOfbiz</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="start-ofbiz-in-remote-debug-mode">Start OFBiz in remote debug mode</h4>
+<div class="paragraph">
+<p>Starts OFBiz in remote debug mode and waits for debugger or IDEs to connect on
+port <strong>5005</strong></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbizDebug --start"</code></p>
+</div>
+<div class="paragraph">
+<p>OR</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew ofbizDebug</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="start-ofbiz-on-a-different-port">Start OFBiz on a different port</h4>
+<div class="paragraph">
+<p>Start OFBiz of the network port offsetted by the range provided in the argument
+to --portoffset</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --start --portoffset 10000"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="start-ofbiz-in-the-background">Start OFBiz in the background</h4>
+<div class="paragraph">
+<p>Start OFBiz in the background by forking it to a new process and redirecting the
+output to <strong>runtime/logs/console.log</strong></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbizBackground --start"</code></p>
+</div>
+<div class="paragraph">
+<p>OR</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew ofbizBackground</code></p>
+</div>
+<div class="paragraph">
+<p>You can also offset the port, for example:</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbizBackground --start --portoffset 10000"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="passing-jvm-runtime-options-to-ofbiz">Passing JVM runtime options to OFBiz</h4>
+<div class="paragraph">
+<p>You can pass JVM runtime options by specifying the project property <code>-PjvmArgs</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew ofbiz -PjvmArgs="-Xms1024M -Xmx2048M" -Dsome.parameter=hello</code></p>
+</div>
+<div class="paragraph">
+<p>If you do not specify <code>jvmArgs</code>, a default of <code>-Xms128M -Xmx1024M</code> is set.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-loading-tasks">Data loading tasks</h3>
+<div class="paragraph">
+<p>OFBiz contains the following data reader types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>seed</strong>: OFBiz and External Seed Data - to be maintained along with source and
+updated whenever a system deployment is updated</p>
+</li>
+<li>
+<p><strong>seed-initial</strong>: OFBiz and External Seed Data - to be maintained along with
+source like other seed data, but only loaded initially and not updated when a
+system is updated except manually reviewing each line</p>
+</li>
+<li>
+<p><strong>demo</strong>: OFBiz Only Demo Data</p>
+</li>
+<li>
+<p><strong>ext</strong>: External General Data (custom)</p>
+</li>
+<li>
+<p><strong>ext-test</strong>: External Test Data (custom)</p>
+</li>
+<li>
+<p><strong>ext-demo</strong>: External Demo Data (custom)</p>
+</li>
+<li>
+<p><strong>tenant</strong>: Data to load into the master tenants database "ofbiztenant". This
+data is required to identify where a tenant&#8217;s database is located. For more
+information you can review the relevant
+<a href="https://cwiki.apache.org/confluence/display/OFBIZ/Multitenancy+support">tenant
+documentation</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Available options for the --load-data server command are the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>readers=[name]</strong>: only load data from certain readers separated by comma. e.g.
+seed,seed-initial,ext</p>
+</li>
+<li>
+<p><strong>file=[path]</strong>: load a single file from location or several files separated by
+commas. e.g. /my/file/1,/my/file/2</p>
+</li>
+<li>
+<p><strong>dir=[path]</strong>: load all data files found in directory</p>
+</li>
+<li>
+<p><strong>component=[name]</strong>: only load data from a specific component. e.g. base</p>
+</li>
+<li>
+<p><strong>delegator=[name]</strong>: use the defined delegator. Default is "default". If the
+value passed is <strong>"all-tenants"</strong> then OFBiz will load the data for all defined
+tenants in the system.</p>
+</li>
+<li>
+<p><strong>group=[name]</strong>: override the entity group (org.apache.ofbiz). e.g.
+com.example.something</p>
+</li>
+<li>
+<p><strong>timeout=[millis]</strong>: timeout in milliseconds</p>
+</li>
+<li>
+<p><strong>create-pks</strong>: create primary keys</p>
+</li>
+<li>
+<p><strong>drop-pks</strong>: drop primary keys</p>
+</li>
+<li>
+<p><strong>create-constraints</strong>: create indexes and foreign keys after loading</p>
+</li>
+<li>
+<p><strong>drop-constraints</strong>: drop indexes and foreign keys before loading</p>
+</li>
+<li>
+<p><strong>create-fks</strong>: create dummy (placeholder) foreign keys</p>
+</li>
+<li>
+<p><strong>maintain-txs</strong>: maintain timestamps in data file</p>
+</li>
+<li>
+<p><strong>try-inserts</strong>: use mostly inserts</p>
+</li>
+<li>
+<p><strong>repair-columns</strong>: repair column sizes (default is true w/ drop-constraints)</p>
+</li>
+<li>
+<p><strong>continue-on-failure</strong>: By default OFBiz will fail and stop if it is unable to
+load any of the files it is attempting to load. By passing this property OFBiz
+will ignore failures and continue loading all files</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="load-specific-ofbiz-data">Load specific OFBiz data</h4>
+<div class="paragraph">
+<p>you can choose which data readers to pass in the following syntax:</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --load-data readers=&lt;readers-here-comma-separated&gt;"</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --load-data readers=seed,seed-initial,ext,ext-demo"</code></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre> Beware that copying this command in Microsoft Word will automatically transform
+the double dash in en dashes (Unicode 0x2013: –) Other cases not related to Word
+were also reported.So when this command does not work check that you are using
+dash! text</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="load-all-ofbiz-data">Load all OFBiz data</h4>
+<div class="paragraph">
+<p>Loads all data sets; meant for initial loading of generic OFBiz data. Can be
+applied for development, testing, demonstration, etc. purposes. Be aware that
+executing this task can result in your data being overwritten in your database
+of choice. Use with caution in production environments.</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew loadAll</code></p>
+</div>
+<div class="paragraph">
+<p>OR</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --load-data"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="load-seed-data">Load seed data</h4>
+<div class="paragraph">
+<p>Load ONLY the seed data (not seed-initial, demo, ext* or anything else); meant
+for use after an update of the code to reload the seed data as it is generally
+maintained along with the code and needs to be in sync for operation</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --load-data readers=seed"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="load-ext-data">load ext data</h4>
+<div class="paragraph">
+<p>Load seed, seed-initial and ext data; meant for manual/generic testing,
+development, or going into production with a derived system based on stock OFBiz
+where the ext data basically replaces the demo data</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --load-data readers=seed,seed-initial,ext"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="load-ext-test-data">load ext test data</h4>
+<div class="paragraph">
+<p>Load seed, seed-initial, ext and ext-test data; meant for automated testing with
+a derived system based on stock OFBiz</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --load-data readers=seed,seed-initial,ext,ext-test"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="load-data-from-an-entity-file">load data from an entity file</h4>
+<div class="paragraph">
+<p>Load data from an XML file holding entity data.</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --load-data file=foo/bar/FileNameHere.xml"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="create-a-new-tenant">create a new tenant</h4>
+<div class="paragraph">
+<p>Create a new tenant in your environment, create the delegator, load initial data
+with admin-user and password (needs multitenant=Y in general.properties). The
+following project parameters are passed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>tenantId: mandatory</p>
+</li>
+<li>
+<p>tenantName: optional, default is value of tenantId</p>
+</li>
+<li>
+<p>domainName: optional, default is org.apache.ofbiz</p>
+</li>
+<li>
+<p>tenantReaders: optional, default value is seed,seed-initial,demo</p>
+</li>
+<li>
+<p>dbPlatform: optional, D(Derby), M(MySQL), O(Oracle), P(PostgreSQL) (default D)</p>
+</li>
+<li>
+<p>dbIp: optional, ip address of the database</p>
+</li>
+<li>
+<p>dbUser: optional, username of the database</p>
+</li>
+<li>
+<p>dbPassword: optional, password of the database</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>gradlew createTenant -PtenantId=mytenant</code></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew createTenant -PtenantId=mytenant -PtenantName="My Name" -PdomainName=com.example -PtenantReaders=seed,seed-initial,ext -PdbPlatform=M -PdbIp=127.0.0.1 -PdbUser=mydbuser -PdbPassword=mydbpass</code></p>
+</div>
+<div class="paragraph">
+<p>If run successfully, the system creates a new tenant having:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>delegator: default#${tenandId} (e.g. default#mytenant)</p>
+</li>
+<li>
+<p>admin user: ${tenantId}-admin (e.g. mytenant-admin)</p>
+</li>
+<li>
+<p>admin user password: ofbiz</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="load-data-for-a-specific-tenant">load data for a specific tenant</h4>
+<div class="paragraph">
+<p>Load data for one specific tenant in a multitenant environment. Note that you
+must set multitenant=Y in general.properties and the following project
+parameters are passed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>tenantId (mandatory)</p>
+</li>
+<li>
+<p>tenantReaders (optional)</p>
+</li>
+<li>
+<p>tenantComponent (optional)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>gradlew loadTenant -PtenantId=mytenant</code></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew loadTenant -PtenantId=mytenant -PtenantReaders=seed,seed-initial,demo -PtenantComponent=base</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="testing-tasks">Testing tasks</h3>
+<div class="sect3">
+<h4 id="execute-all-unit-tests">Execute all unit tests</h4>
+<div class="paragraph">
+<p><code>gradlew test</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="execute-all-integration-tests">Execute all integration tests</h4>
+<div class="paragraph">
+<p><code>gradlew testIntegration</code></p>
+</div>
+<div class="paragraph">
+<p>OR</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew 'ofbiz --test'</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="execute-integration-tests-with-a-different-log-level">Execute integration tests with a different log level</h4>
+<div class="paragraph">
+<p>It is possible to start integration tests with a log level different from the
+default one. The log levels allowed are listed below from most verbose to least
+verbose:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>always</p>
+</li>
+<li>
+<p>verbose</p>
+</li>
+<li>
+<p>timing</p>
+</li>
+<li>
+<p>info</p>
+</li>
+<li>
+<p>important</p>
+</li>
+<li>
+<p>warning</p>
+</li>
+<li>
+<p>error</p>
+</li>
+<li>
+<p>fatal</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --test loglevel=fatal"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="execute-an-integration-test-case">Execute an integration test case</h4>
+<div class="paragraph">
+<p>run a test case, in this example the component is "entity" and the case name is
+"entity-tests"</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --test component=entity --test suitename=entitytests --test case=entity-query-tests"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="execute-an-integration-test-case-in-debug-mode-with-verbose-log">Execute an integration test case in debug mode with verbose log</h4>
+<div class="paragraph">
+<p>listens on port <strong>5005</strong></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbizDebug --test component=entity --test loglevel=verbose"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="execute-an-integration-test-suite">Execute an integration test suite</h4>
+<div class="paragraph">
+<p><code>gradlew "ofbiz --test component=entity --test suitename=entitytests"</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="execute-an-integration-test-suite-in-debug-mode">Execute an integration test suite in debug mode</h4>
+<div class="paragraph">
+<p>listens on port <strong>5005</strong></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew "ofbizDebug --test component=entity --test suitename=entitytests"</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous-tasks">Miscellaneous tasks</h3>
+<div class="sect3">
+<h4 id="run-all-tests-on-a-clean-system">Run all tests on a clean system</h4>
+<div class="paragraph">
+<p><code>gradlew cleanAll loadAll testIntegration</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clean-all-generated-artifacts">Clean all generated artifacts</h4>
+<div class="paragraph">
+<p><code>gradlew cleanAll</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="refresh-the-generated-artifacts">Refresh the generated artifacts</h4>
+<div class="paragraph">
+<p><code>gradlew clean build</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="create-an-admin-user-account">Create an admin user account</h4>
+<div class="paragraph">
+<p>Create an admin user with login name MyUserName and default password with value
+"ofbiz". Upon first login OFBiz will request changing the default password</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew loadAdminUserLogin -PuserLoginId=MyUserName</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="compile-java-using-xlint-output">Compile Java using Xlint output</h4>
+<div class="paragraph">
+<p>Xlint prints output of all warnings detected by the compiler</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew -PXlint build</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="run-owasp-tool-to-identify-dependency-vulnerabilities-cves">Run OWASP tool to identify dependency vulnerabilities (CVEs)</h4>
+<div class="paragraph">
+<p>The below command activates a gradle plugin (OWASP) and Identifies and reports
+known vulnerabilities (CVEs) in OFBiz library dependencies. The task takes time
+to complete, and once done, a report will be generated in
+$OFBIZ_HOME/build/reports/dependency-check-report.html</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew -PenableOwasp dependencyCheckAnalyze</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setup-eclipse-project-for-ofbiz">Setup eclipse project for OFBiz</h4>
+<div class="paragraph">
+<p>Setting up OFBiz on eclipse is done by simply running the below command and then
+importing the project to eclipse. This command will generate the necessary
+<strong>.classpath</strong> and <strong>.project</strong> files for eclipse and it will also make the source
+code for external libraries available in eclipse (i.e. you can view source
+through Ctrl + Click)</p>
+</div>
+<div class="paragraph">
+<p>The first time you run this command it will take a long time to execute because
+it will download source packages available for project dependencies.</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew eclipse</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ofbiz-plugin-system">OFBiz plugin system</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OFBiz provides an extension mechanism through plugins. Plugins are standard
+OFBiz components that reside in the plugins directory. Plugins can be added
+manually or fetched from a maven repository. The standard tasks for managing
+plugins are listed below.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><em>Note</em>: OFBiz plugin versions follow <a href="http://semver.org/">Semantic Versioning
+2.0.0</a></p>
+</div>
+</blockquote>
+</div>
+<div class="sect2">
+<h3 id="pull-download-and-install-a-plugin-automatically">Pull (download and install) a plugin automatically</h3>
+<div class="paragraph">
+<p>Download a plugin with all its dependencies (plugins) and install them
+one-by-one starting with the dependencies and ending with the plugin itself.</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew pullPlugin -PdependencyId="org.apache.ofbiz.plugin:myplugin:0.1.0"</code></p>
+</div>
+<div class="paragraph">
+<p>If the plugin resides in a custom maven repository (not jcenter or localhost)
+then you can use specify the repository using below command:</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew pullPlugin -PrepoUrl="http://www.example.com/custom-maven" -PdependencyId="org.apache.ofbiz.plugin:myplugin:0.1.0"</code></p>
+</div>
+<div class="paragraph">
+<p>If you need username and password to access the custom repository:</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew pullPlugin -PrepoUrl="http://www.example.com/custom-maven" -PrepoUser=myuser -PrepoPassword=mypassword -PdependencyId="org.apache.ofbiz.plugin:myplugin:0.1.0"</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pull-an-official-plugin-from-source-control">Pull an official plugin from source control</h3>
+<div class="paragraph">
+<p>Download an official plugin from source control (currently subversion) and place
+it in the plugins directory. In addition, this task also executes the "install"
+task if it is defined for the plugin being downloaded.</p>
+</div>
+<div class="paragraph">
+<p>This task is mostly useful when working on the trunk branch as it pulls in the
+latest version of a plugin.</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew pullPluginSource -PpluginId=ecommerce</code></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><em>Note</em>: This plugin will have its own .svn directory placed inside the plugin
+directory.</p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pull-all-official-plugins-from-source-control">Pull all official plugins from source control</h3>
+<div class="paragraph">
+<p>Download all officially supported plugins from source control (currently
+subversion) and place them inclusive of their ".svn" directory in /plugins.
+WARNING! This task deletes the /plugins directory and replaces it with the
+official plugins.</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew pullAllPluginsSource</code></p>
+</div>
+<div class="paragraph">
+<p>This task makes it easy to download and develop officially supported plugins. It
+is mostly used by developers or individuals working on the trunk branch. We do
+not recommend using this task on releases of OFBiz, instead consider using the
+"pullPlugin" task to get the correct version of a plugin compatible with your
+release.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><em>Note</em>: All the plugins will share a .svn directory placed in the plugins
+directory.</p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect2">
+<h3 id="install-a-plugin">Install a plugin</h3>
+<div class="paragraph">
+<p>If you have a plugin called mycustomplugin and want to install it in OFBiz
+follow the below instructions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Extract the plugin if it is compressed</p>
+</li>
+<li>
+<p>Place the extracted directory into /plugins</p>
+</li>
+<li>
+<p>Run the below command</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>gradlew installPlugin -PpluginId=myplugin</code></p>
+</div>
+<div class="paragraph">
+<p>The above commands executes the task "install" in the plugin&#8217;s build.gradle file
+if it exists</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="uninstall-a-plugin">Uninstall a plugin</h3>
+<div class="paragraph">
+<p>If you have an existing plugin called mycustomplugin and you wish to uninstall
+run the below command</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew uninstallPlugin -PpluginId=myplugin</code></p>
+</div>
+<div class="paragraph">
+<p>The above command executes the task "uninstall" in the plugin&#8217;s build.gradle
+file if it exists</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="remove-a-plugin">Remove a plugin</h3>
+<div class="paragraph">
+<p>Calls <strong>uninstallPlugin</strong> on an existing plugin and then delete it from the
+file-system</p>
+</div>
+<div class="paragraph">
+<p><code>gradlew removePlugin -PpluginId=myplugin</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="create-a-new-plugin">Create a new plugin</h3>
+<div class="paragraph">
+<p>Create a new plugin. The following project parameters are passed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>pluginId: mandatory</p>
+</li>
+<li>
+<p>pluginResourceName: optional, default is the Capitalized value of pluginId</p>
+</li>
+<li>
+<p>webappName: optional, default is the value of pluginId</p>
+</li>
+<li>
+<p>basePermission: optional, default is the UPPERCASE value of pluginId</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>gradlew createPlugin -PpluginId=myplugin</code></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew createPlugin -PpluginId=myplugin -PpluginResourceName=MyPlugin -PwebappName=mypluginweb -PbasePermission=MYSECURITY</code></p>
+</div>
+<div class="paragraph">
+<p>The above command creates a new plugin in /plugins/myplugin</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="push-a-plugin-to-a-repository">Push a plugin to a repository</h3>
+<div class="paragraph">
+<p>This task publishes an OFBiz plugin into a maven package and then uploads it to
+a maven repository. Currently, pushing is limited to localhost maven repository
+(work in progress). To push a plugin the following parameters are passed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>pluginId: mandatory</p>
+</li>
+<li>
+<p>groupId: optional, defaults to org.apache.ofbiz.plugin</p>
+</li>
+<li>
+<p>pluginVersion: optional, defaults to 0.1.0-SNAPSHOT</p>
+</li>
+<li>
+<p>pluginDescription: optional, defaults to "Publication of OFBiz plugin
+${pluginId}"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>gradlew pushPlugin -PpluginId=myplugin</code></p>
+</div>
+<div class="paragraph">
+<p><code>gradlew pushPlugin -PpluginId=mycompany -PpluginGroup=com.mycompany.ofbiz.plugin -PpluginVersion=1.2.3 -PpluginDescription="Introduce special functionality X"</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="miscellaneous-documentation">Miscellaneous Documentation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="further-reading">Further reading</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://cwiki.apache.org/confluence/display/OFBIZ/FAQ+-Tips-Tricks-Cookbook-+HowTo#FAQ-Tips-Tricks-Cookbook-HowTo-Knownissues">Known
+issues</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="repository-and-directory-structure">Repository and directory structure</h3>
+<div class="paragraph">
+<p>OFBiz is split into two repositories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ofbiz-framework</strong>: Contains the core framework and main applications in the
+system like accounting, party, order, etc</p>
+</li>
+<li>
+<p><strong>ofbiz-plugins</strong>: Renamed from "special-purpose" and contains optional
+components that are officially supported by the community</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Furthermore, the hot-deploy directory is removed as the plugins directory works
+as a replacement for both "special-purpose" and "hot-deploy".</p>
+</div>
+<div class="paragraph">
+<p>If you need to load the components in the plugins directory in a specific order
+place a component-load.xml file in the plugins directory listing the order.</p>
+</div>
+<div class="paragraph">
+<p>To check out a plugin from source control use the <strong>pullPluginSource</strong> Gradle
+task. To check out all plugins from source control use the
+<strong>pullAllPluginsSource</strong>. <strong>Beware</strong> this deletes a previously existing plugins
+directory.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="running-gradle-tasks-without-an-internet-connection">Running gradle tasks without an internet connection</h3>
+<div class="paragraph">
+<p>OFBiz must run with an internet connection the <strong>first time</strong> it is prepared on
+the system because it needs to download all the required dependencies.</p>
+</div>
+<div class="paragraph">
+<p>After preparing OFBiz the first time correctly, it is possible to run OFBiz
+without an internet connection by using the <code>--offline</code> command line switch
+which tells Gradle to fetch its dependencies from the cache.</p>
+</div>
+<div class="paragraph">
+<p>If any dependencies are missing from the cache and you pass <code>--offline</code> switch
+then the build execution will fail.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setup-an-external-database-like-mysql-postgresql-etc">Setup an external database like MySQL, PostgreSQL, etc</h3>
+<div class="paragraph">
+<p>To setup an external database instead of the default embedded Apache Derby, you
+will need to follow the following instructions:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Find the JDBC driver suitable for your database using one of the following
+options:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Search for the JDBC driver in <a href="https://bintray.com/bintray/jcenter">jcenter</a> and
+place it in build.gradle dependencies e.g.
+<code>runtime 'mysql:mysql-connector-java:5.1.36'</code></p>
+<div class="paragraph">
+<p>OR</p>
+</div>
+</li>
+<li>
+<p>Download the JDBC driver jar and place it in $OFBIZ_HOME/lib or the lib
+sub-directory of any component</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Modify the entityengine.xml file located in
+$OFBIZ_HOME/framework/entity/config to switch the default database to the one
+you selected. For more details you can read the relevant section in the
+<a href="https://cwiki.apache.org/confluence/display/OFBIZ/Apache+OFBiz+Technical+Production+Setup+Guide">technical
+setup guide</a></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setup-gradle-tab-completion-on-unix-like-systems">Setup gradle tab-completion on Unix-like systems:</h3>
+<div class="paragraph">
+<p>To get tab completion (auto complete gradle commands by pressing tab) you can
+download the script from the below link and place it in the appropriate location
+for your system.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://edub.me/gradle-completion-bash">Gradle tab completion</a></p>
+</div>
+<div class="paragraph">
+<p>For example, on debian based systems, you can use the following command:</p>
+</div>
+<div class="paragraph">
+<p><code>sudo curl -L -s <a href="https://edub.me/gradle-completion-bash" class="bare">https://edub.me/gradle-completion-bash</a> -o /etc/bash_completion.d/gradle-tab-completion.bash</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="crypto-notice">Crypto notice</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This distribution includes cryptographic software. The country in which you
+currently reside may have restrictions on the import, possession, use, and/or
+re-export to another country, of encryption software. BEFORE using any
+encryption software, please check your country&#8217;s laws, regulations and policies
+concerning the import, possession, or use, and re-export of encryption software,
+to see if this is permitted. See <a href="http://www.wassenaar.org/" class="bare">http://www.wassenaar.org/</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p>The U.S. Government Department of Commerce, Bureau of Industry and Security
+(BIS), has classified this software as Export Commodity Control Number (ECCN)
+5D002.C.1, which includes information security software using or performing
+cryptographic functions with asymmetric algorithms. The form and manner of this
+Apache Software Foundation distribution makes it eligible for export under the
+License Exception ENC Technology Software Unrestricted (TSU) exception (see the
+BIS Export Administration Regulations, Section 740.13) for both object code and
+source code.</p>
+</div>
+<div class="paragraph">
+<p>The following provides more details on the included cryptographic software:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Various classes in OFBiz, including DesCrypt, HashCrypt, and BlowFishCrypt use
+libraries from the Sun Java JDK API including java.security.* and javax.crypto.*
+(the JCE, Java Cryptography Extensions API)</p>
+</li>
+<li>
+<p>Other classes such as HttpClient and various related ones use the JSSE (Java
+Secure Sockets Extension) API</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-03-29 10:39:46 Paris, Madrid (heure dÆÚtÚ)
+</div>
+</div>
+</body>
+</html>
