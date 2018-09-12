@@ -42,7 +42,7 @@ There is also the [RAT builder](https://ci.apache.org/builders/ofbizTrunkFramewo
 
 
 ### tests results
-Here are the [test results](ci.apache.org/projects/ofbiz/logs/). The folders structure reflects the current svn repo structure.
+Here are the [test results](https://ci.apache.org/projects/ofbiz/logs/). The folders structure reflects the current svn repo structure.
 
 ### Technical information
 When you create a new branch you need to let know BuildBot about it. This because BuildBot uses svn hooks to triggers builds on commits. [The file to change is here](https://github.com/apache/infrastructure-puppet/blob/deployment/modules/subversion_server/files/hooks/buildbot_project_paths)
