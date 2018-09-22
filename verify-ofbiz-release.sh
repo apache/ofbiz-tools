@@ -9,31 +9,13 @@ RED='\033[0;31m'
 GRN='\033[0;32m'
 NC='\033[0m' # No Color
 
+# use english gpg output
+LC_MESSAGES=en_EN.UTF-8
+
 if [[ $# -eq 0 ]] ; then
     echo "Usage: $0 [apache-ofbiz-xx.xx.xx.zip]"
     exit 1
 fi
-
-checkMD5() {
-    file1=`gpg --print-md MD5 $1`
-    file2=`cut -d* -f1 $1.md5`
-
-    echo "md5 check of file: $1"
-    echo "Using md5 file: $1.md5"
-    echo $file1
-    echo $file2
-
-    if [ "$file1" != "$file2" ]
-    then
-        echo -e "${RED}md5 sums mismatch!${NC}"
-    else
-        echo -e "${GRN}md5 checksum OK${NC}"
-    fi
-
-    echo ""
-
-    return 0
-}
 
 checkSHA () {
     file1=`gpg --print-md SHA512 $1`
@@ -55,13 +37,6 @@ checkSHA () {
 
     return 0
 }
-
-if [ ! -f $1.md5 ];
-then
-    echo -e "${RED}skipping md5 check!${NC} (md5 checksum file $1.md5 not found)\n"
-else
-    checkMD5 $1
-fi
 
 if [ ! -f $1.sha512 ];
 then
