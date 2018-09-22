@@ -10,7 +10,7 @@ GRN='\033[0;32m'
 NC='\033[0m' # No Color
 
 # use english gpg output
-LC_MESSAGES=en_EN.UTF-8
+export LC_MESSAGES=en_EN.UTF-8
 
 if [[ $# -eq 0 ]] ; then
     echo "Usage: $0 [apache-ofbiz-xx.xx.xx.zip]"
@@ -52,3 +52,5 @@ else
     echo "GPG verification output"
     gpg --verify $1.asc $1
 fi
+
+unset LC_MESSAGES
