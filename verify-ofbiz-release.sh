@@ -9,9 +9,6 @@ RED='\033[0;31m'
 GRN='\033[0;32m'
 NC='\033[0m' # No Color
 
-# use english gpg output
-export LC_MESSAGES=en_EN.UTF-8
-
 if [[ $# -eq 0 ]] ; then
     echo "Usage: $0 [apache-ofbiz-xx.xx.xx.zip]"
     exit 1
@@ -50,7 +47,5 @@ then
     echo -e "${RED}skipping signature check!${NC} (signature file $1.asc not found)"
 else
     echo "GPG verification output"
-    gpg --verify $1.asc $1
+    LC_MESSAGES=en_EN.UTF-8 gpg --verify $1.asc $1
 fi
-
-unset LC_MESSAGES
