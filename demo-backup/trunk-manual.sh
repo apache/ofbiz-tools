@@ -1,4 +1,4 @@
-#~ #!/bin/sh
+#!/bin/sh
 
 echo This does not work, see OFBIZ-10287. You need for now to use all-manual-nicely.sh
 
@@ -10,3 +10,4 @@ echo This does not work, see OFBIZ-10287. You need for now to use all-manual-nic
 #~ ./gradlew --no-daemon loadAll
 #~ ./gradlew --no-daemon svnInfoFooter
 #~ ./gradlew --no-daemon ofbizBackground
+

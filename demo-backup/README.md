@@ -42,9 +42,12 @@ directory, it is run by an ofbiz cron job every 24 hours at 3 AM.
 You should therefore only need to start/stop manually if there is
 a problem.
 
-If you want to restart only a single instance you can respectively use
-
+~~If you want to restart only a single instance you can respectively use
 trunk-manual-nicely.sh
 stable-manual-nicely.sh
-old-manual-nicely.sh
+old-manual-nicely.sh~~
+This does not work (at least for instances using Gradle. So currently R13.07 is not affected you can use old-manual.sh).
+See why at https://issues.apache.org/jira/browse/OFBIZ-10287
+So you need to use trunk-manual-nicely.sh for now and restart all instances even if only one is changed.
+
 
