@@ -10,16 +10,17 @@ svn up
 svn revert -R *
 
 #remove user adding file not versionned
-IFS=$'\n'
-for i in $(svn st | grep ^? |cut -c 9-); do rm -fr "$i"; done;
-if [ -n "$(svn st | grep ^?)" ]; then
-    # this to remove all unsupported file name like C:/ created and not cover by previous command
-    for i in $(svn st | grep ^? |cut -c 9-); do 
-        rename_file = "$(echo $i| sed s/[:\\\ ]/_/g)";
-        mv "$i" "$rename_file";
-        rm "$rename_file";
-    done;
-fi
+	# branch13.7-demo.patch should not be removed
+		# IFS=$'\n'
+		# for i in $(svn st | grep ^? |cut -c 9-); do rm -fr "$i"; done;
+		# if [ -n "$(svn st | grep ^?)" ]; then
+			this to remove all unsupported file name like C:/ created and not cover by previous command
+			# for i in $(svn st | grep ^? |cut -c 9-); do 
+				# rename_file = "$(echo $i| sed s/[:\\\ ]/_/g)";
+				# mv "$i" "$rename_file";
+				# rm "$rename_file";
+			# done;
+		# fi
 
 #remove unecessary config for demo
 if [ -n "$(ls $OFBIZ_DIR/framework/base/config/*)" ]; then
