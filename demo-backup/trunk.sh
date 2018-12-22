@@ -10,4 +10,3 @@ rm /home/ofbizDemo/trunk/framework/base/config/jesse.properties
 ./gradlew --no-daemon loadAll
 ./gradlew --no-daemon svnInfoFooter
 ./gradlew --no-daemon ofbizBackground
-

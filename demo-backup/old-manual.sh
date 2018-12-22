@@ -9,4 +9,3 @@ rm /home/ofbizDemo/branch13.7/framework/base/config/jesse.properties
 ./ant load-demo
 ./ant svninfo
 ./ant start-batch-secure -Dportoffset=20000
-
