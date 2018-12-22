@@ -8,6 +8,7 @@ cd $OFBIZ_DIR
 
 #update source code
 svn up
+./gradlew --no-daemon pullAllPluginsSource
 
 #reset user file modification
 svn revert -R *
@@ -17,7 +18,7 @@ IFS=$'\n'
 for i in $(svn st | grep ^? |cut -c 9-); do rm -fr "$i"; done;
 if [ -n "$(svn st | grep ^?)" ]; then
     # this to remove all unsupported file name like C:/ created and not cover by previous command
-    for i in $(svn st | grep ^? |cut -c 9-); do 
+    for i in $(svn st | grep ^? |cut -c 9-); do
         rename_file = "$(echo $i| sed s/[:\\\ ]/_/g)";
         mv "$i" "$rename_file";
         rm "$rename_file";
