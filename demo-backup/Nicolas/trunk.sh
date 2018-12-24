@@ -1,4 +1,6 @@
 #!/bin/bash
+. "functions.sh"
+
 OFBIZ_DIR="/home/ofbizDemo/trunk"
 cd $OFBIZ_DIR
 
@@ -7,31 +9,12 @@ cd $OFBIZ_DIR
 ./gradlew --no-daemon cleanAll
 
 #update source code
+resetSvn $OFBIZ_DIR
 svn up
+
 ./gradlew --no-daemon pullAllPluginsSource
 
-#reset user file modification
-svn revert -R *
-
-#remove user adding file not versionned
-IFS=$'\n'
-for i in $(svn st | grep ^? |cut -c 9-); do rm -fr "$i"; done;
-if [ -n "$(svn st | grep ^?)" ]; then
-    # this to remove all unsupported file name like C:/ created and not cover by previous command
-    for i in $(svn st | grep ^? |cut -c 9-); do
-        rename_file = "$(echo $i| sed s/[:\\\ ]/_/g)";
-        mv "$i" "$rename_file";
-        rm "$rename_file";
-    done;
-fi
-
-#remove unecessary confi for demo
-if [ -n "$(ls $OFBIZ_DIR/framework/base/config/*)" ]; then
-    rm $OFBIZ_DIR/framework/base/config/*.jks
-fi
-if [ -r "$OFBIZ_DIR/framework/base/config/jesse.properties" ]; then
-    rm $OFBIZ_DIR/framework/base/config/jesse.properties
-fi
+removeUneededFiles $OFBIZ_DIR
 
 # run OFBiz
 ./gradlew --no-daemon loadAll
