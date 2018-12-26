@@ -16,6 +16,21 @@ We own 3 Apache sub domains
 
 The Puppet configuration is at 
 https://github.com/apache/infrastructure-puppet/blob/deployment/data/nodes/ofbiz-vm2.apache.org.yaml
+To modify it there is 2 possibilities.
+1. You know what you are doing or have a idea about it: 
+    * Create your own fork of https://github.com/apache/infrastructure-puppet/, 
+    * make the modifications, 
+    * push them, 
+    * ask for a Pull Request
+2. You don't know how to change things. Just create an Infra Jira asking for the wanted change...and be patient ;)
+
+To help you here is [the changes history](https://github.com/apache/infrastructure-puppet/commits/deployment/data/nodes/ofbiz-vm2.apache.org.yaml "changes history")
+
+>_Note_: To update your fork with command line:
+
+        git fetch upstream
+            If it does not work: git remote add upstream https://github.com/apache/infrastructure-puppet.git
+        git merge upstream/deployment
 
 
 >_Note_: **Only run the ofbiz demos using the 'ofbizDemo' user, never run as root.** 

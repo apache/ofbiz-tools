@@ -22,6 +22,7 @@ OFBiz uses [BuilbBot](https://en.wikipedia.org/wiki/Buildbot) as its Continuous 
 ## OFBiz and BuildBot
 
 [Here is the OFBiz BuildBot script](https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf). If you are interested on modifying it, please understand its content and read the BuildBot documentation. Note that the Infra team is always there to help you.
+There is also [a file in Git for project paths](C:\projectsASF\infrastructure-puppet\modules\subversion_server\files\hooks\buildbot_project_paths "buildbot_project_paths").
 
 
 ### Schedulers and Builders
