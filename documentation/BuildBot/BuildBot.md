@@ -79,3 +79,9 @@ Note though that with our last config (see [INFRA-15394](https://issues.apache.o
 
 ### Randon conflicts on port 8080 during tests
 One case which comes back from time to time is a conflit on port 8080 due to the automatic startup of tomcat. It's  due to security patches being applied on Silvanus (one of 3 the servers BuildBot uses for OFBiz, hence the random aspect, only Sylvanus is concerned). In such case we need to ask infra to manually disable Tomcat on Silvanus. This happened 4th already, last case was  [INFRA-15829](https://issues.apache.org/jira/browse/INFRA-15829)) where things are best explained.
+
+### Adding a new branch
+1. Copy and adapt an existing branch scheduler and builder in [the OFBiz BuildBot script](https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf). 
+2. Ask Infra for a new directories structure for the tests (eg https://issues.apache.org/jira/browse/INFRA-17513)  
+3. Adds the new branches [in the Git file for project paths](C:\projectsASF\infrastructure-puppet\modules\subversion_server\files\hooks\buildbot_project_paths "buildbot_project_paths").
+
