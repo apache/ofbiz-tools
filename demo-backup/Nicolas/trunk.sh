@@ -16,6 +16,8 @@ svn up
 
 removeUneededFiles $OFBIZ_DIR
 
+applyPatches $OFBIZ_DIR ~/patch/trunk
+
 # run OFBiz
 ./gradlew --no-daemon loadAll
 ./gradlew --no-daemon svnInfoFooter

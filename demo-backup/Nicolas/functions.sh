@@ -30,3 +30,11 @@ removeUneededFiles() {
         rm $OFBIZ_DIR/framework/base/config/jesse.properties
     fi
 }
+
+#apply patch dedicate to demo configuration
+applyPatches () {
+    cd $1
+    for i in $(ls $2); do
+        patch -p0 < $2/$i;
+    done
+}
