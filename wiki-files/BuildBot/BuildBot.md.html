@@ -37,7 +37,7 @@ under the License.
 <h2 id="what-is-builbbot-and-why-using-it">What is BuilbBot and why using it?</h2>
 <p>OFBiz uses <a href="https://en.wikipedia.org/wiki/Buildbot">BuilbBot</a> as its Continuous Integration (CI) tool. There are other CI tools <a href="https://ci.apache.org/">used at the ASF</a>.</p>
 <h2 id="ofbiz-and-buildbot">OFBiz and BuildBot</h2>
-<p><a href="https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf">Here is the OFBiz BuildBot script</a>. If you are interested on modifying it, please understand its content and read the BuildBot documentation. Note that the Infra team is always there to help you.</p>
+<p><a href="https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf">Here is the OFBiz BuildBot script</a>. If you are interested on modifying it, please understand its content and read the BuildBot documentation. Note that the Infra team is always there to help you. There is also <a href="C:\projectsASF\infrastructure-puppet\modules\subversion_server\files\hooks\buildbot_project_paths" title="buildbot_project_paths">a file in Git for project paths</a>.</p>
 <h3 id="schedulers-and-builders">Schedulers and Builders</h3>
 <p>BuildBot uses schedulers and builders. Schedulers decide which builders to trigger on svn commits.</p>
 <p>You can see the OFBiz builders and their states in the <a href="https://ci.apache.org/waterfall">common Buildbot waterfall view</a> (look for “ofb”).</p>
@@ -64,5 +64,12 @@ under the License.
 <p>Note though that with our last config (see <a href="https://issues.apache.org/jira/browse/INFRA-15394">INFRA-15394</a>) the ofbizTrunkFrameworkPlugins and ofbizBranch17FrameworkPlugins builders are dependent and respectively automatically launched by the ofbizTrunkFramework and ofbizBranch17Framework builders but only on commits. So if you use an IRC command like <code>force build ofbizTrunkFramework</code> only this builder will be launched not the dependent ofbizTrunkFrameworkPlugins. We can’t call a scheduler from IRC. It needs a svn commit.</p>
 <h3 id="randon-conflicts-on-port-8080-during-tests">Randon conflicts on port 8080 during tests</h3>
 <p>One case which comes back from time to time is a conflit on port 8080 due to the automatic startup of tomcat. It’s due to security patches being applied on Silvanus (one of 3 the servers BuildBot uses for OFBiz, hence the random aspect, only Sylvanus is concerned). In such case we need to ask infra to manually disable Tomcat on Silvanus. This happened 4th already, last case was <a href="https://issues.apache.org/jira/browse/INFRA-15829">INFRA-15829</a>) where things are best explained.</p>
+<h3 id="adding-a-new-branch">Adding a new branch</h3>
+<ol type="1">
+<li>Copy and adapt an existing branch scheduler and builder in <a href="https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf">the OFBiz BuildBot script</a>.</li>
+<li>Ask Infra for a new directories structure for the tests (eg https://issues.apache.org/jira/browse/INFRA-17513)<br />
+</li>
+<li>Adds the new branches <a href="C:\projectsASF\infrastructure-puppet\modules\subversion_server\files\hooks\buildbot_project_paths" title="buildbot_project_paths">in the Git file for project paths</a>.</li>
+</ol>
 </body>
 </html>

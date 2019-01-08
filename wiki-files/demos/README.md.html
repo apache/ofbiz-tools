@@ -29,7 +29,14 @@
 <li>https://demo-stable.ofbiz.apache.org</li>
 <li>https://demo-old.ofbiz.apache.org</li>
 </ul>
-<p>The Puppet configuration is at https://github.com/apache/infrastructure-puppet/blob/deployment/data/nodes/ofbiz-vm2.apache.org.yaml</p>
+<p>The Puppet configuration is at https://github.com/apache/infrastructure-puppet/blob/deployment/data/nodes/ofbiz-vm2.apache.org.yaml To modify it there is 2 possibilities. 1. You know what you are doing or have a idea about it: * Create your own fork of https://github.com/apache/infrastructure-puppet/, * make the modifications, * push them, * ask for a Pull Request 2. You don’t know how to change things. Just create an Infra Jira asking for the wanted change…and be patient ;)</p>
+<p>To help you here is <a href="https://github.com/apache/infrastructure-puppet/commits/deployment/data/nodes/ofbiz-vm2.apache.org.yaml" title="changes history">the changes history</a></p>
+<blockquote>
+<p><em>Note</em>: To update your fork with command line:</p>
+</blockquote>
+<pre><code>    git fetch upstream
+        If it does not work: git remote add upstream https://github.com/apache/infrastructure-puppet.git
+    git merge upstream/deployment</code></pre>
 <blockquote>
 <p><em>Note</em>: <strong>Only run the ofbiz demos using the ‘ofbizDemo’ user, never run as root.</strong></p>
 </blockquote>
@@ -49,7 +56,6 @@ being run as - it should say ofbizDemo (UID) or 9997 (GID) !
 
 Type &#39;exit&#39; to exit the ofbizDemo user and return to your normal user.</code></pre>
 <p>Also note that the demos are usually updated and started/stopped automatically using the check-svn-update.sh script in this directory, it is run by an ofbiz cron job every 24 hours at 3 AM. You should therefore only need to start/stop manually if there is a problem.</p>
-<p>If you want to restart only a single instance you can respectively use</p>
-<p>trunk-manual-nicely.sh stable-manual-nicely.sh old-manual-nicely.sh</p>
+<p><del>If you want to restart only a single instance you can respectively use trunk-manual-nicely.sh stable-manual-nicely.sh old-manual-nicely.sh</del> This does not work (at least for instances using Gradle. So currently R13.07 is not affected you can use old-manual.sh). See why at https://issues.apache.org/jira/browse/OFBIZ-10287 So you need to use trunk-manual-nicely.sh for now and restart all instances even if only one is changed.</p>
 </body>
 </html>
