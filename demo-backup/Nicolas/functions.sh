@@ -38,3 +38,10 @@ applyPatches () {
         patch -p0 < $2/$i;
     done
 }
+
+#control if gradlew is present, otherwise init it before
+checkGradlew () {
+    if [ ! -r "$OFBIZ_DIR/gradlew" ]; then
+        sh $OFBIZ_DIR/gradle/init-gradle-wrapper.sh
+    fi
+}
