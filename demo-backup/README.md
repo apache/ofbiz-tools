@@ -1,12 +1,11 @@
-Three instances of OFBiz run on the OFBiz demo VM2 at https://ofbiz-vm2.apache.org.
+Three instances of OFBiz run on the OFBiz demo VM3 at https://ofbiz-vm3.apache.org.
 
 * trunk: the trunk version
 * stable: the last stable version (currently 16.11)
 * old: the previous stable version (currently 13.07)
  
-This is the second instance of VM we use hence the 2 in its domain name.
-The root of https://ofbiz-vm2.apache.org is the so called bigfiles directory 
-which is actually at /home/ofbizDemo/big-files
+This is the 3rd instance of VM we use hence the 3 in its domain name.
+The root of https://ofbiz-vm3.apache.org is the so called bigfiles directory which is actually at /var/www/ofbiz/big-files.
 
 We own 3 Apache sub domains
 
@@ -15,22 +14,9 @@ We own 3 Apache sub domains
 * https://demo-old.ofbiz.apache.org
 
 The Puppet configuration is at 
-https://github.com/apache/infrastructure-puppet/blob/deployment/data/nodes/ofbiz-vm2.apache.org.yaml
-To modify it there is 2 possibilities.
-1. You know what you are doing or have a idea about it: 
-    * Create your own fork of https://github.com/apache/infrastructure-puppet/, 
-    * make the modifications, 
-    * push them, 
-    * ask for a Pull Request
-2. You don't know how to change things. Just create an Infra Jira asking for the wanted change...and be patient ;)
-
-To help you here is [the changes history](https://github.com/apache/infrastructure-puppet/commits/deployment/data/nodes/ofbiz-vm2.apache.org.yaml "changes history")
-
->_Note_: To update your fork with command line:
-
-        git fetch upstream
-            If it does not work: git remote add upstream https://github.com/apache/infrastructure-puppet.git
-        git merge upstream/deployment
+https://github.com/apache/infrastructure-p6/blob/production/data/nodes/ofbiz-vm3.apache.org.yaml
+It's currently impossible to directly modify, it's a private Github repo.
+Just create an Infra Jira asking for the wanted change...and be patient ;)
 
 
 >_Note_: **Only run the ofbiz demos using the 'ofbizDemo' user, never run as root.** 
@@ -39,7 +25,9 @@ To help you here is [the changes history](https://github.com/apache/infrastructu
 
     sudo -s -u ofbizDemo -H
 
-    sudo uses OTP (One Time Password), so you not only need to be registered as a sudoer (ask Infra) but also to use a tool like Donkey on Ubuntu (jleroux: I use that) to generate the OTP
+    sudo uses OTP* 
+    
+    OTP for (One Time Password). You not only need to be registered as a sudoer (ask Infra) but also to use a tool like https://reference.apache.org/committer/otp-md5 to generate the OTP
     Then you can start/stop as required.
 
     To check if the demos are being run as the ofbizDemo user:
@@ -47,15 +35,11 @@ To help you here is [the changes history](https://github.com/apache/infrastructu
     ps aux | grep ofbizDemo
 
     The first column on the left tell you the username the demo is
-    being run as - it should say ofbizDemo (UID) or 9997 (GID) !
+    being run as - it should say ofbizDemo (UID).
 
-    Type 'exit' to exit the ofbizDemo user and return to your normal user.
+    Type 'exit' to exit the ofbizDemo user and return to your username.
 
-Also note that the demos are usually updated and started/stopped
-automatically using the check-svn-update.sh script in this
-directory, it is run by an ofbiz cron job every 24 hours at 3 AM.
-You should therefore only need to start/stop manually if there is
-a problem.
+Also note that the demos are usually updated and started/stopped automatically using the check-svn-update.sh script in this directory, it is run by an ofbizDemo cron job every 24 hours at 3 AM. You should therefore only need to start/stop manually if there is a problem.
 
 ~~If you want to restart only a single instance you can respectively use
 trunk-manual-nicely.sh
@@ -65,4 +49,4 @@ This does not work (at least for instances using Gradle. So currently R13.07 is 
 See why at https://issues.apache.org/jira/browse/OFBIZ-10287
 So you need to use trunk-manual-nicely.sh for now and restart all instances even if only one is changed.
 
-
+ 

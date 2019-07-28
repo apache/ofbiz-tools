@@ -26,9 +26,6 @@ removeUneededFiles() {
     if [ -n "$(ls $OFBIZ_DIR/framework/base/config/*)" ]; then
         rm $OFBIZ_DIR/framework/base/config/*.jks
     fi
-    if [ -r "$OFBIZ_DIR/framework/base/config/jesse.properties" ]; then
-        rm $OFBIZ_DIR/framework/base/config/jesse.properties
-    fi
 }
 
 #apply patch dedicate to demo configuration
@@ -37,11 +34,4 @@ applyPatches () {
     for i in $(ls $2); do
         patch -p0 < $2/$i;
     done
-}
-
-#control if gradlew is present, otherwise init it before
-checkGradlew () {
-    if [ ! -r "$OFBIZ_DIR/gradlew" ]; then
-        sh $OFBIZ_DIR/gradle/init-gradle-wrapper.sh
-    fi
 }
