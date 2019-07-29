@@ -66,3 +66,4 @@ VERSION
 **/SamplePricatTemplate_V1.1.xlsx
 **/framework/base/src/main/java/META-INF/**
 **/.gradle/**
+**/gradle/wrapper/**
