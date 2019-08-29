@@ -32,18 +32,18 @@
 </ul>
 <p>The Puppet configuration is at https://github.com/apache/infrastructure-p6/blob/production/data/nodes/ofbiz-vm3.apache.org.yaml It’s currently impossible to directly modify, it’s a private Github repo. Just create an Infra Jira asking for the wanted change…and be patient ;)</p>
 <h1 id="actions-on-demos">Actions on demos</h1>
-<p>SSH to <em>ofbiz-vm3.apache.org</em> server (a VM actualy), then follow the below procedure.</p>
+<p>SSH to <em>ofbiz-vm3.apache.org</em> server (a VM actualy), then follow the below procedure. You will need to use OTP (One Time Password). For documentation on how to use OPIE (One time Passwords In Everything), see <a href="https://reference.apache.org/committer/opie" title="OTP doc">this page</a>.</p>
 <blockquote>
 <p><em>Note</em>: <strong>Only run the ofbiz demos using the ‘ofbizDemo’ user, never run as root.</strong></p>
 </blockquote>
-<pre><code>To do this sudo to the ofbizDemo user:
+<pre><code>You need to be registered as a sudoer (ask Infra).
+
+Then sudo to the ofbizDemo user:
 
 sudo -s -u ofbizDemo -H
-
-sudo uses OTP (One Time Password). 
-You need to be registered as a sudoer (ask Infra).
-Then to use a tool like https://reference.apache.org/committer/otp-md5 to generate the OTP
-Then you can start/stop as required.
+  
+Sudo uses OTP. Use a tool like https://reference.apache.org/committer/otp-md5 to generate the OTP
+You can then start/stop as required.
 
 To check if the demos are being run as the ofbizDemo user:
 
@@ -55,6 +55,6 @@ being run as - it should say ofbizDemo (UID).
 Type &#39;exit&#39; to exit the ofbizDemo user and return to your username.</code></pre>
 <p>Also note that the demos are usually updated and started/stopped automatically using the check-svn-update.sh script in this directory. It is run by an ofbizDemo cron job every 24 hours at 3 AM. You should therefore only need to start/stop manually if there is a problem.</p>
 <h1 id="current-restriction">Current restriction</h1>
-<p><del>If you want to restart only a single instance you can respectively use trunk-manual-nicely.sh stable-manual-nicely.sh old-manual-nicely.sh</del> This does not work, at least for instances using Gradle (currently trunk and stable, ie R16). See why at https://issues.apache.org/jira/browse/OFBIZ-10287 Hence currently R13.07 is not affected you can use <em>old-manual-nicely.sh</em> when only the old demo has issues. And you need for now to use <em>all-manual-nicely.sh</em> when trunk or/and stable are affected.</p>
+<p><del>If you want to restart only a single instance you can respectively use trunk-manual-nicely.sh stable-manual-nicely.sh old-manual-nicely.sh</del> This does not work, at least for instances using Gradle (currently trunk and stable, ie R16). See why at https://issues.apache.org/jira/browse/OFBIZ-10287 Hence currently R13.07 is not affected you can use <em>old-manual-nicely.sh</em> to only restart the old demo. And you need for now to use <em>all-manual-nicely.sh</em> when trunk or/and stable are affected.</p>
 </body>
 </html>

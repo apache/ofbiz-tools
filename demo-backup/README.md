@@ -21,17 +21,18 @@ Just create an Infra Jira asking for the wanted change...and be patient ;)
 
 # Actions on demos
 SSH to *ofbiz-vm3.apache.org* server (a VM actualy), then follow the below procedure. 
+You will need to use OTP (One Time Password). For documentation on how to use OPIE (One time Passwords In Everything), see [this page](https://reference.apache.org/committer/opie "OTP doc").
 
 >_Note_: **Only run the ofbiz demos using the 'ofbizDemo' user, never run as root.** 
     
-    To do this sudo to the ofbizDemo user:
+    You need to be registered as a sudoer (ask Infra).
+    
+    Then sudo to the ofbizDemo user:
 
     sudo -s -u ofbizDemo -H
-
-    sudo uses OTP (One Time Password). 
-    You need to be registered as a sudoer (ask Infra).
-    Then to use a tool like https://reference.apache.org/committer/otp-md5 to generate the OTP
-    Then you can start/stop as required.
+      
+    Sudo uses OTP. Use a tool like https://reference.apache.org/committer/otp-md5 to generate the OTP
+    You can then start/stop as required.
 
     To check if the demos are being run as the ofbizDemo user:
 
@@ -51,7 +52,7 @@ stable-manual-nicely.sh
 old-manual-nicely.sh~~
 This does not work, at least for instances using Gradle (currently trunk and stable, ie R16).
 See why at https://issues.apache.org/jira/browse/OFBIZ-10287 
-Hence currently R13.07 is not affected you can use *old-manual-nicely.sh* when only the old demo has issues.
+Hence currently R13.07 is not affected you can use *old-manual-nicely.sh* to only restart the old demo.
 And you need for now to use *all-manual-nicely.sh* when trunk or/and stable are affected.
 
  
