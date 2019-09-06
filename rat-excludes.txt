@@ -64,6 +64,6 @@ VERSION
 **/themes/rainbowstone/webapp/rainbowstone/*.less
 **/less.min.js
 **/SamplePricatTemplate_V1.1.xlsx
-**/framework/base/src/main/java/META-INF/**
+**/framework/base/src/main/resources/META-INF/**
 **/.gradle/**
 **/gradle/wrapper/**
