@@ -21,7 +21,7 @@ Just create an Infra Jira asking for the wanted change...and be patient ;)
 
 # Actions on demos
 SSH to *ofbiz-vm3.apache.org* server (a VM actualy), then follow the below procedure. 
-You will need to use OTP (One Time Password). For documentation on how to use OPIE (One time Passwords In Everything), see [this page](https://reference.apache.org/committer/opie "OTP doc").
+You will need to use OTP (One Time Password). For documentation on how to use OPIE (One time Passwords In Everything), see [this page](https://cwiki.apache.org/confluence/display/INFRA/OPIE "OTP doc").
 
 >_Note_: **Only run the ofbiz demos using the 'ofbizDemo' user, never run as root.** 
     
@@ -31,7 +31,7 @@ You will need to use OTP (One Time Password). For documentation on how to use OP
 
     sudo -s -u ofbizDemo -H
       
-    Sudo uses OTP. Use a tool like https://reference.apache.org/committer/otp-md5 to generate the OTP
+    Sudo uses OTP. Use a tool like https://selfserve.apache.org/otp-md5.html to generate the OTP
     You can then start/stop as required.
 
     To check if the demos are being run as the ofbizDemo user:
