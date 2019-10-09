@@ -32,7 +32,7 @@
 </ul>
 <p>The Puppet configuration is at https://github.com/apache/infrastructure-p6/blob/production/data/nodes/ofbiz-vm3.apache.org.yaml It’s currently impossible to directly modify, it’s a private Github repo. Just create an Infra Jira asking for the wanted change…and be patient ;)</p>
 <h1 id="actions-on-demos">Actions on demos</h1>
-<p>SSH to <em>ofbiz-vm3.apache.org</em> server (a VM actualy), then follow the below procedure. You will need to use OTP (One Time Password). For documentation on how to use OPIE (One time Passwords In Everything), see <a href="https://reference.apache.org/committer/opie" title="OTP doc">this page</a>.</p>
+<p>SSH to <em>ofbiz-vm3.apache.org</em> server (a VM actualy), then follow the below procedure. You will need to use OTP (One Time Password). For documentation on how to use OPIE (One time Passwords In Everything), see <a href="https://cwiki.apache.org/confluence/display/INFRA/OPIE" title="OTP doc">this page</a>.</p>
 <blockquote>
 <p><em>Note</em>: <strong>Only run the ofbiz demos using the ‘ofbizDemo’ user, never run as root.</strong></p>
 </blockquote>
@@ -42,7 +42,7 @@ Then sudo to the ofbizDemo user:
 
 sudo -s -u ofbizDemo -H
   
-Sudo uses OTP. Use a tool like https://reference.apache.org/committer/otp-md5 to generate the OTP
+Sudo uses OTP. Use a tool like https://selfserve.apache.org/otp-md5.html to generate the OTP
 You can then start/stop as required.
 
 To check if the demos are being run as the ofbizDemo user:
