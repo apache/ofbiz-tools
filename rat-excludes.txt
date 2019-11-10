@@ -39,6 +39,7 @@ VERSION
 
 .*gitignore
 .*hgignore
+.sonarcloud.properties
 **/*.md
 **/*.adoc
 **/robots.txt
@@ -64,6 +65,6 @@ VERSION
 **/themes/rainbowstone/webapp/rainbowstone/*.less
 **/less.min.js
 **/SamplePricatTemplate_V1.1.xlsx
-**/framework/base/src/main/resources/META-INF/**
+**/framework/base/src/test/resources/META-INF/**
 **/.gradle/**
 **/gradle/wrapper/**
