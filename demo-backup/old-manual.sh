@@ -1,20 +1,12 @@
 #!/bin/sh
 
-cd /home/ofbizDemo/branch13.7
+echo This cant be used alone, see OFBIZ-10287. You need for now to use all-manual-nicely.sh
+
+cd /home/ofbizDemo/branch16.11
 svn up
-
-#check if contrast-rO0.jar is present and apply
-if [ ! -r "contrast-rO0.jar" ]; then
-    wget -q https://svn.apache.org/repos/asf/ofbiz/branches/release15.12/tools/demo-backup/contrast-rO0.jar
-fi
-if [ ! -r "branch13.7-demo.patch" ]; then
-    wget https://svn.apache.org/repos/asf/ofbiz/tools/demo-backup/branch13.7-demo.patch
-    patch -p0 < branch13.7-demo.patch
-fi
-
-rm /home/ofbizDemo/branch13.7/framework/base/config/*.jks
-./ant stop -Dportoffset=20000
-./ant clean-all
-./ant load-demo
-./ant svninfo
-./ant start-batch-secure -Dportoffset=20000
+rm /home/ofbizDemo/branch16.11/framework/base/config/*.jks
+./gradlew --no-daemon "ofbiz --shutdown --portoffset 20000"
+./gradlew --no-daemon cleanAll
+./gradlew --no-daemon "ofbiz --load-data"
+./gradlew --no-daemon svnInfoFooter
+./gradlew --no-daemon "ofbizBackground --start --portoffset 20000"
