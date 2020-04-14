@@ -2,8 +2,8 @@
 Three instances of OFBiz run on the OFBiz demo VM3 at https://ofbiz-vm3.apache.org.
 
 * trunk: the trunk version
-* stable: the last stable version (currently 16.11)
-* old: the previous stable version (currently 13.07)
+* stable: the last stable version (currently 17.12)
+* old: the previous stable version (currently 16.11)
  
 This is the 3rd instance of VM we use hence the 3 in its domain name.
 The root of https://ofbiz-vm3.apache.org is the so called bigfiles directory which is actually at /var/www/ofbiz/big-files.
