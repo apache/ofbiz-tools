@@ -37,11 +37,21 @@ under the License.
 <h1 id="apache-ofbiz-data-model-changes">Apache OFBiz® Data Model Changes</h1>
 <p>Apache OFBiz follows <strong>The Universal Data Model</strong> by <strong>Len Silverston</strong>, with a grain of salt.</p>
 <p>The following file contains information about the data model changes in the Apache OFBiz. The detailed description of migration scripts specified here can be found at <a href="https://cwiki.apache.org/confluence/x/LoBr">Revisions Requiring Data Migration - upgrade ofbiz</a> page.</p>
+<h1 id="changes-with-ofbiz-trunk-upcoming-branch">Changes with OFBiz Trunk (Upcoming Branch)</h1>
+<h2 id="entity-changes">Entity Changes</h2>
+<p><strong>Added 1 new entity</strong> 1. ProdPromoCodeContactMech</p>
+<p><strong>Removed/Deprecate 1 entity</strong> 1. ProductPromoCodeEmail</p>
+<h2 id="field-changes">Field Changes</h2>
+<p>No changes</p>
+<h2 id="migration-scripts">Migration Scripts</h2>
+<ol type="1">
+<li>Migration service migrateProductPromoCodeEmail is implemented to migrate the ProductPromoCodeEmail entity to ProductPromoCodeContactMech. (More detail at <a href="https://issues.apache.org/jira/browse/OFBIZ-5426">OFBIZ-5426</a>)</li>
+</ol>
 <h1 id="changes-with-ofbiz-17">Changes with OFBiz 17</h1>
 <p>Field types “id-ne”, “id-long-ne” &amp; “id-vlong-ne” has been removed. Use “id”, “id-long” and “id-vlong” instead (detailed description at <a href="https://issues.apache.org/jira/browse/OFBIZ-9351">OFBIZ-9351</a>).</p>
-<h2 id="entity-changes">Entity Changes</h2>
+<h2 id="entity-changes-1">Entity Changes</h2>
 <p>No changes</p>
-<h2 id="field-changes">Field Changes</h2>
+<h2 id="field-changes-1">Field Changes</h2>
 <table>
 <thead>
 <tr class="header">
@@ -118,12 +128,12 @@ under the License.
 </tr>
 </tbody>
 </table>
-<h2 id="migration-scripts">Migration Scripts</h2>
+<h2 id="migration-scripts-1">Migration Scripts</h2>
 <ol type="1">
 <li>Updated sql-type for date-time and time field in fieldtypemysql.xml file R1793300 “Update msyql sql-type for datetime field-type to support Fractional Seconds in Time Values Please upgrade mysql to at least 5.6.4 or higher. After upgrade run ‘generateMySqlFileWithAlterTableForTimestamps’ service, groupName is required field for this service, It will generate sql file with alter query statement for date-time and time field at location”${ofbiz.home}/runtime/tempfiles/<groupName>.sql&quot; You can use execute sql statement from any of the mysql batch command.</li>
 </ol>
 <h1 id="changes-between-ofbiz-9-to-ofbiz-16">Changes between OFBiz 9 to OFBiz 16</h1>
-<h2 id="entity-changes-1">Entity Changes</h2>
+<h2 id="entity-changes-2">Entity Changes</h2>
 <p><strong>Added 77 new entities</strong></p>
 <ol type="1">
 <li>JobRequisition</li>
@@ -214,7 +224,7 @@ under the License.
 <li>TestBlob</li>
 <li>WorkEffortAssignmentRate</li>
 </ol>
-<h2 id="field-changes-1">Field Changes</h2>
+<h2 id="field-changes-2">Field Changes</h2>
 <table>
 <thead>
 <tr class="header">
