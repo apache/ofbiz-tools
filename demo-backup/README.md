@@ -46,11 +46,20 @@ You will need to use OTP (One Time Password). For documentation on how to use OP
 Also note that the demos are usually updated and started/stopped automatically using the check-svn-update.sh script in this directory. It is run by an ofbizDemo cron job every 24 hours at 3 AM. You should therefore only need to start/stop manually if there is a problem.
 
 ## Letsencrypt certificate update
-Every 3 months we need to manually update our Letsencrypt certificate. It was automated before, it's maybe again but I had no news about it. Anyway, it's quite easy to do so. Simply connect to the demo VM and run
+Every 3 months we need to manually update our Letsencrypt certificate. It was automated before, it's maybe again but I have no news about it. Anyway, it's quite easy to do so. Simply connect to the demo VM and run
 
     sudo certbot renew
 
-Done so today 2020-04-12 so next time will be few days before 2020-07-12, etc.
+I got this message today (2020-04-17):
+
+    Processing /etc/letsencrypt/renewal/ofbiz-vm3.apache.org.conf
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    Cert not yet due for renewal
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    The following certs are not due for renewal yet:
+      /etc/letsencrypt/live/ofbiz-vm3.apache.org/fullchain.pem expires on 2020-06-08 (skipped)
+    No renewals were attempted.
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 # Current restriction 
