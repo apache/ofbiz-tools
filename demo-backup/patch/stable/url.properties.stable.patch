@@ -1,0 +1,15 @@
+Index: framework/webapp/config/url.properties
+===================================================================
+--- framework/webapp/config/url.properties	(revision 1854638)
++++ framework/webapp/config/url.properties	(working copy)
+@@ -36,8 +36,8 @@
+ 
+ # Static Content URLs to make it easy to move the serving load for static content to other machines
+ # -- these are for general content such as images, js & css files, or non-dynamic HTML files
+-content.url.prefix.secure=
+-content.url.prefix.standard=
++content.url.prefix.secure=https://demo-stable.ofbiz.apache.org
++content.url.prefix.standard=https://demo-stable.ofbiz.apache.org
+ 
+ # Here you can set the domain string to use for new cookies
+ cookie.domain=
