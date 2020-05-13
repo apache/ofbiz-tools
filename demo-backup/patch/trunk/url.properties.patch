@@ -13,3 +13,4 @@ Index: framework/webapp/config/url.properties
  
  # Here you can set the domain string to use for new cookies
  cookie.domain=
+
