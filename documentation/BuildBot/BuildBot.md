@@ -62,7 +62,7 @@ Some other errors may happen, like
 
 In such case you can trigger a build from IRC to see if the problem resolves by itself. Most of the time tests and svn issues are resolved this way. If it does not then the best is to ask Infra help, either on [HipChat infra room](https://apache.hipchat.com/chat/room/669587) or through the [service desk](https://issues.apache.org/jira/servicedesk/customer/portal/1/create/3)
 
-When something like that happens, I get to IRC (using https://webchat.freenode.net). There using a recognisable username (I use jleroux) I get to the ofbiz channel. I wait for ofbiz-bot to appear, click on it, click on query and then I can make a request in the chat line to restart a build.
+When something like that happens, I get to IRC (using https://webchat.freenode.net). There using a recognisable username (I use jleroux) I get to the ofbiz channel (#ofbiz). I wait for ofbiz-bot to appear in participant panel, click on it, click on query and then I can make a request in the chat line to restart a build.
 
 A request is of the form 
 
