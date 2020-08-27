@@ -49,9 +49,8 @@ VERSION
 **/applications/content/dtd/**
 **/ping.txt
 **/.project
-**plugins/ecommerce/webapp/ecommerce/js/**
-**plugins/ecommerce/webapp/ecommerce/css/**
-**plugins/ofbiz-rest-impl/webapp/swagger/**
+**/plugins/ecommerce/webapp/ecommerce/js/**
+**/plugins/ofbiz-rest-impl/webapp/swagger/**
 **/plugins/solr/home/zoo.cfg
 **/plugins/solr/home/solrdefault/**
 **/plugins/solr/webapp/solr/**
