@@ -28,5 +28,6 @@ del C:\projectsASF\Git\ofbiz-site\dtds\docbook.xsd
 
 cd ..\ofbiz-site
 TortoiseGitProc /command:commit
+TortoiseGitProc /command:push
 
 cd ..\ofbiz-framework
