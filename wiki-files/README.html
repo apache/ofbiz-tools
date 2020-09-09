@@ -611,8 +611,19 @@ disclose this information to the public mailing list.</p>
 </div>
 <div class="paragraph">
 <p>You can find more information about security in OFBiz at
-<a href="https://cwiki.apache.org/confluence/display/OFBIZ/Keeping+OFBiz+secure">Keeping
-OFBiz secure</a></p>
+<a href="https://cwiki.apache.org/confluence/display/OFBIZ/Keeping+OFBiz+secure">Keeping OFBiz secure</a></p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Caution</div>
+</td>
+<td class="content">
+In production never use the credentials contained in demo data. Not only the admin credentials, but all of them.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -805,8 +816,7 @@ the --shutdown command does not work. Usually this is needed when in the middle
 of data loading or testing in OFBiz.</p>
 </div>
 <div class="paragraph">
-<p>Warning: Be careful in using this command as force termination might lead to
-inconsistent state / data</p>
+<p>Warning: Be careful in using this command as force termination might lead to inconsistent state / data</p>
 </div>
 <div class="paragraph">
 <p><code>gradlew terminateOfbiz</code></p>
@@ -985,7 +995,7 @@ will ignore failures and continue loading all files</p>
 <pre> Beware that copying this command in Microsoft Word will automatically transform
 the double dash in en dashes (Unicode 0x2013: –) Other cases not related to Word
 were also reported.So when this command does not work check that you are using
-dash! text</pre>
+dash!</pre>
 </div>
 </div>
 </div>
@@ -995,16 +1005,22 @@ dash! text</pre>
 <p>Loads all data sets; meant for initial loading of generic OFBiz data. Can be
 applied for development, testing, demonstration, etc. purposes. Be aware that
 executing this task can result in your data being overwritten in your database
-of choice. Use with caution in production environments.</p>
+of choice.</p>
 </div>
 <div class="paragraph">
-<p><code>gradlew loadAll</code></p>
+<p><code>gradlew loadAll</code> OR <code>gradlew "ofbiz --load-data"</code></p>
 </div>
-<div class="paragraph">
-<p>OR</p>
-</div>
-<div class="paragraph">
-<p><code>gradlew "ofbiz --load-data"</code></p>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Caution</div>
+</td>
+<td class="content">
+Use with caution in production environments.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -1693,7 +1709,7 @@ Secure Sockets Extension) API</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-08 17:08:57 +0200
+Last updated 2020-09-01 18:14:06 +0200
 </div>
 </div>
 </body>
