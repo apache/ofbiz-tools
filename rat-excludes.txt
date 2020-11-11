@@ -50,7 +50,7 @@ VERSION
 **/ping.txt
 **/.project
 **/plugins/ecommerce/webapp/ecommerce/js/**
-**/plugins/ofbiz-rest-impl/webapp/swagger/**
+**/plugins/ofbiz-rest-impl/webapp/docs/**
 **/plugins/solr/home/zoo.cfg
 **/plugins/solr/home/solrdefault/**
 **/plugins/solr/webapp/solr/**
