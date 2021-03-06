@@ -73,3 +73,6 @@ VERSION
 **/framework/base/src/main/java/META-INF/**
 **/.gradle/**
 **/gradle/wrapper/**
+**/gradle/wrapper/no-verification-metadata.xml
+**/gradle/wrapper/verification-keyring.gpg
+
