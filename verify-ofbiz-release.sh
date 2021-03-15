@@ -94,7 +94,7 @@ done
 shift $(( OPTIND - 1 ))
 
 # no remaining argument with the release name - print help and exit
-if [[ $1 -eq 0 ]] ; then
+if [ -z "$1" ] ; then
     printHelp
     exit 1
 fi
@@ -122,6 +122,7 @@ downloadFiles () {
     wget $URL/$ZIP.sha512
 
     echo 'Done!'
+    echo " "
 }
 
 verifyFiles () {
@@ -141,6 +142,8 @@ verifyFiles () {
         echo "GPG verification output"
         LC_MESSAGES=en_EN.UTF-8 gpg --verify $ZIP.asc $ZIP
     fi
+
+    echo " "
 }
 
 checkSHA () {
