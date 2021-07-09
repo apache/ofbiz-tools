@@ -66,8 +66,8 @@ VERSION
 **/themes/rainbowstone/webapp/rainbowstone/flags/**
 **/themes/rainbowstone/webapp/rainbowstone/images/**
 **/themes/rainbowstone/webapp/rainbowstone/fonts/quicksand/**
-**/themes/helveticus/webapp/helveticus/images/flags/1x1/*.svg
-**/themes/helveticus/webapp/helveticus/images/flags/4x3/*.svg
+**/themes/helveticus/webapp/helveticus/flags/1x1/*.svg
+**/themes/helveticus/webapp/helveticus/flags/4x3/*.svg
 **/themes/helveticus/webapp/helveticus/images/*.svg
 **/less.min.js
 **/SamplePricatTemplate_V1.1.xlsx
