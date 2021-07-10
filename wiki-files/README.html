@@ -448,10 +448,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="image"><a class="image" href="http://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License Apache%202.0 blue"></a></span></p>
+<p><span class="image"><a class="image" href="http://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License Apache%202.0 blue"></a></span>
+<span class="image"><a class="image" href="https://qpkb254zxeu.montastic.io"><img src="https://qpkb254zxeu.montastic.io/badge" alt="badge"></a></span></p>
 </div>
 <div class="paragraph">
-<p>If you are reading this file in AsciiDoc format you may want to see it in
+<p>If you are reading this file in AsciiDoc format you may want to see it at
 <a href="https://ci.apache.org/projects/ofbiz/site/trunk/readme/html5/README.html">HTML</a><br>
 or <a href="https://ci.apache.org/projects/ofbiz/site/trunk/readme/pdf/README.pdf">PDF</a> format</p>
 </div>
@@ -509,16 +510,35 @@ information read the "Repository and directory structure" section.</p>
 <h2 id="system-requirements">System requirements</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The only requirement to run OFBiz is to have the Java Development Kit (JDK)
-version 8 installed on your system (not just the JRE, but the full JDK) which
-you can download from the below link. Make sure of setting the $JAVA_HOME
-environment variable.</p>
+<p>The only requirements to run OFBiz is</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>to have the Java Development Kit (JDK) version 8 installed on your system
+(not just the JRE, but the full JDK) that you can download from the below link.
+Make sure of setting the $JAVA_HOME environment variable.<br>
+<a href="https://adoptopenjdk.net/">JDK download</a>, <a href="https://medium.com/@javachampions/java-is-still-free-2-0-0-6b9aa8d6d244">To know more about the JDK</a></p>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><em>Note</em>: Warning: on Windows don&#8217;t put OFBiz in a directory with space/s in the path.</p>
+</div>
+</blockquote>
 </div>
 <div class="paragraph">
 <p><a href="https://adoptopenjdk.net/">JDK download</a></p>
 </div>
-<div class="paragraph">
-<p><a href="https://medium.com/@javachampions/java-is-still-free-2-0-0-6b9aa8d6d244">To know more about the JDK</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>If on Windows, a Powershell version &gt;= 7.1.3 installed that you can download from the below link.<br>
+<a href="https://github.com/PowerShell/PowerShell">Powershell</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1398,20 +1418,12 @@ latest version of a plugin.</p>
 <div class="paragraph">
 <p><code>gradlew pullPluginSource -PpluginId=ecommerce</code></p>
 </div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p><em>Note</em>: This plugin will have its own .svn directory placed inside the plugin
-directory.</p>
-</div>
-</blockquote>
-</div>
 </div>
 <div class="sect2">
 <h3 id="pull-all-official-plugins-from-source-control">Pull all official plugins from source control</h3>
 <div class="paragraph">
 <p>Download all officially supported plugins from source control (currently
-subversion) and place them inclusive of their ".svn" directory in /plugins.
+git) and place them in /plugins.
 WARNING! This task deletes the /plugins directory and replaces it with the
 official plugins.</p>
 </div>
@@ -1424,14 +1436,6 @@ is mostly used by developers or individuals working on the trunk branch. We do
 not recommend using this task on releases of OFBiz, instead consider using the
 "pullPlugin" task to get the correct version of a plugin compatible with your
 release.</p>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p><em>Note</em>: All the plugins will share a .svn directory placed in the plugins
-directory.</p>
-</div>
-</blockquote>
 </div>
 </div>
 <div class="sect2">
@@ -1710,7 +1714,7 @@ Secure Sockets Extension) API</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-12-08 09:42:19 +0100
+Last updated 2021-07-02 11:55:31 +0200
 </div>
 </div>
 </body>
