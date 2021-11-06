@@ -2,8 +2,8 @@
 Three instances of OFBiz run on the OFBiz demo VM3 at https://ofbiz-vm3.apache.org.
 
 * trunk: the trunk version
-* stable: the last stable version (currently 17.12)
-* old: the previous stable version (currently 16.11)
+* stable: the last stable version (currently 18.12)
+* old: the previous stable version (currently 17.12)
  
 This is the 3rd instance of VM we use hence the 3 in its domain name.
 The root of https://ofbiz-vm3.apache.org is the so called bigfiles directory which is actually at /var/www/ofbiz/big-files.
@@ -45,6 +45,20 @@ You will need to use OTP (One Time Password). For documentation on how to use OP
 
 Also note that the demos are usually updated and started/stopped automatically using the check-svn-update.sh script in this directory. It is run by an ofbizDemo cron job every 24 hours at 3 AM. You should therefore only need to start/stop manually if there is a problem.
 
+## Upgrade stable and old demos
+
+You need first to create a branchAA.mm directory under the ofbizDemo directory and to clone the related releaseAA.mm in this new directory. Then to copy and apply the patches contained in the old-manual.sh and  stable-manual.sh files, read the comments in these files for details.
+
+Looking at the Puppet configuration (see above) you will see that you only need to change the old-manual.sh and  stable-manual.sh files to upgrade stable and old demos. Because they are defined in the Puppet configuration by respectively 
+
+    stable: ProxyPass / ajp://localhost:18009/  
+    old   : ProxyPass / ajp://localhost:28009/ 
+    
+Finally you need to kill the current stable and old processes before running again the demos using 
+
+    ./all-manual-nicely.sh 
+
+
 ## Letsencrypt certificate update
 Every 3 months we need to manually update our Letsencrypt certificate. It was automated before, it's maybe again but I have no news about it. Anyway, it's quite easy to do so. Simply connect to the demo VM and run
 
@@ -61,15 +75,14 @@ I got this message today (2020-04-17):
     No renewals were attempted.
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+and always since: it's OK. Nothing to do, it's automated. :)
 
 # Current restriction 
 ~~If you want to restart only a single instance you can respectively use
 trunk-manual-nicely.sh
 stable-manual-nicely.sh
 old-manual-nicely.sh~~
-This does not work, at least for instances using Gradle (currently trunk and stable, ie R16).
-See why at https://issues.apache.org/jira/browse/OFBIZ-10287 
-Hence currently R13.07 is not affected you can use *old-manual-nicely.sh* to only restart the old demo.
-And you need for now to use *all-manual-nicely.sh* when trunk or/and stable are affected.
+This does not work.See why at https://issues.apache.org/jira/browse/OFBIZ-10287
+So you need to use  ./all-manual-nicely.sh from ofbizDemo
+From time to time (every months?) better to delete nohup.out.
 
- 
