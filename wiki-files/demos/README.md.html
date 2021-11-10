@@ -20,8 +20,8 @@
 <p>Three instances of OFBiz run on the OFBiz demo VM3 at https://ofbiz-vm3.apache.org.</p>
 <ul>
 <li>trunk: the trunk version</li>
-<li>stable: the last stable version (currently 17.12)</li>
-<li>old: the previous stable version (currently 16.11)</li>
+<li>stable: the last stable version (currently 18.12)</li>
+<li>old: the previous stable version (currently 17.12)</li>
 </ul>
 <p>This is the 3rd instance of VM we use hence the 3 in its domain name. The root of https://ofbiz-vm3.apache.org is the so called bigfiles directory which is actually at /var/www/ofbiz/big-files.</p>
 <p>We own 3 Apache sub domains</p>
@@ -54,6 +54,13 @@ being run as - it should say ofbizDemo (UID).
 
 Type &#39;exit&#39; to exit the ofbizDemo user and return to your username.</code></pre>
 <p>Also note that the demos are usually updated and started/stopped automatically using the check-svn-update.sh script in this directory. It is run by an ofbizDemo cron job every 24 hours at 3 AM. You should therefore only need to start/stop manually if there is a problem.</p>
+<h2 id="upgrade-stable-and-old-demos">Upgrade stable and old demos</h2>
+<p>You need first to create a branchAA.mm directory under the ofbizDemo directory and to clone the related releaseAA.mm in this new directory. Then to copy and apply the patches contained in the old-manual.sh and stable-manual.sh files, read the comments in these files for details.</p>
+<p>Looking at the Puppet configuration (see above) you will see that you only need to change the old-manual.sh and stable-manual.sh files to upgrade stable and old demos. Because they are defined in the Puppet configuration by respectively</p>
+<pre><code>stable: ProxyPass / ajp://localhost:18009/  
+old   : ProxyPass / ajp://localhost:28009/ </code></pre>
+<p>Finally you need to kill the current stable and old processes before running again the demos using</p>
+<pre><code>./all-manual-nicely.sh </code></pre>
 <h2 id="letsencrypt-certificate-update">Letsencrypt certificate update</h2>
 <p>Every 3 months we need to manually update our Letsencrypt certificate. It was automated before, it’s maybe again but I have no news about it. Anyway, it’s quite easy to do so. Simply connect to the demo VM and run</p>
 <pre><code>sudo certbot renew</code></pre>
@@ -66,7 +73,8 @@ The following certs are not due for renewal yet:
   /etc/letsencrypt/live/ofbiz-vm3.apache.org/fullchain.pem expires on 2020-06-08 (skipped)
 No renewals were attempted.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</code></pre>
+<p>and always since: it’s OK. Nothing to do, it’s automated. :)</p>
 <h1 id="current-restriction">Current restriction</h1>
-<p><del>If you want to restart only a single instance you can respectively use trunk-manual-nicely.sh stable-manual-nicely.sh old-manual-nicely.sh</del> This does not work, at least for instances using Gradle (currently trunk and stable, ie R16). See why at https://issues.apache.org/jira/browse/OFBIZ-10287 Hence currently R13.07 is not affected you can use <em>old-manual-nicely.sh</em> to only restart the old demo. And you need for now to use <em>all-manual-nicely.sh</em> when trunk or/and stable are affected.</p>
+<p><del>If you want to restart only a single instance you can respectively use trunk-manual-nicely.sh stable-manual-nicely.sh old-manual-nicely.sh</del> This does not work.See why at https://issues.apache.org/jira/browse/OFBIZ-10287 So you need to use ./all-manual-nicely.sh from ofbizDemo From time to time (every months?) better to delete nohup.out.</p>
 </body>
 </html>
