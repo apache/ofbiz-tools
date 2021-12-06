@@ -60,7 +60,7 @@ Finally you need to kill the current stable and old processes before running aga
 
 
 ## Letsencrypt certificate update
-Every 3 months we need to manually update our Letsencrypt certificate. It was automated before, it's maybe again but I have no news about it. Anyway, it's quite easy to do so. Simply connect to the demo VM and run
+It was a time when every 3 months we needed to manually update our Letsencrypt certificate. It was automated before, it's now again, so no worries. Anyway, if necessary it's quite easy to do so. Simply connect to the demo VM and run
 
     sudo certbot renew
 
@@ -85,4 +85,10 @@ old-manual-nicely.sh~~
 This does not work.See why at https://issues.apache.org/jira/browse/OFBIZ-10287
 So you need to use  ./all-manual-nicely.sh from ofbizDemo
 From time to time (every months?) better to delete nohup.out.
+
+# Keep the VM clean
+From time to time (I'd say when it's hundreds of MB) we need to delete the nohup.out file. It's used when you manually start the demos and acts as an issues history. Then simply sign in as ofbizDemo user and delete the file.
+
+Also, it's OK for months but at some point I had to clean the Gradle cache. For now just verify with "df" command that we are not graping too much memory, around 50% on /dev/xvda1 is OK
+
 
