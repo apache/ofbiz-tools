@@ -62,7 +62,7 @@ old   : ProxyPass / ajp://localhost:28009/ </code></pre>
 <p>Finally you need to kill the current stable and old processes before running again the demos using</p>
 <pre><code>./all-manual-nicely.sh </code></pre>
 <h2 id="letsencrypt-certificate-update">Letsencrypt certificate update</h2>
-<p>Every 3 months we need to manually update our Letsencrypt certificate. It was automated before, it’s maybe again but I have no news about it. Anyway, it’s quite easy to do so. Simply connect to the demo VM and run</p>
+<p>It was a time when every 3 months we needed to manually update our Letsencrypt certificate. It was automated before, it’s now again, so no worries. Anyway, if necessary it’s quite easy to do so. Simply connect to the demo VM and run</p>
 <pre><code>sudo certbot renew</code></pre>
 <p>I got this message today (2020-04-17):</p>
 <pre><code>Processing /etc/letsencrypt/renewal/ofbiz-vm3.apache.org.conf
@@ -76,5 +76,8 @@ No renewals were attempted.
 <p>and always since: it’s OK. Nothing to do, it’s automated. :)</p>
 <h1 id="current-restriction">Current restriction</h1>
 <p><del>If you want to restart only a single instance you can respectively use trunk-manual-nicely.sh stable-manual-nicely.sh old-manual-nicely.sh</del> This does not work.See why at https://issues.apache.org/jira/browse/OFBIZ-10287 So you need to use ./all-manual-nicely.sh from ofbizDemo From time to time (every months?) better to delete nohup.out.</p>
+<h1 id="keep-the-vm-clean">Keep the VM clean</h1>
+<p>From time to time (I’d say when it’s hundreds of MB) we need to delete the nohup.out file. It’s used when you manually start the demos and acts as an issues history. Then simply sign in as ofbizDemo user and delete the file.</p>
+<p>Also, it’s OK for months but at some point I had to clean the Gradle cache. For now just verify with “df” command that we are not graping too much memory, around 50% on /dev/xvda1 is OK</p>
 </body>
 </html>
