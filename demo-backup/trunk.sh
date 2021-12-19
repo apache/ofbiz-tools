@@ -1,21 +1,21 @@
 #!/bin/sh
 
+echo This cant be used alone, see OFBIZ-10287. You need for now to use all-manual-nicely.sh
+
 cd /home/ofbizDemo/trunk
+// checkout patched files before patching them, else git pull would not work
+git checkout framework/webapp/config/url.properties
+git checkout framework/webapp/config/fop.xconf
 git pull
+patch -p0 < /home/ofbizDemo/trunk/url.properties.patch
+patch -p0 < /home/ofbizDemo/trunk/fop.xconf.patch
+
+// We don't want *.jks, we use "Let's encrypt"
 rm /home/ofbizDemo/trunk/framework/base/config/*.jks
 
-# I have decided to apply patches once for all. The reason is else they are 
-# applied once and not later. So it's easier like that. 
-# If we need to change the patches they will be reverted and applied again. 
-# Hopefully only when changing stable and old.
-
-#patch -p0 < /home/ofbizDemo/trunk/url.properties.patch
-#patch -p0 < /home/ofbizDemo/trunk/fop.xconf.patch
-
-#the ones under plugins must be applied  each time 
-# because pullAllPluginsSource removes the plugins dir
 
 ./gradlew --no-daemon pullAllPluginsSource
+// Here no need to check out, it's not a repo. So patching is OK
 cd /home/ofbizDemo/trunk/plugins
 patch -p0 < /home/ofbizDemo/trunk/solr.config.patch
 cd ..
