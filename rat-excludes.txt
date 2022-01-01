@@ -61,6 +61,7 @@ VERSION
 **/themes/common-theme/webapp/common/js/jquery/**
 **/themes/common-theme/webapp/common/js/plugins/**
 **/themes/common-theme/webapp/images/**
+# The line below is only for R18.12, should be removed whenR18.12 will be deprecated
 **/themes/common-theme/webapp/common/js/util/dompurify/**
 **/themes/common/webapp/common/js/jquery/**
 **/themes/common/webapp/common/js/plugins/**
