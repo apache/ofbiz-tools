@@ -79,8 +79,8 @@ Though today (2021-12-31) this seems to not happen anymore, one case which comes
 
 
 ### Creating a new branch
-1. Copy and adapt an existing branch scheduler and builder in [the OFBiz BuildBot script](https://svn.apache.org/repos/infra/infrastructure/buildbot/aegis/buildmaster/master1/projects/ofbiz.conf). 
+1. Copy and adapt existing branch scheduler, builder, factory, add a reference in common part and a related RAT builder in [the "ofbiz.py" OFBiz BuildBot script](https://svn.apache.org/repos/infra/infrastructure/buildbot2/projects). 
 2. Ask Infra for a new directories structure for the tests (eg https://issues.apache.org/jira/browse/INFRA-17513)  
-3. Adds the new branches [in the Git file for project paths](https://github.com/apache/infrastructure-p6/blob/production/modules/subversion_server/files/hooks/buildbot_project_paths). You can't clone, but you can make PRs via the github UI, just make a new branch and PR it.
+3. Adds the new branches [in the Git file for project paths](https://github.com/apache/infrastructure-p6/blob/production/modules/subversion_server/files/hooks/buildbot_project_paths). You can't clone, but you can make PRs via the github UI, just make a new branch and PR it. When you create a new branch you need to let know BuildBot about it. This because BuildBot uses Git hooks to triggers builds on commits. 
 4. Remove old branches if no longer supported.
 
