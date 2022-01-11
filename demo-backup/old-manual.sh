@@ -1,25 +1,24 @@
 #!/bin/sh
 
 echo This cant be used alone, see OFBIZ-10287. You need for now to use all-manual-nicely.sh
-cd /home/ofbizDemo/branch17.12
+
+cd /home/ofbizDemo/branch22.01
+
+# checkout patched files before patching them, else git pull would not work
+git checkout framework/webapp/config/url.properties
+git checkout framework/webapp/config/fop.xconf
 git pull
-rm /home/ofbizDemo/branch17.12/framework/base/config/*.jks
+patch -p0 < /home/ofbizDemo/branch22.01/url.properties.patch
+patch -p0 < /home/ofbizDemo/branch22.01/fop.xconf.patch
 
-# I have decided to apply patches once for all. The reason is else they are 
-# applied once and not later. So it's easier like that. 
-# If we need to change the patches they will be reverted and applied again. 
-# Hopefully only when changing stable and old.
+# We don't want *.jks, we use "Let's encrypt"
+rm /home/ofbizDemo/branch22.01/framework/base/config/*.jks
 
-#patch -p0 < /home/ofbizDemo/branch17.12/url.properties.patch
-#patch -p0 < /home/ofbizDemo/branch17.12/fop.xconf.patch
-
-
-#the ones under plugins must be applied  each time 
-# because pullAllPluginsSource removes the plugins dir
 
 ./gradlew --no-daemon pullAllPluginsSource
-cd /home/ofbizDemo/branch17.12/plugins
-patch -p0 < /home/ofbizDemo/branch17.12/solr.config.patch
+# Here no need to check out, it's not a repo. So patching is OK
+cd /home/ofbizDemo/branch22.01/plugins
+patch -p0 < /home/ofbizDemo/branch22.01/solr.config.patch
 cd ..
 
 ./gradlew --no-daemon "ofbiz --shutdown --portoffset 20000"

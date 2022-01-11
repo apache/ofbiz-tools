@@ -8,7 +8,7 @@ index b87a305..b87142b 100644
  
 +# complete url with protocol, domainName,port(if require), and webapp path
 +# complete url will be given preference if set
-+solr.complete.url=https://demo-old.ofbiz.apache.org/solr
++solr.complete.url=https://demo-next.ofbiz.apache.org/solr
 +
  # Global solr ECA service toggling
  # Set to true to enable solr indexing using ECAs/SECAs.

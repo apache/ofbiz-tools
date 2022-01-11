@@ -8,8 +8,8 @@ Index: framework/webapp/config/url.properties
  # -- these are for general content such as images, js & css files, or non-dynamic HTML files
 -content.url.prefix.secure=
 -content.url.prefix.standard=
-+content.url.prefix.secure=https://demo-old.ofbiz.apache.org
-+content.url.prefix.standard=https://demo-old.ofbiz.apache.org
++content.url.prefix.secure=https://demo-next.ofbiz.apache.org
++content.url.prefix.standard=https://demo-next.ofbiz.apache.org
  
  # Here you can set the domain string to use for new cookies
  cookie.domain=

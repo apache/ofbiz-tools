@@ -3,7 +3,7 @@ Three instances of OFBiz run on the OFBiz demo VM3 at https://ofbiz-vm3.apache.o
 
 * trunk: the trunk version
 * stable: the last stable version (currently 18.12)
-* old: the previous stable version (currently 17.12)
+* next: the next stable version (currently 22.01)
  
 This is the 3rd instance of VM we use hence the 3 in its domain name.
 The root of https://ofbiz-vm3.apache.org is the so called bigfiles directory which is actually at /var/www/ofbiz/big-files.
@@ -12,7 +12,7 @@ We own 3 Apache sub domains
 
 * https://demo-trunk.ofbiz.apache.org
 * https://demo-stable.ofbiz.apache.org
-* https://demo-old.ofbiz.apache.org
+* https://demo-next.ofbiz.apache.org
 
 The Puppet configuration is at 
 https://github.com/apache/infrastructure-p6/blob/production/data/nodes/ofbiz-vm3.apache.org.yaml
@@ -45,16 +45,16 @@ You will need to use OTP (One Time Password). For documentation on how to use OP
 
 Also note that the demos are usually updated and started/stopped automatically using the check-svn-update.sh script in this directory. It is run by an ofbizDemo cron job every 24 hours at 3 AM. You should therefore only need to start/stop manually if there is a problem.
 
-## Upgrade stable and old demos
+## Upgrade stable and next demos
 
-You need first to create a branchAA.mm directory under the ofbizDemo directory and to clone the related releaseAA.mm in this new directory. Then to copy and apply the patches contained in the old-manual.sh and  stable-manual.sh files, read the comments in these files for details.
+You need first to create a branchAA.mm directory under the ofbizDemo directory and to clone the related releaseAA.mm in this new directory. Then to copy and apply the patches contained in the next-manual.sh and  stable-manual.sh files, read the comments in these files for details.
 
-Looking at the Puppet configuration (see above) you will see that you only need to change the old-manual.sh and  stable-manual.sh files to upgrade stable and old demos. Because they are defined in the Puppet configuration by respectively 
+Looking at the Puppet configuration (see above) you will see that you only need to change the next-manual.sh and  stable-manual.sh files to upgrade stable and next demos. Because they are defined in the Puppet configuration by respectively 
 
     stable: ProxyPass / ajp://localhost:18009/  
-    old   : ProxyPass / ajp://localhost:28009/ 
+    next   : ProxyPass / ajp://localhost:28009/ 
     
-Finally you need to kill the current stable and old processes before running again the demos using 
+Finally you need to kill the current stable and next processes before running again the demos using 
 
     ./all-manual-nicely.sh 
 
@@ -81,7 +81,7 @@ and always since: it's OK. Nothing to do, it's automated. :)
 ~~If you want to restart only a single instance you can respectively use
 trunk-manual-nicely.sh
 stable-manual-nicely.sh
-old-manual-nicely.sh~~
+next-manual-nicely.sh~~
 This does not work.See why at https://issues.apache.org/jira/browse/OFBIZ-10287
 So you need to use  ./all-manual-nicely.sh from ofbizDemo
 From time to time (every months?) better to delete nohup.out.
