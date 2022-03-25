@@ -45,7 +45,7 @@ index 4c0d2345..b216a6d1 100644
      private static final boolean TRUST_SELF_SIGNED_CERT = getTrustSelfSignedCert();
  
      public static String makeSolrWebappUrl() {
-+        final String solrCompleteUrl = UtilProperties.getPropertyValue(solrConfigName, "solr.complete.url");
++        final String solrCompleteUrl = UtilProperties.getPropertyValue(SOLR_CONFIG_NAME, "solr.complete.url");
 +        if (UtilValidate.isNotEmpty(solrCompleteUrl)) {
 +            return solrCompleteUrl;
 +        }
