@@ -89,6 +89,6 @@ From time to time (every months?) better to delete nohup.out.
 # Keep the VM clean
 From time to time (I'd say when it's hundreds of MB) we need to delete the nohup.out file. It's used when you manually start the demos and acts as an issues history. Then simply sign in as ofbizDemo user and delete the file.
 
-Also, it's OK for months but at some point I had to clean the Gradle cache. For now just verify with "df" command that we are not graping too much memory, around 50% on /dev/xvda1 is OK
+Also, it's OK for months but at some point I had to clean the Gradle cache. For now just verify with "df" command that we are not graping too much space, around 50% on /dev/xvda1 is OK
 
 
