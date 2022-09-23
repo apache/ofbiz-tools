@@ -1,0 +1,7 @@
+diff --git birt/ofbiz-component.xml birt/ofbiz-component.xml
+index 5e58dec..b1d3d27 100644
+--- birt/ofbiz-component.xml
++++ birt/ofbiz-component.xml
+@@ -21 +21 @@
+-<ofbiz-component name="birt" enabled="true"
++<ofbiz-component name="birt" enabled="false"

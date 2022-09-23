@@ -18,6 +18,7 @@ rm /home/ofbizDemo/trunk/framework/base/config/*.jks
 # Here no need to check out, it's not a repo. So patching is OK
 cd /home/ofbizDemo/trunk/plugins
 patch -p0 < /home/ofbizDemo/trunk/solr.config.patch
+patch -p0 < /home/ofbizDemo/trunk/birt.patch
 cd ..
 
 ./gradlew --no-daemon terminateOfbiz

@@ -19,6 +19,7 @@ rm /home/ofbizDemo/branch22.01/framework/base/config/*.jks
 # Here no need to check out, it's not a repo. So patching is OK
 cd /home/ofbizDemo/branch22.01/plugins
 patch -p0 < /home/ofbizDemo/branch22.01/solr.config.patch
+patch -p0 < /home/ofbizDemo/trunk/birt.patch
 cd ..
 
 ./gradlew --no-daemon "ofbiz --shutdown --portoffset 20000"
