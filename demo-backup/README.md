@@ -76,14 +76,15 @@ I got this message today (2020-04-17):
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 and always since: it's OK. Nothing to do, it's automated. :)
+In case you get an issue, simply restart the VM. That happened once: https://issues.apache.org/jira/browse/INFRA-23637
 
 # Current restriction
 ~~If you want to restart only a single instance you can respectively use
 trunk-manual-nicely.sh
 stable-manual-nicely.sh
 next-manual-nicely.sh~~
-This does not work.See why at https://issues.apache.org/jira/browse/OFBIZ-10287
-So you need to use  ./all-manual-nicely.sh from ofbizDemo
+This does not work. See why at https://issues.apache.org/jira/browse/OFBIZ-10287
+So you need to use ./all-manual-nicely.sh from ofbizDemo
 From time to time (every months?) better to delete nohup.out.
 
 # Keep the VM clean

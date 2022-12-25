@@ -22,7 +22,7 @@ There is also [a file in Git for project paths](https://github.com/apache/infras
 
 ## OFBiz and BuildBot
 
-[Here is the OFBiz BuildBot script (ofbiz.py)](https://svn.apache.org/repos/infra/infrastructure/buildbot2/projects). If you are interested on modifying it, please understand its content and read the BuildBot documentation. Note that the Infra team is always there to help you. If you modify ofbiz.py be sure to be subscribed to private@infra.apache.org before. It's where the syntax checker can help you in case of issues. I think that not everybody can be subscribed, at least ASF members, and maybe more, better check with Infra team when needed.
+[Here is the OFBiz BuildBot script (ofbiz.py)](https://svn.apache.org/repos/infra/infrastructure/buildbot2/projects/ofbiz.py). If you are interested on modifying it, please understand its content and read the BuildBot documentation. Note that the Infra team is always there to help you. If you modify ofbiz.py be sure to be subscribed to private@infra.apache.org before. It's where the syntax checker can help you in case of issues. I think that not everybody can be subscribed, at least ASF members, and maybe more, better check with Infra team when needed.
 
 ### Schedulers and Builders
 BuildBot uses schedulers and builders. Schedulers decide which builders to trigger on Git commits.
@@ -37,11 +37,11 @@ The same apply to the current stable version (eg ofbizBranch18Framework and ofbi
 
 In an OFBiz builder page you can see [an history of the builds up to 100](https://ci2.apache.org/#/builders/49). You can see more by using [the settings page](https://ci2.apache.org/#/settings). You may want to explore more to get acquainted with the tool...
 
-There is also the RAT builder. It checks the licenses in OFBiz. You can find the trunk results [here](https://ci.apache.org/projects/ofbiz/site/trunk/rat-output.html). There are also RAT builders for the next and stable release branches.
+There is also the RAT builder. It checks the licenses in OFBiz. You can find the trunk results [here](https://nightlies.apache.org/ofbiz/trunk/rat-output.html). There are also RAT builders for the next and stable release branches.
 
 
 ### tests results
-Here are the [trunk test results](https://nightlies.apache.org/ofbiz/trunk/tests-results/). You can find the same for the next and stable release branches.
+Here are the [trunk test results](https://nightlies.apache.org/ofbiz/trunk/tests-results/). The framework results contain only the framework integration tests while the plugins results contain all the test for framework and plugins. You can find the same for the next and stable release branches. 
 
 ### Technical information
 When you create a new branch you need to let know BuildBot about it. This because BuildBot uses Git hooks to triggers builds on commits. [The file to change is here](https://github.com/apache/infrastructure-p6/blob/production/modules/subversion_server/files/hooks/buildbot_project_paths). You can't clone, but you can make PRs via the github UI, just make a new branch and PR it.
@@ -56,9 +56,11 @@ Some other errors may happen, like
 * upload not working
 * you name it...
 
-In such case you can trigger a build from IRC to see if the problem resolves by itself. Most of the time tests and issues are resolved this way. If it does not then the best is to ask Infra help, either on [Infra Slack channel](https://the-asf.slack.com/archives/CBX4TSBQ8) or by creating an [Infra Jira issue](https://issues.apache.org/jira/projects/INFRA/summary).
+~~In such case you can trigger a build from IRC to see if the problem resolves by itself.~~ This is currently no longer working, see https://issues.apache.org/jira/browse/INFRA-22297. So you need to make a small non functional reversible change, pushing it and later reverting it.
 
-When something like that happens, I get to IRC (I use https://web.libera.chat/, of course you can pick your own). There using a recognisable username (I use jleroux) I get to the #ofbiz channel. I use ofbiz-bot to make a request in the chat line at bottom to restart a build.
+Most of the time tests and issues are resolved this way. If it does not then the best is to ask Infra help, either on [Infra Slack channel](https://the-asf.slack.com/archives/CBX4TSBQ8) or by creating an [Infra Jira issue](https://issues.apache.org/jira/projects/INFRA/summary).
+
+~~When something like that happens, I get to IRC (I use https://web.libera.chat/, of course you can pick your own). There using a recognisable username (I use jleroux) I get to the #ofbiz channel. I use ofbiz-bot to make a request in the chat line at bottom to restart a build.~~
 
 A request is of the form 
 
