@@ -1,6 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 echo This cant be used alone, see OFBIZ-10287. You need for now to use all-manual-nicely.sh
+
+. ~/.sdkman/bin/sdkman-init.sh
+sdk use java 11.0.4-tem
 
 cd /home/ofbizDemo/branch18.12
 

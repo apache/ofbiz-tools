@@ -1,6 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 echo This cant be used alone, see OFBIZ-10287. You need for now to use all-manual-nicely.sh
+
+. ~/.sdkman/bin/sdkman-init.sh
+sdk use java 17.0.2-tem
 
 cd /home/ofbizDemo/trunk
 # checkout patched files before patching them, else git pull would not work
