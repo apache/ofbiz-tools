@@ -1,0 +1,1 @@
+35 2 * * *   ofbizdocker    /home/ofbizdocker/pull-rebuild-restart.sh > /home/ofbizdocker/pull-rebuild-restart.log 2>&1
