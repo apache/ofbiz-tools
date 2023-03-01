@@ -2,7 +2,7 @@ version: "2.4"
 
 services:
   ofbiz:
-    image: ofbiz-docker:latest
+    image: ghcr.io/apache/ofbiz:experimental-docker-branch-snapshot
     mem_limit: 1600M
     memswap_limit: 1600M
     cpu_shares: 200
