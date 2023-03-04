@@ -14,7 +14,7 @@ services:
       - ofbiz-postgres.env
 
   ofbiz:
-    image: ghcr.io/apache/ofbiz:experimental-docker-branch-snapshot
+    image: ghcr.io/apache/ofbiz:experimental-docker-branch-plugins-snapshot
     mem_limit: 1600M
     memswap_limit: 1600M
     cpu_shares: 200
