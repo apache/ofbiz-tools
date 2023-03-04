@@ -21,3 +21,11 @@ docker compose pull
 docker compose up --detach
 popd
 echo Exp2 docker-compose application restarted.
+
+echo Restarting exp3 docker-compose application with latest container images.
+pushd exp3
+docker compose down --volumes
+docker compose pull
+docker compose up --detach
+popd
+echo Exp3 docker-compose application restarted.
