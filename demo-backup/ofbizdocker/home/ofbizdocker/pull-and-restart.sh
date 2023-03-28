@@ -6,26 +6,12 @@ set -e
 
 cd /home/ofbizdocker
 
-echo Restarting exp1 docker-compose application with latest container images.
-pushd exp1
-docker compose down --volumes
-docker compose pull
-docker compose up --detach
-popd
-echo Exp1 docker-compose application restarted.
-
-echo Restarting exp2 docker-compose application with latest container images.
-pushd exp2
-docker compose down --volumes
-docker compose pull
-docker compose up --detach
-popd
-echo Exp2 docker-compose application restarted.
-
-echo Restarting exp3 docker-compose application with latest container images.
-pushd exp3
-docker compose down --volumes
-docker compose pull
-docker compose up --detach
-popd
-echo Exp3 docker-compose application restarted.
+for appDir in exp1 exp2 exp3; do
+    echo "Restarting $appDir docker-compose application with latest container images."
+    pushd "$appDir"
+    docker compose pull
+    docker compose down --volumes
+    docker compose up --detach
+    popd
+    echo "$appDir docker-compose application restarted."
+done

@@ -1,4 +1,6 @@
 #!/bin/bash
+set -x
+set -e
 
 echo This cant be used alone, see OFBIZ-10287. You need for now to use all-manual-nicely.sh
 
@@ -14,7 +16,7 @@ patch -p0 < /home/ofbizDemo/trunk/url.properties.patch
 patch -p0 < /home/ofbizDemo/trunk/fop.xconf.patch
 
 # We don't want *.jks, we use "Let's encrypt"
-rm /home/ofbizDemo/trunk/framework/base/config/*.jks
+rm /home/ofbizDemo/trunk/framework/base/config/*.jks || true
 
 
 ./gradlew --no-daemon pullAllPluginsSource
@@ -24,7 +26,8 @@ patch -p0 < /home/ofbizDemo/trunk/solr.config.patch
 patch -p0 < /home/ofbizDemo/trunk/birt.patch
 cd ..
 
-./gradlew --no-daemon terminateOfbiz
+./gradlew --no-daemon "ofbiz --shutdown"
+#./gradlew --no-daemon terminateOfbiz
 ./gradlew --no-daemon cleanAll
 ./gradlew --no-daemon loadAll
 ./gradlew --no-daemon gitInfoFooter
