@@ -15,8 +15,8 @@ services:
 
   ofbiz:
     image: ghcr.io/apache/ofbiz:trunk-plugins-snapshot
-    mem_limit: 1600M
-    memswap_limit: 1600M
+    mem_limit: 2400M
+    memswap_limit: 2400M
     cpu_shares: 200
     ports:
       - 127.0.0.1:8009:8009
