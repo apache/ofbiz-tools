@@ -1,0 +1,13 @@
+version: "2.4"
+
+services:
+  ofbiz:
+    image: ghcr.io/apache/ofbiz:experimental-docker-branch-preloaddemo-snapshot
+    mem_limit: 1600M
+    memswap_limit: 1600M
+    cpu_shares: 200
+    ports:
+      - 127.0.0.1:38009:8009
+    environment:
+      OFBIZ_HOST: exp1.ofbiz.apache.org
+      OFBIZ_ENABLE_AJP_PORT: 1
