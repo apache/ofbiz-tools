@@ -14,8 +14,8 @@ demo sites in the future.
 Files in this subdirectory of the ofbiz-tools repository reflect files which should be created on the root filesystem of ofbiz-vm1.apache.org with the following additions and/or settings:
 * /etc/cron.d/ofbizdocker
   * Owned by root with permissions 0644
-* /home/ofbizdocker/pull-rebuild-restart.sh
-  * Owned by ofbizdocker user with permissions 0775
+* /home/ofbizdocker/pull-and-restart.sh
+  * Owned by ofbizdocker user with permissions 0755
 * /home/ofbizdocker/ofbiz-framework
   * Git clone of https://github.com/apache/ofbiz-framework with the experimental-docker branch checked otu.
 
@@ -34,3 +34,10 @@ The `pull-and-restart.sh` script does the following:
 The `demo-trunk` application listens on AJP port 8009.
 
 If in use, the `exp1` application listens on AJP port 38009, the `exp2` application listens on AJP port 48009, and the `exp3` application listens on AJP port 58009. The Apache server on ofbiz-vm1.apache.org has been configured to reverse-proxy to these applications for hostnames exp1.ofbiz.apache.org, exp2.ofbiz.apache.org and exp3.ofbiz.apache.org respectively.
+
+
+## Default user namespace remapping
+
+The docker daemon on ofbiz-vm1.apache.org has been configured to use default user namespace remapping. This means that the UIDs of processes running within containers are mapped to a range of 'high' non-existing UIDs on the host system. Since the UIDs are non-existant, processes with those UIDs will have no priviledges on the host system.
+
+See the `dockremap` entry in file /etc/subuid to see the range of UIDs that will be used for remapping.
