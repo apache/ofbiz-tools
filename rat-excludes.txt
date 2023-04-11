@@ -20,8 +20,6 @@
 #    http://creadur.apache.org/rat/
 
 #     Files having a separate license should be ignored.
-#     For OFBiz these include
-#       - Docbook
 
 #     Also there are several files which can't or shouldn't
 #        have a license statement.
