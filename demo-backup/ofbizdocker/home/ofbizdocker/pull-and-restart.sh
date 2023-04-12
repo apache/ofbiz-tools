@@ -6,7 +6,7 @@ set -e
 
 cd /home/ofbizdocker
 
-for appDir in demo-trunk exp1 exp2 exp3; do
+for appDir in demo-trunk demo-next exp1 exp2 exp3; do
     echo "Restarting $appDir docker-compose application with latest container images."
     pushd "$appDir"
     docker compose pull

@@ -1,0 +1,31 @@
+version: "2.4"
+
+services:
+  db:
+    image: postgres:13
+    mem_limit: 300M
+    memswap_limit: 300M
+    cpu_shares: 200
+    restart: "no"
+    volumes:
+      - ./postgres-initdb.d:/docker-entrypoint-initdb.d
+    env_file:
+      - postgres.env
+      - ofbiz-postgres.env
+
+  ofbiz:
+    image: ghcr.io/apache/ofbiz:release22.01-plugins-snapshot
+    mem_limit: 2400M
+    memswap_limit: 2400M
+    cpu_shares: 200
+    ports:
+      - 127.0.0.1:28009:8009
+    volumes:
+      - ./after-config-applied.d:/docker-entrypoint-hooks/after-config-applied.d
+    env_file:
+      - ofbiz-postgres.env
+    environment:
+      OFBIZ_HOST: demo-next.ofbiz.apache.org
+      OFBIZ_ENABLE_AJP_PORT: 1
+      OFBIZ_DATA_LOAD: demo
+      OFBIZ_CONTENT_URL_PREFIX: https://demo-next.ofbiz.apache.org

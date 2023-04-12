@@ -1,7 +1,7 @@
 # Docker deployments of OFBiz
 
-As part of OFBIZ-12757 and OFBIZ-12786, docker deployments are being carried on VM ofbiz-vm1.apache.org for the
-demo-trunk site.
+As part of OFBIZ-12757, OFBIZ-12786 and OFBIZ-12798, docker deployments are being carried on VM ofbiz-vm1.apache.org for the
+demo-trunk and demo-next sites.
 
 Work under OFBIZ-12757 also created 3 experimental sites:
 * exp1.ofbiz.apache.org
@@ -32,6 +32,8 @@ The `pull-and-restart.sh` script does the following:
   * Run `docker compose up -d` to start the containers for the docker compose application.
 
 The `demo-trunk` application listens on AJP port 8009.
+
+The `demo-next` application listens on AJP port 28009.
 
 If in use, the `exp1` application listens on AJP port 38009, the `exp2` application listens on AJP port 48009, and the `exp3` application listens on AJP port 58009. The Apache server on ofbiz-vm1.apache.org has been configured to reverse-proxy to these applications for hostnames exp1.ofbiz.apache.org, exp2.ofbiz.apache.org and exp3.ofbiz.apache.org respectively.
 
