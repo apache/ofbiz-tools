@@ -43,3 +43,9 @@ If in use, the `exp1` application listens on AJP port 38009, the `exp2` applicat
 The docker daemon on ofbiz-vm1.apache.org has been configured to use default user namespace remapping. This means that the UIDs of processes running within containers are mapped to a range of 'high' non-existing UIDs on the host system. Since the UIDs are non-existant, processes with those UIDs will have no priviledges on the host system.
 
 See the `dockremap` entry in file /etc/subuid to see the range of UIDs that will be used for remapping.
+
+## Cleaning Docker disk space
+
+Every now then you need to clean the Docker disk space. [Here is a solution](https://lists.apache.org/thread/kwx91vpphrlx754pg2yyw747dz3whrjc "Daniel's solution") 
+
+At the bottom Daniel suggests to create a CRON job for that...  
