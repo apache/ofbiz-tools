@@ -1,7 +1,7 @@
 # Docker deployments of OFBiz
 
-As part of OFBIZ-12757, OFBIZ-12786 and OFBIZ-12798, docker deployments are being carried on VM ofbiz-vm1.apache.org for the
-demo-trunk and demo-next sites.
+As part of OFBIZ-12862, OFBIZ-12757, OFBIZ-12786 and OFBIZ-12798, docker deployments are being carried on VM ofbiz-vm1.apache.org for the
+demo-stable, demo-trunk and demo-next sites.
 
 Work under OFBIZ-12757 also created 3 experimental sites:
 * exp1.ofbiz.apache.org
@@ -25,13 +25,15 @@ Files in this subdirectory of the ofbiz-tools repository reflect files which sho
 At 02:35h UTC each day, the cronttab defined by `/etc/cron.d/ofbizdocker` will execute script `pull-and-restart.sh`. 
 
 The `pull-and-restart.sh` script does the following:
-* For each directory in /home/ofbizdocker/[demo-trunk, exp*]
+* For each directory in /home/ofbizdocker/[demo-stable, demo-next, demo-trunk, exp*]
   * Change to the directory.
   * Run `docker compose pull` to pull the latest container images needed to support the docker compose application.
   * Run `docker compose down --volumes` to shutdown and remove any existing containers and volumes for the docker compose application.
   * Run `docker compose up -d` to start the containers for the docker compose application.
 
 The `demo-trunk` application listens on AJP port 8009.
+
+The `demo-stable` application listens on AJP port 18009.
 
 The `demo-next` application listens on AJP port 28009.
 
@@ -46,6 +48,4 @@ See the `dockremap` entry in file /etc/subuid to see the range of UIDs that will
 
 ## Cleaning Docker disk space
 
-Every now then you need to clean the Docker disk space. [Here is a solution](https://lists.apache.org/thread/kwx91vpphrlx754pg2yyw747dz3whrjc "Daniel's solution") 
-
-At the bottom Daniel suggests to create a CRON job for that...  
+A weekly cron job, /etc/cron.weekly/docker-system-prune, runs the `docker system prune --force` command to clean up unused container images.
