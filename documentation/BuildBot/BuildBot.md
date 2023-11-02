@@ -47,7 +47,9 @@ Here are the [trunk test results](https://nightlies.apache.org/ofbiz/trunk/tests
 When you create a new branch you need to let know BuildBot about it. This because BuildBot uses Git hooks to triggers builds on commits. [The file to change is here](https://github.com/apache/infrastructure-p6/blob/production/modules/subversion_server/files/hooks/buildbot_project_paths). You can't clone, but you can make PRs via the github UI, just make a new branch and PR it.
 
 ## Handling issues
-Sometimes (rarely) you can get transient tests errors in BuildBot. This mean tests don't all pass in BuildBot, though they pass in your local instance. In such case, it's most certainly an issue with servers. Those are hard workers and make errors from time to time, which shows that not only human make errors.
+> Note: you need to be a committer
+
+Sometimes (rarely) you can get transient tests errors in BuildBot. This mean tests don't all pass in BuildBot, though they pass in your local instance. In such case, it's most certainly an issue with servers. Those are hard workers and make errors from time to time, which shows that not only human make errors :)
 
 Before doing anything it's best to check which BuildBot step is impacted, and if it exists have a look at the logfile (stdio) 
 
@@ -56,25 +58,9 @@ Some other errors may happen, like
 * upload not working
 * you name it...
 
-~~In such case you can trigger a build from IRC to see if the problem resolves by itself.~~ This is currently no longer working, see https://issues.apache.org/jira/browse/INFRA-22297. So you need to make a small non functional reversible change, pushing it and later reverting it.
+In such case, after logging in Buildbot using as credential your Apache email and your LDAP password, you can trigger a build from BuildBot UI to see if the problem resolves by itself. For that open the last commit and use the "Rebuid" button at top-right.
 
 Most of the time tests and issues are resolved this way. If it does not then the best is to ask Infra help, either on [Infra Slack channel](https://the-asf.slack.com/archives/CBX4TSBQ8) or by creating an [Infra Jira issue](https://issues.apache.org/jira/projects/INFRA/summary).
-
-~~When something like that happens, I get to IRC (I use https://web.libera.chat/, of course you can pick your own). There using a recognisable username (I use jleroux) I get to the #ofbiz channel. I use ofbiz-bot to make a request in the chat line at bottom to restart a build.~~
-
-A request is of the form 
-
-    force build ofbizTrunkFramework
-    
-you can put the text you want to appear in builder, after this expression, something like
-    
-    forces manual build after weird error
-   
-So the whole request is of the form
-
-    force build ofbizTrunkFramework forces manual build after weird error
-
-Note that with our last config (see [INFRA-15394](https://issues.apache.org/jira/browse/INFRA-15394)) the  plugins builders are dependent and automatically launched by the framework builders but only on commits. So if you use an IRC command like `force build ofbizTrunkFramework` only this builder will be launched not the dependent ofbizTrunkFrameworkPlugins. We can't call a scheduler from IRC. It needs a Git commit.
 
 ### Random conflicts on port 8080 during tests
 Though today (2021-12-31) this seems to not happen anymore, one case which comes back from time to time is a conflit on port 8080 due to the automatic startup of tomcat. It's  due to security patches being applied on one of 3 the servers BuildBot uses for OFBiz, hence the random aspect. In such case we need to ask infra to manually disable Tomcat on this server. This happened 4th times already, last case was [INFRA-15829](https://issues.apache.org/jira/browse/INFRA-15829) where things are best explained.
