@@ -49,3 +49,8 @@ See the `dockremap` entry in file /etc/subuid to see the range of UIDs that will
 ## Cleaning Docker disk space
 
 A weekly cron job, /etc/cron.weekly/docker-system-prune, runs the `docker system prune --force` command to clean up unused container images.
+
+## Viewing console log
+1. Use the ofbizdocker user : sudo -su ofbizdocker
+2. Get into the branch you want, eg /home/ofbizdocker/demo-stable
+3. View part of the log (it's huge), eg docker compose logs --tail="1000"
