@@ -20,9 +20,9 @@
 #    http://creadur.apache.org/rat/
 
 # Note: This file does not contain a list of regular expressions. Instead
-# this file is used as an excludesFile element of the Ant 
-# fileset (https://ant.apache.org/manual/Types/fileset.html) passed to the 
-# RAT report task. 
+# this file is used as an excludesFile element of the Ant
+# fileset (https://ant.apache.org/manual/Types/fileset.html) passed to the
+# RAT report task.
 # See the PatternSet documentation for more information on this file's format:
 # https://ant.apache.org/manual/Types/patternset.html
 
@@ -55,6 +55,7 @@ buildSrc/build/**
 **/applications/content/dtd/**
 **/ping.txt
 **/.project
+**/plugins/VERSION
 **/plugins/ecommerce/webapp/ecommerce/js/**
 **/plugins/example/README-react
 **/plugins/example/vite-react-app/*.json
