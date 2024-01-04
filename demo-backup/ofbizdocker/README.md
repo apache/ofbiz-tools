@@ -1,7 +1,6 @@
 # Docker deployments of OFBiz
 
-As part of OFBIZ-12862, OFBIZ-12757, OFBIZ-12786 and OFBIZ-12798, docker deployments are being carried on VM ofbiz-vm1.apache.org for the
-demo-stable, demo-trunk and demo-next sites.
+As part of OFBIZ-12862, OFBIZ-12757, OFBIZ-12786 and OFBIZ-12798, docker deployments are being carried on VM ofbiz-vm1.apache.org for the demo-stable, demo-trunk and demo-next sites.
 
 Work under OFBIZ-12757 also created 3 experimental sites:
 * exp1.ofbiz.apache.org
