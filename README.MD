@@ -1,6 +1,6 @@
 This repository is used internally by the OFBiz team to share, document and store specific tools used by the project.
 
-For instance the rat-excludes.txt file allows to exclude files that don't need a licence. It' used by BuildBot during our Continuous Integration flow (CI) by [Apache RAT](https://creadur.apache.org/rat/) to check files licences to avoid missing licence when releasing. There are other such tools in the main dir.
+For instance the rat-excludes.txt file allows to exclude files that don't need a licence. It's used during our Continuous Integration flow (CI) by BuildBot calling [Apache RAT](https://creadur.apache.org/rat/) to check files licences. This in order to avoid missing licence when releasing. There are other tools in the main dir.
 
 As its name explains the documentation dir contains documents, notably one about our BuildBot usage inside our CI flow.
 
