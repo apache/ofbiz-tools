@@ -23,27 +23,22 @@ Just create an Infra Jira asking for the wanted change...and be patient ;)
 SSH to *ofbiz-vm1.apache.org* server (a VM actualy), then follow the below procedure.
 You will need to use OTP (One Time Password). For documentation on how to use OPIE (One time Passwords In Everything), see [this page](https://cwiki.apache.org/confluence/display/INFRA/OPIE "OTP doc").
 
->_Note_: **Only run the ofbiz demos using the 'ofbizDemo' user, never run as root.**
+>_Note_: **Only run the ofbiz demos using the 'ofbizdocker' user, never run as root.**
 
     You need to be registered as a sudoer (ask Infra).
 
-    Then sudo to the ofbizDemo user:
+    Then sudo to the ofbizdocker user:
 
-    sudo -s -u ofbizDemo -H
+    sudo -s -u ofbizdocker -H
 
     Sudo uses OTP. Use a tool like https://selfserve.apache.org/otp-md5.html to generate the OTP
     You can then start/stop as required.
-
-    To check if the demos are being run as the ofbizDemo user:
-
-    ps aux | grep ofbizDemo
-
-    The first column on the left tell you the username the demo is
-    being run as - it should say ofbizDemo (UID).
-
+    
     Type 'exit' to exit the ofbizDemo user and return to your username.
 
-Also note that the demos are usually updated and started/stopped automatically using the check-svn-update.sh script in this directory. It is run by an ofbizDemo cron job every 24 hours at 3 AM. You should therefore only need to start/stop manually if there is a problem.
+Also note that the demos are usually updated and started/stopped automatically using the pull-and-restart.sh script in this directory. 
+At 02:35h UTC each day, the cronttab defined by /etc/cron.d/ofbizdocker will execute script pull-and-restart.sh.
+You should therefore only need to start/stop manually if there is a problem.
 
 ## Upgrade stable and next demos
 
