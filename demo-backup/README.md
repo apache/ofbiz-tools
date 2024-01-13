@@ -51,7 +51,7 @@ Looking at the Puppet configuration (see above) you will see that you only need 
 
 Finally you need to kill the current stable and next processes before running again the demos using
 
-    ./all-manual-nicely.sh
+    ./pull-and-restart.sh script in ~/ofbizdocker dir.
 
 
 ## Letsencrypt certificate update
@@ -72,19 +72,3 @@ I got this message today (2020-04-17):
 
 and always since: it's OK. Nothing to do, it's automated. :)
 In case you get an issue, simply restart the VM and restart the demos. That happened once: https://issues.apache.org/jira/browse/INFRA-23637
-
-# Current restriction
-~~If you want to restart only a single instance you can respectively use
-trunk-manual-nicely.sh
-stable-manual-nicely.sh
-next-manual-nicely.sh~~
-This does not work. See why at https://issues.apache.org/jira/browse/OFBIZ-10287
-So you need to use ./all-manual-nicely.sh from ofbizDemo
-From time to time (every months?) better to delete nohup.out.
-
-# Keep the VM clean
-From time to time (I'd say when it's hundreds of MB) we need to delete the nohup.out file. It's used when you manually start the demos and acts as an issues history. Then simply sign in as ofbizDemo user and delete the file.
-
-Also, it's OK for months but at some point I had to clean the Gradle cache. For now just verify with "df" command that we are not graping too much space, around 50% on /dev/xvda1 is OK
-
-
