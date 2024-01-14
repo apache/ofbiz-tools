@@ -1,0 +1,54 @@
+diff --git solr/config/solrconfig.properties solr/config/solrconfig.properties
+index b87a305..b87142b 100644
+--- solr/config/solrconfig.properties
++++ solr/config/solrconfig.properties
+@@ -25,6 +25,10 @@ solr.webapp.domainName=localhost
+ solr.webapp.portOverride=
+ solr.webapp.path=/solr
+ 
++# complete url with protocol, domainName,port(if require), and webapp path
++# complete url will be given preference if set
++solr.complete.url=https://demo-trunk.ofbiz.apache.org/solr
++
+ # Global solr ECA service toggling
+ # Set to true to enable solr indexing using ECAs/SECAs.
+ # If set to false, solr services meant to be triggered by ECA/SECA will not execute and will "succeed" silently.
+diff --git solr/src/main/java/org/apache/ofbiz/solr/SolrUtil.java solr/src/main/java/org/apache/ofbiz/solr/SolrUtil.java
+index 4c0d2345..b216a6d1 100644
+--- solr/src/main/java/org/apache/ofbiz/solr/SolrUtil.java
++++ solr/src/main/java/org/apache/ofbiz/solr/SolrUtil.java
+@@ -32,11 +32,6 @@ import org.apache.http.client.methods.HttpGet;
+ import org.apache.http.client.protocol.HttpClientContext;
+ import org.apache.http.impl.client.CloseableHttpClient;
+ import org.apache.http.impl.client.HttpClients;
+-import org.apache.solr.client.solrj.SolrQuery;
+-import org.apache.solr.client.solrj.SolrRequest.METHOD;
+-import org.apache.solr.client.solrj.impl.HttpSolrClient;
+-import org.apache.solr.client.solrj.response.QueryResponse;
+-import org.apache.solr.common.SolrInputDocument;
+ import org.apache.ofbiz.base.component.ComponentConfig;
+ import org.apache.ofbiz.base.component.ComponentConfig.WebappInfo;
+ import org.apache.ofbiz.base.component.ComponentException;
+@@ -46,6 +41,11 @@ import org.apache.ofbiz.base.util.UtilHttp;
+ import org.apache.ofbiz.base.util.UtilProperties;
+ import org.apache.ofbiz.base.util.UtilValidate;
+ import org.apache.ofbiz.entity.GenericEntityException;
++import org.apache.solr.client.solrj.SolrQuery;
++import org.apache.solr.client.solrj.SolrRequest.METHOD;
++import org.apache.solr.client.solrj.impl.HttpSolrClient;
++import org.apache.solr.client.solrj.response.QueryResponse;
++import org.apache.solr.common.SolrInputDocument;
+ 
+ /**
+  * Solr utility class.
+@@ -78,6 +78,10 @@ public final class SolrUtil {
+     private static final boolean TRUST_SELF_SIGNED_CERT = getTrustSelfSignedCert();
+ 
+     public static String makeSolrWebappUrl() {
++        final String solrCompleteUrl = UtilProperties.getPropertyValue(SOLR_CONFIG_NAME, "solr.complete.url");
++        if (UtilValidate.isNotEmpty(solrCompleteUrl)) {
++            return solrCompleteUrl;
++        }
+         final String solrWebappProtocol = UtilProperties.getPropertyValue(SOLR_CONFIG_NAME, "solr.webapp.protocol");
+         final String solrWebappDomainName = UtilProperties.getPropertyValue(SOLR_CONFIG_NAME, "solr.webapp.domainName");
+         final String solrWebappPath = UtilProperties.getPropertyValue(SOLR_CONFIG_NAME, "solr.webapp.path");
