@@ -5,23 +5,32 @@ Three instances of OFBiz run on the OFBiz demo VM at https://ofbiz-vm1.apache.or
 * stable: the last stable version (currently 18.12)
 * next: the next stable version (currently 22.01)
 
-This is the 3rd instance of VM we use hence the 3 in its domain name.
+This is the 3rd instance of VM we use hence the 3 in its hostname.
 The root of https://ofbiz-vm1.apache.org is the so called bigfiles directory which is actually at /var/www/ofbiz/big-files.
 
-We own 3 Apache sub domains
+We own 6 hostnames on the ofbiz subdomain.
 
 * https://demo-trunk.ofbiz.apache.org
 * https://demo-stable.ofbiz.apache.org
 * https://demo-next.ofbiz.apache.org
+* https://exp1.ofbiz.apache.org
+* https://exp2.ofbiz.apache.org
+* https://exp3.ofbiz.apache.org
+
+The first 3 hostnames are used to host the OFBiz demo sites.
+
+The last 3 hostnames are used for experiemental hosting from time to time.
 
 The Puppet configuration is at
 https://github.com/apache/infrastructure-p6/blob/production/data/nodes/ofbiz-vm1.apache.org.yaml
 It's currently impossible to directly modify, it's a private Github repo.
 Just create an Infra Jira asking for the wanted change...and be patient ;)
 
-# Actions on demos
+# Accessing the demo host
 SSH to *ofbiz-vm1.apache.org* server (a VM actualy), then follow the below procedure.
 You will need to use OTP (One Time Password). For documentation on how to use OPIE (One time Passwords In Everything), see [this page](https://cwiki.apache.org/confluence/display/INFRA/OPIE "OTP doc").
+
+# Open a shell as the _ofbizdocker_ user
 
 >_Note_: **Only run the ofbiz demos using the 'ofbizdocker' user, never run as root.**
 
@@ -34,25 +43,13 @@ You will need to use OTP (One Time Password). For documentation on how to use OP
     Sudo uses OTP. Use a tool like https://selfserve.apache.org/otp-md5.html to generate the OTP
     You can then start/stop as required.
     
-    Type 'exit' to exit the ofbizDemo user and return to your username.
+    Type 'exit' to exit the ofbizdocker user and return to your username.
 
-Also note that the demos are usually updated and started/stopped automatically using the pull-and-restart.sh script in this directory. 
-At 02:35h UTC each day, the cronttab defined by /etc/cron.d/ofbizdocker will execute script pull-and-restart.sh.
-You should therefore only need to start/stop manually if there is a problem.
+# Updates to the demo sites
 
-## Upgrade stable and next demos
+A cron job, defined by [/etc/cron.d/ofbizdocker](ofbizdocker/etc/cron.d/ofbizdocker), is executed daily at 02:35 UTC.  This cron job calls script [pull-and-restart.sh](ofbizdocker/home/ofbizdocker/pull-and-restart.sh) to pull the latest version of each demo's sites container image tag and then restart their docker compose application.
 
-You need first to create a branchAA.mm directory under the ofbizDemo directory and to clone the related releaseAA.mm in this new directory. Then to copy and apply the patches contained in the next-manual.sh and  stable-manual.sh files, read the comments in these files for details.
-
-Looking at the Puppet configuration (see above) you will see that you only need to change the next-manual.sh and  stable-manual.sh files to upgrade stable and next demos. Because they are defined in the Puppet configuration by respectively
-
-    stable: ProxyPass / ajp://localhost:18009/
-    next   : ProxyPass / ajp://localhost:28009/
-
-Finally you need to kill the current stable and next processes before running again the demos using
-
-    ./pull-and-restart.sh script in ~/ofbizdocker dir.
-
+For more information about the use of docker to host the OFBiz demo sites, see the  [ofbizdocker README.md](ofbizdocker/README.md) file.
 
 ## Letsencrypt certificate update
 It was a time when every 3 months we needed to manually update our Letsencrypt certificate. It was automated before, it's now again, so no worries. Anyway, if necessary it's quite easy to do so. Simply connect to the demo VM and run
