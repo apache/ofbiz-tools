@@ -1,0 +1,40 @@
+##########################################################################
+# Licensed to the Apache Software Foundation (ASF) under one or more 
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+#
+# The ASF licenses this file to you under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with the
+# License.  You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+##########################################################################
+
+[Unit]
+Description=OFBiz server
+Documentation=https://cwiki.apache.org/confluence/display/OFBIZ/Home
+ConditionPathIsDirectory=/opt/ofbiz
+After=network.target remote-fs.target nss-lookup.target
+Before=apache2.service nginx.service
+
+[Service]
+User=ofbiz
+WorkingDirectory=/opt/ofbiz
+ExecStart=/opt/ofbiz/startofbiz.sh
+ExecStop=/opt/ofbiz/stopofbiz.sh
+#Restart=on-failure
+#RestartSec=1
+StandardInput=null
+StandardOutput=journal
+StandardError=journal
+#SyslogLevel=[emerg|alert|crit|err|warning|notice|info|debug]
+SyslogLevel=debug
+
+[Install]
+WantedBy=multi-user.target
