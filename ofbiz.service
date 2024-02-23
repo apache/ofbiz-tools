@@ -27,9 +27,10 @@ Before=apache2.service nginx.service
 [Service]
 User=ofbiz
 WorkingDirectory=/var/www/ofbiz
-ExecStartPre=/usr/bin/bash -c 'rm -f ./runtime/logs/console.log'
+ExecStartPre=/usr/bin/bash -xc 'rm -vf ./runtime/logs/console.log'
 ExecStart=/usr/bin/bash -xc './gradlew ofbiz'
 ExecStop=/usr/bin/bash -xc './gradlew "ofbiz --shutdown"'
+ExecStopPost=/usr/bin/bash -xc './gradlew --stop'
 #Restart=on-failure
 #RestartSec=1
 StandardInput=null
