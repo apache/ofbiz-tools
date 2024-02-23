@@ -20,12 +20,13 @@
 Description=OFBiz server
 Documentation=https://cwiki.apache.org/confluence/display/OFBIZ/Home
 ConditionPathIsDirectory=/opt/ofbiz
+ConditionPathIsDirectory=/var/www/ofbiz
 After=network.target remote-fs.target nss-lookup.target
 Before=apache2.service nginx.service
 
 [Service]
 User=ofbiz
-WorkingDirectory=/opt/ofbiz
+WorkingDirectory=/var/www/ofbiz
 ExecStart=/opt/ofbiz/startofbiz.sh
 ExecStop=/opt/ofbiz/stopofbiz.sh
 #Restart=on-failure
