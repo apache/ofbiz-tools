@@ -32,5 +32,6 @@ rm -f $OFBIZ_LOG
 # JLR post Gradle comment, not sure this is still true...
 
 # start ofbiz
+(pwd)
 (echo $OFBIZ_HOME)
 (cd "$OFBIZ_HOME" && exec gradlew ofbiz)
