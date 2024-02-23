@@ -26,5 +26,6 @@ else
   JAVA=java
 fi
 
+
 (cd "$OFBIZ_HOME" && gradlew "ofbiz --shutdown")
 
