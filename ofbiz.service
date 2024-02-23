@@ -26,7 +26,7 @@ Before=apache2.service nginx.service
 
 [Service]
 User=ofbiz
-WorkingDirectory=/var/www/ofbiz
+WorkingDirectory=~/ofbiz
 ExecStart=/opt/ofbiz/startofbiz.sh
 ExecStop=/opt/ofbiz/stopofbiz.sh
 #Restart=on-failure
