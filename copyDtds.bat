@@ -23,11 +23,11 @@ set OFBIZ_HOME=%~p0..\
 
 cd %OFBIZ_HOME%
 echo on
-for /r  %%f in (*.xsd) do copy %%f C:\projectsASF\Git\ofbiz-site\dtds
-del C:\projectsASF\Git\ofbiz-site\dtds\docbook.xsd
+for /r  %%f in (*.xsd) do copy %%f C:\projectsASF\PMCs\OFBiz\ofbiz-site\dtds
+del C:\projectsASF\PMCs\OFBiz\ofbiz-site\dtdsdocbook.xsd
 
-cd ..\ofbiz-site
+cd C:\projectsASF\PMCs\OFBiz\ofbiz-site\dtds
 TortoiseGitProc /command:commit
 TortoiseGitProc /command:push
 
-cd ..\ofbiz-framework
+cd C:\projectsASF\Git\ofbiz-framework
