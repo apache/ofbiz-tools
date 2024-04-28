@@ -30,10 +30,12 @@ The `pull-and-restart.sh` script does the following:
   * Run `docker compose down --volumes` to shutdown and remove any existing containers and volumes for the docker compose application.
   * Run `docker compose up -d` to start the containers for the docker compose application.
 
+New docker images are built and pushed to the GitHub Container Repository for each commit or tag on a branch. Depending on whether the build is triggered by a commit or a tag, the build will have '-snapshot' appended to the image tag.
+
+Any data that might have accumulated in the demo site is lost each time the refresh process is run as we also create a new database container for each site. One exception to deleting the data is that we do persist log files between refreshes, see framework/base/config/log4j2.xml for details. For access log files we use the Tomcat default format and there are rotable.
+
 The `demo-trunk` application listens on AJP port 8009.
-
 The `demo-stable` application listens on AJP port 18009.
-
 The `demo-next` application listens on AJP port 28009.
 
 If in use, the `exp1` application listens on AJP port 38009, the `exp2` application listens on AJP port 48009, and the `exp3` application listens on AJP port 58009. The Apache server on ofbiz-vm1.apache.org has been configured to reverse-proxy to these applications for hostnames exp1.ofbiz.apache.org, exp2.ofbiz.apache.org and exp3.ofbiz.apache.org respectively.
@@ -49,7 +51,5 @@ See the `dockremap` entry in file /etc/subuid to see the range of UIDs that will
 
 A weekly cron job, /etc/cron.weekly/docker-system-prune, runs the `docker system prune --force` command to clean up unused container images.
 
-## Viewing console log
-1. Use the ofbizdocker user : sudo -su ofbizdocker
-2. Get into the branch you want, eg /home/ofbizdocker/demo-stable
-3. View part of the log (it's huge), eg docker compose logs --tail="1000"
+## Viewing logs
+For each demo instance (stable, next and trunk), the logs are respectively accessible under /home/ofbizdocker/[demo-stable|demo-next|demo-trunk]/logs
