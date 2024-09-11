@@ -14,7 +14,7 @@ services:
       - ofbiz-postgres.env
 
   ofbiz:
-    image: ghcr.io/apache/ofbiz:release22.01-plugins-snapshot
+    image: ghcr.io/apache/ofbiz:release24.09-plugins-snapshot
     mem_limit: 2400M
     memswap_limit: 2400M
     cpu_shares: 200
