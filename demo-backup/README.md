@@ -3,9 +3,8 @@ Three instances of OFBiz run on the OFBiz demo VM at https://ofbiz-vm1.apache.or
 
 * trunk: the trunk version
 * stable: the last stable version (currently 18.12)
-* next: the next stable version (currently 22.01)
+* next: the next stable version (currently 24.09)
 
-This is the 3rd instance of VM we use hence the 3 in its hostname.
 The root of https://ofbiz-vm1.apache.org is the so called bigfiles directory which is actually at /var/www/ofbiz/big-files.
 
 We own 6 hostnames on the ofbiz subdomain.
@@ -28,7 +27,7 @@ Just create an Infra Jira asking for the wanted change...and be patient ;)
 
 # Accessing the demo host
 SSH to *ofbiz-vm1.apache.org* server (a VM actualy), then follow the below procedure.
-You will need to use OTP (One Time Password). For documentation on how to use OPIE (One time Passwords In Everything), see [this page](https://cwiki.apache.org/confluence/display/INFRA/OPIE "OTP doc").
+You will need to use OTP (One Time Password). For documentation on how to use OPIE (One time Passwords In Everything), see [this page](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=122916896 "OPIE / Orthrus").
 
 # Open a shell as the _ofbizdocker_ user
 
