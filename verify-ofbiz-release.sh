@@ -20,7 +20,7 @@
 
 # verify-ofbiz-release.sh
 # Apache OFBiz release verification tool.
-# Downloads and checks the given release zip file for correct md5/SHA checksums 
+# Downloads and checks the given release zip file for correct md5/SHA checksums
 # and signing certificate (see https://www.apache.org/dev/release-signing.html).
 # If selected, can also automatically unpack the release, init the Gradle warapper
 # and perform the integration tests.
@@ -37,8 +37,12 @@
 # ./verify-ofbiz-release.sh -a apache-ofbiz-17.12.06  2>&1 | tee verify.log
 
 # configuration
+# In case you need to change the JDK version
+#sudo update-alternatives --config java
 VERSION=0.2
 URL='https://dist.apache.org/repos/dist/dev/ofbiz'
+# In case you need to test an already released version
+#URL='https://archive.apache.org/dist/ofbiz/'
 
 # color definitions for output
 RED='\033[0;31m'
@@ -147,8 +151,8 @@ verifyFiles () {
 }
 
 checkSHA () {
-    file1=`gpg --print-md SHA512 $ZIP`
-    file2=`cut -d* -f1 $ZIP.sha512`
+    file1=`gpg --print-md SHA512 $ZIP | tr -d ' \r\n'`
+    file2=`cut -d* -f1 $ZIP.sha512 | tr -d ' \r\n'`
 
     echo "sha check of file: $ZIP"
     echo "Using sha file: $ZIP.sha512"
@@ -207,4 +211,6 @@ LANG=$TEMPLANG
 
 echo "Done processing files for release $RELEASE"
 
+# In case you need to change the JDK version
+#sudo update-alternatives --config java
 exit 0
