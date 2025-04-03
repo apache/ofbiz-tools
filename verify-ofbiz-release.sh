@@ -41,7 +41,7 @@
 #sudo update-alternatives --config java
 VERSION=0.2
 URL='https://dist.apache.org/repos/dist/dev/ofbiz'
-# In case you need to test an already released version
+# In case you need to test an already released version then manually get the key from the URL above
 #URL='https://archive.apache.org/dist/ofbiz/'
 
 # color definitions for output
