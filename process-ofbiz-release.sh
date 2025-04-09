@@ -28,6 +28,9 @@ cd ..
 # Remove unwanted file
 rm apache-ofbiz-$1/gradle/wrapper/gradle-wrapper.jar apache-ofbiz-$1/plugins/LICENSE apache-ofbiz-$1/plugins/VERSION
 
+# Put stable tag
+sed -i -e 's/orange.svg/green.svg/g' apache-ofbiz-$1/README.adoc
+
 # Set the version
 echo "$1" > apache-ofbiz-$1/VERSION 
 
