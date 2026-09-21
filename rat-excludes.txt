@@ -68,6 +68,7 @@ buildSrc/build/**
 **/plugins/solr/webapp/solr/img/**
 **/plugins/solr/webapp/solr/js/**
 **/plugins/webpos/webapp/webpos/images/**
+**/themes/common-theme/webapp/common-theme/js/.npmrc
 **/themes/common-theme/webapp/common-theme/js/*.json
 **/themes/common-theme/webapp/common-theme/js/jquery/**
 **/themes/common-theme/webapp/common-theme/js/i18n/datepicker/**
@@ -83,8 +84,10 @@ buildSrc/build/**
 **/SamplePricatTemplate_V1.1.xlsx
 **/framework/base/src/test/resources/META-INF/**
 **/framework/base/src/main/java/META-INF/**
+**/plugins/secretshub/src/main/resources/META-INF/**
 **/.gradle/**
 **/gradle/wrapper/**
 **/gradle/no-verification-metadata.xml
 **/gradle/verification-keyring.gpg
+**/gradle.lockfile
 
