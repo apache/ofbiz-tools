@@ -26,13 +26,19 @@ git checkout-index -a -f --prefix=../apache-ofbiz-$1/plugins/
 cd ..
 
 # Remove unwanted file
-rm apache-ofbiz-$1/gradle/wrapper/gradle-wrapper.jar apache-ofbiz-$1/plugins/LICENSE apache-ofbiz-$1/plugins/VERSION
+rm apache-ofbiz-$1/gradle/wrapper/gradle-wrapper.jar \
+   apache-ofbiz-$1/plugins/LICENSE \
+   apache-ofbiz-$1/plugins/VERSION \
+   apache-ofbiz-$1/plugins/.project \
+   apache-ofbiz-$1/.pre-commit-config.yaml
+rm -r apache-ofbiz-$1/.github \
+      apache-ofbiz-$1/plugins/.github \
 
 # Put stable tag
 sed -i -e 's/orange.svg/green.svg/g' apache-ofbiz-$1/README.adoc
 
 # Set the version
-echo "$1" > apache-ofbiz-$1/VERSION 
+echo "$1" > apache-ofbiz-$1/VERSION
 
 # Zip
 zip  apache-ofbiz-$1.zip -r -T apache-ofbiz-$1/*
