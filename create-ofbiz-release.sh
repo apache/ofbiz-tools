@@ -51,6 +51,14 @@ for path in apache-ofbiz-$1 apache-ofbiz-$1.zip apache-ofbiz-$1.zip.asc apache-o
     fi
 done
 
+# Make sure the release tag exists in both repositories before creating anything
+for repo in ofbiz-framework ofbiz-plugins; do
+    if ! curl -fsIL -o /dev/null https://github.com/apache/$repo/archive/refs/tags/release$1.tar.gz; then
+        echo -e "${RED}Tag release$1 not found in the apache/$repo repository on GitHub${NC}"
+        exit 1
+    fi
+done
+
 # Download the tagged framework sources and unpack the tagged plugins under plugins/
 echo -e "## Downloading sources for tag ${GRN}release$1${NC} from GitHub"
 mkdir -p apache-ofbiz-$1/
