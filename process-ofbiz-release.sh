@@ -13,21 +13,14 @@ if [[ $# -eq 0 ]] ; then
     exit 1
 fi
 
-# prepare framework
-cd ofbiz-framework/
-git tag release$1
-git checkout-index -a -f --prefix=../apache-ofbiz-$1/
-
-# prepare plugins
-cd ../ofbiz-plugins/
-git tag release$1
-git checkout-index -a -f --prefix=../apache-ofbiz-$1/plugins/
-
-cd ..
+mkdir -p apache-ofbiz-$1/
+mkdir -p apache-ofbiz-$1/plugins/
+set -o pipefail
+curl -fsSL https://github.com/apache/ofbiz-framework/archive/refs/tags/release$1.tar.gz | tar -xz -C apache-ofbiz-$1/ --strip-components=1
+curl -fsSL https://github.com/apache/ofbiz-plugins/archive/refs/tags/release$1.tar.gz | tar -xz -C apache-ofbiz-$1/plugins/ --strip-components=1
 
 # Remove unwanted file
-rm apache-ofbiz-$1/gradle/wrapper/gradle-wrapper.jar \
-   apache-ofbiz-$1/plugins/LICENSE \
+rm apache-ofbiz-$1/plugins/LICENSE \
    apache-ofbiz-$1/plugins/VERSION \
    apache-ofbiz-$1/plugins/.project \
    apache-ofbiz-$1/.pre-commit-config.yaml
@@ -44,7 +37,7 @@ echo "$1" > apache-ofbiz-$1/VERSION
 zip  apache-ofbiz-$1.zip -r -T apache-ofbiz-$1/*
 
 # Sign
-gpg --armor --output apache-ofbiz-$1.zip.asc --detach-sig apache-ofbiz-$1.zip
+gpg --armor --detach-sig --output apache-ofbiz-$1.zip.asc apache-ofbiz-$1.zip
 gpg --print-md SHA512 apache-ofbiz-$1.zip > apache-ofbiz-$1.zip.sha512
 
 # To finish
