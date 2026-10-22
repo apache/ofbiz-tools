@@ -98,7 +98,8 @@ echo "## Signing the archive and computing its SHA-512 checksum"
 gpg --armor --detach-sig --output apache-ofbiz-$1.zip.asc apache-ofbiz-$1.zip
 gpg --print-md SHA512 apache-ofbiz-$1.zip > apache-ofbiz-$1.zip.sha512
 
-echo -e "## ${GRN}Done.${NC} Created:"
+echo -e "## ${GRN}Done.${NC}"
+echo -e "## Created:"
 echo -e "##   ${GRN}apache-ofbiz-$1.zip${NC}"
 echo -e "##   ${GRN}apache-ofbiz-$1.zip.asc${NC}"
 echo -e "##   ${GRN}apache-ofbiz-$1.zip.sha512${NC}"
