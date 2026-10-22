@@ -91,7 +91,7 @@ echo "$1" > apache-ofbiz-$1/VERSION
 
 # Create the release archive (-T tests its integrity once written)
 echo -e "## Creating archive ${GRN}apache-ofbiz-$1.zip${NC}"
-zip apache-ofbiz-$1.zip -r -T apache-ofbiz-$1/
+zip -q apache-ofbiz-$1.zip -r -T apache-ofbiz-$1/
 
 # Sign the archive with the release manager's GPG key and compute its SHA-512 checksum
 echo "## Signing the archive and computing its SHA-512 checksum"
