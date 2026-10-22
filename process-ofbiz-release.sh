@@ -1,25 +1,41 @@
 #!/bin/bash
-# Script to help the release creation 
-# we consider that you execute this on a directory with the source code from git present on two directory ofbiz-framework and ofbiz-plugins
-# Just run like this $. ${scriptPath}/process-ofbiz-release.sh 24.09.01
+# Builds, signs and checksums the Apache OFBiz source release archive.
+#
+# The sources are downloaded from the release tags on GitHub, so the
+# "release<version>" tag must already be pushed to both the ofbiz-framework
+# and ofbiz-plugins repositories before running this script.
+#
+# Usage, from the directory where the release files should be created:
+#   bash /path/to/process-ofbiz-release.sh 24.09.01
+#
+# Output files:
+#   apache-ofbiz-<version>/            unpacked release tree
+#   apache-ofbiz-<version>.zip         release archive
+#   apache-ofbiz-<version>.zip.asc     detached GPG signature
+#   apache-ofbiz-<version>.zip.sha512  SHA-512 checksum
 
-# color definitions for output
+# Colors for terminal output
 RED='\033[0;31m'
 GRN='\033[0;32m'
 NC='\033[0m' # No Color
 
 if [[ $# -eq 0 ]] ; then
-    echo -e "Usage: $0 ${RED}[version]${NC}"
+    echo -e "Usage: $0 ${RED}<version>${NC}  (e.g. $0 24.09.01)"
     exit 1
 fi
 
+# Download the tagged framework sources and unpack the tagged plugins under plugins/
+echo -e "## Downloading sources for tag ${GRN}release$1${NC} from GitHub"
 mkdir -p apache-ofbiz-$1/
 mkdir -p apache-ofbiz-$1/plugins/
 set -o pipefail
 curl -fsSL https://github.com/apache/ofbiz-framework/archive/refs/tags/release$1.tar.gz | tar -xz -C apache-ofbiz-$1/ --strip-components=1
 curl -fsSL https://github.com/apache/ofbiz-plugins/archive/refs/tags/release$1.tar.gz | tar -xz -C apache-ofbiz-$1/plugins/ --strip-components=1
 
-# Remove unwanted file
+# Remove files that do not belong in the source release: plugin repository
+# metadata superseded by the framework's files, IDE/tooling configuration
+# and GitHub-specific configuration
+echo "## Removing files not included in the source release"
 rm apache-ofbiz-$1/plugins/LICENSE \
    apache-ofbiz-$1/plugins/VERSION \
    apache-ofbiz-$1/plugins/.project \
@@ -27,20 +43,25 @@ rm apache-ofbiz-$1/plugins/LICENSE \
 rm -r apache-ofbiz-$1/.github \
       apache-ofbiz-$1/plugins/.github \
 
-# Put stable tag
+# Switch the README status badge from orange (development) to green (stable release)
+echo "## Marking the release as stable in README.adoc"
 sed -i -e 's/orange.svg/green.svg/g' apache-ofbiz-$1/README.adoc
 
-# Set the version
+# Write the release version to the VERSION file
+echo "## Setting VERSION to $1"
 echo "$1" > apache-ofbiz-$1/VERSION
 
-# Zip
+# Create the release archive (-T tests its integrity once written)
+echo -e "## Creating archive ${GRN}apache-ofbiz-$1.zip${NC}"
 zip  apache-ofbiz-$1.zip -r -T apache-ofbiz-$1/*
 
-# Sign
+# Sign the archive with the release manager's GPG key and compute its SHA-512 checksum
+echo "## Signing the archive and computing its SHA-512 checksum"
 gpg --armor --detach-sig --output apache-ofbiz-$1.zip.asc apache-ofbiz-$1.zip
 gpg --print-md SHA512 apache-ofbiz-$1.zip > apache-ofbiz-$1.zip.sha512
 
-# To finish
-echo -e "## ${GRN}Done${NC}, You can check the generated archive ${GRN}apache-ofbiz-$1.zip${NC}"
-echo -e "## If it's validate ${RED}don't forget to push the tag${NC} on ofbiz-framework and ofbiz-plugins"
-echo -e "## -> git push origin tag release$1"
+echo -e "## ${GRN}Done.${NC} Created:"
+echo -e "##   ${GRN}apache-ofbiz-$1.zip${NC}"
+echo -e "##   ${GRN}apache-ofbiz-$1.zip.asc${NC}"
+echo -e "##   ${GRN}apache-ofbiz-$1.zip.sha512${NC}"
+echo -e "## ${RED}Check the archive contents, signature and checksum before publishing the release.${NC}"
