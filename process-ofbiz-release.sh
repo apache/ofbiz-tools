@@ -19,16 +19,42 @@ RED='\033[0;31m'
 GRN='\033[0;32m'
 NC='\033[0m' # No Color
 
+# Abort on the first failing command, unset variable or failed pipeline stage
+set -euo pipefail
+
 if [[ $# -eq 0 ]] ; then
     echo -e "Usage: $0 ${RED}<version>${NC}  (e.g. $0 24.09.01)"
     exit 1
 fi
 
+# Make sure all the required tools are available before changing anything
+missing=()
+for tool in curl tar awk perl zip gpg; do
+    command -v "$tool" >/dev/null 2>&1 || missing+=("$tool")
+done
+if [[ ${#missing[@]} -gt 0 ]]; then
+    echo -e "${RED}Missing required tools: ${missing[*]}${NC}"
+    exit 1
+fi
+
+# Make sure a GPG secret key is available to sign the archive
+if [[ -z "$(gpg --list-secret-keys 2>/dev/null)" ]]; then
+    echo -e "${RED}No GPG secret key found to sign the release archive${NC}"
+    exit 1
+fi
+
+# Refuse to overwrite or mix with the output of a previous run
+for path in apache-ofbiz-$1 apache-ofbiz-$1.zip apache-ofbiz-$1.zip.asc apache-ofbiz-$1.zip.sha512; do
+    if [[ -e "$path" ]]; then
+        echo -e "${RED}$path already exists: remove it or run the script from another directory${NC}"
+        exit 1
+    fi
+done
+
 # Download the tagged framework sources and unpack the tagged plugins under plugins/
 echo -e "## Downloading sources for tag ${GRN}release$1${NC} from GitHub"
 mkdir -p apache-ofbiz-$1/
 mkdir -p apache-ofbiz-$1/plugins/
-set -o pipefail
 curl -fsSL https://github.com/apache/ofbiz-framework/archive/refs/tags/release$1.tar.gz | tar -xz -C apache-ofbiz-$1/ --strip-components=1
 curl -fsSL https://github.com/apache/ofbiz-plugins/archive/refs/tags/release$1.tar.gz | tar -xz -C apache-ofbiz-$1/plugins/ --strip-components=1
 
