@@ -6,7 +6,7 @@
 # and ofbiz-plugins repositories before running this script.
 #
 # Usage, from the directory where the release files should be created:
-#   bash /path/to/process-ofbiz-release.sh 24.09.01
+#   bash /path/to/create-ofbiz-release.sh 24.09.01
 #
 # Output files:
 #   apache-ofbiz-<version>/            unpacked release tree
