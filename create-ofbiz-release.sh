@@ -66,10 +66,10 @@ mkdir -p apache-ofbiz-$1/plugins/
 curl -fsSL https://github.com/apache/ofbiz-framework/archive/refs/tags/release$1.tar.gz | tar -xz -C apache-ofbiz-$1/ --strip-components=1
 curl -fsSL https://github.com/apache/ofbiz-plugins/archive/refs/tags/release$1.tar.gz | tar -xz -C apache-ofbiz-$1/plugins/ --strip-components=1
 
-# Append the plugin-specific part of the plugins LICENSE (everything after the
-# first separator line) to the framework LICENSE, before the former is removed
+# Append the plugin-specific part of the plugins LICENSE (everything from the
+# first separator line on) to the framework LICENSE, before the former is removed
 echo "## Merging the plugins LICENSE into the framework LICENSE"
-awk 'found; !found && index($0, "=========================================================================") {found=1}' \
+awk '!found && index($0, "=========================================================================") {found=1} found' \
     apache-ofbiz-$1/plugins/LICENSE >> apache-ofbiz-$1/LICENSE
 
 # Remove files that do not belong in the source release: plugin repository
