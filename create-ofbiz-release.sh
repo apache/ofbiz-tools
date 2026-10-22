@@ -108,6 +108,7 @@ gpg --print-md SHA512 apache-ofbiz-$1.zip > apache-ofbiz-$1.zip.sha512
 
 echo -e "## ${GRN}Done.${NC}"
 echo -e "## Created:"
+echo -e "##   ${GRN}apache-ofbiz-$1/${NC}"
 echo -e "##   ${GRN}apache-ofbiz-$1.zip${NC}"
 echo -e "##   ${GRN}apache-ofbiz-$1.zip.asc${NC}"
 echo -e "##   ${GRN}apache-ofbiz-$1.zip.sha512${NC}"
