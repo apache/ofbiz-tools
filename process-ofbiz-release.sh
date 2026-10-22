@@ -33,19 +33,25 @@ curl -fsSL https://github.com/apache/ofbiz-framework/archive/refs/tags/release$1
 curl -fsSL https://github.com/apache/ofbiz-plugins/archive/refs/tags/release$1.tar.gz | tar -xz -C apache-ofbiz-$1/plugins/ --strip-components=1
 
 # Remove files that do not belong in the source release: plugin repository
-# metadata superseded by the framework's files, IDE/tooling configuration
-# and GitHub-specific configuration
+# metadata superseded by the framework's files, IDE/tooling configuration,
+# version control settings and GitHub/ASF infrastructure configuration.
+# -f because not every release branch contains all of these files.
 echo "## Removing files not included in the source release"
-rm apache-ofbiz-$1/plugins/LICENSE \
-   apache-ofbiz-$1/plugins/VERSION \
-   apache-ofbiz-$1/plugins/.project \
-   apache-ofbiz-$1/.pre-commit-config.yaml
-rm -r apache-ofbiz-$1/.github \
-      apache-ofbiz-$1/plugins/.github \
+rm -f apache-ofbiz-$1/plugins/LICENSE \
+      apache-ofbiz-$1/plugins/VERSION \
+      apache-ofbiz-$1/plugins/.project \
+      apache-ofbiz-$1/plugins/.asf.yaml \
+      apache-ofbiz-$1/.asf.yaml \
+      apache-ofbiz-$1/.gitattributes \
+      apache-ofbiz-$1/.hgignore \
+      apache-ofbiz-$1/.pre-commit-config.yaml
+rm -rf apache-ofbiz-$1/.github \
+       apache-ofbiz-$1/.devcontainer \
+       apache-ofbiz-$1/plugins/.github
 
 # Switch the README status badge from orange (development) to green (stable release)
 echo "## Marking the release as stable in README.adoc"
-sed -i -e 's/orange.svg/green.svg/g' apache-ofbiz-$1/README.adoc
+perl -pi -e 's/orange\.svg/green\.svg/g' apache-ofbiz-$1/README.adoc
 
 # Write the release version to the VERSION file
 echo "## Setting VERSION to $1"
@@ -53,7 +59,7 @@ echo "$1" > apache-ofbiz-$1/VERSION
 
 # Create the release archive (-T tests its integrity once written)
 echo -e "## Creating archive ${GRN}apache-ofbiz-$1.zip${NC}"
-zip  apache-ofbiz-$1.zip -r -T apache-ofbiz-$1/*
+zip apache-ofbiz-$1.zip -r -T apache-ofbiz-$1/
 
 # Sign the archive with the release manager's GPG key and compute its SHA-512 checksum
 echo "## Signing the archive and computing its SHA-512 checksum"
