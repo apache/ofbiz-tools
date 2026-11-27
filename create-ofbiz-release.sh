@@ -97,6 +97,7 @@ awk '!found && index($0, "======================================================
 # -f because not every release branch contains all of these files.
 echo "## Removing files not included in the source release"
 rm -f apache-ofbiz-$1/plugins/LICENSE \
+      apache-ofbiz-$1/plugins/NOTICE \
       apache-ofbiz-$1/plugins/VERSION \
       apache-ofbiz-$1/plugins/.project \
       apache-ofbiz-$1/plugins/.asf.yaml \
